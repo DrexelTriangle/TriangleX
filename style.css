@@ -1,0 +1,25 @@
+/*
+Theme Name: Triangle X
+Theme URI: http://thetriangle.org
+Author: The Triangle
+Author URI: http://thetriangle.org
+Description: The new unified theme of The Triangle. Matches style of the newspaper.
+Version: 1.0.0
+License: GNU General Public License
+License URI: license.txt
+Text Domain: tx
+Domain Path: /languages/
+Tags:
+*/
+/*
+
+## Triangle X CSS Framework ##
+
+Everything is piped though this file before being compiled 
+down. Please be sure to break any styles that don't belong 
+in these files into seperate documents to keep the SCSS 
+files as conciese and focused as possible.
+
+*/
+
+/*# sourceMappingURL=style.css.map */
