@@ -9,13 +9,9 @@ files as conciese and focused as possible.
 
 */
 
-// Global Color Variables
-$triangle-blue: #07294D;
-
-// Global Font Families
-
 // Setup
-@import "base.scss";
+@import "definitions.scss";
+@import "general.scss";
 
 // General Layout
 @import "layout.scss";

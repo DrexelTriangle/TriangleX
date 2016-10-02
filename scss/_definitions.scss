@@ -1,0 +1,37 @@
+/* Main Triangle color used in header, footer, and other colored elements */
+$triangle-blue: #07294D;
+
+/* Roboto - used for Triangle logo */
+@font-face
+{
+	font-family: Roboto;
+	src: url(https://fonts.googleapis.com/css?family=Roboto);
+}
+
+/* Mixins are groups of CSS declarations reused throughout the site. Use these instead of manually redefining them in CSS classes. */
+@mixin border-radius($radius)
+{
+	border-radius: $radius;
+	moz-border-radius: $radius;
+	ms-border-radius: $radius;
+	o-border-radius: $radius;
+	webkit-border-radius: $radius;
+}
+
+@mixin transform($val)
+{
+	transform: $val;
+	-moz-transform: $val;
+	-ms-transform: $val;
+	-o-transform: $val;
+	-webkit-transform: $val;
+}
+
+@mixin transition($val)
+{
+	transition: $val;
+	-moz-transition: $val;
+	-ms-transition: $val;
+	-o-transition: $val;
+	-webkit-transition: $val;
+}
