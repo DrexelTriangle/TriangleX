@@ -5,9 +5,9 @@ var gulp = require('gulp'),
 
 gulp.task('default', ['sass']);
 
-gulp.task('sass', function()
+gulp.task('sass', () =>
 {
-    return sass('scss/syle.scss')
+    return sass('./scss/syle.scss')
         .on('error', sass.logError)
         .pipe(gulp.dest('./'));
 });
