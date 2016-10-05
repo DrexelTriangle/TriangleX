@@ -7,7 +7,7 @@ gulp.task('default', ['sass']);
 
 gulp.task('sass', () =>
 {
-    return sass('./scss/syle.scss')
+    return sass('scss/syle.scss')
         .on('error', sass.logError)
         .pipe(gulp.dest('./'));
 });
