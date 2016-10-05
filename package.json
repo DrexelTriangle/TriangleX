@@ -1,0 +1,23 @@
+{
+	"name": "triangle-x",
+	"version": "3.0.0",
+	"description": "Triangle X is the new WordPress theme for The Triangle, Drexel University's Independent Student Newspaper.",
+	"main": "index.php",
+	"repository":
+	{
+		"type": "git",
+		"url": "https://thetriangle.visualstudio.com/Triangle%20X/_git/triangle-x"
+	},
+	"keywords":
+	[
+		"newspaper",
+		"wordpress",
+		"theme",
+		"articles",
+		"features"
+	],
+	"devDependencies":
+	{
+		"gulp": "~3.6.0"
+	}
+}
