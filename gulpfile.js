@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 	livereload = require('gulp-livereload'),
 	del = require('del');
 
-gulp.task('styles', function()
+gulp.task('default', function()
 {
 	return sass('scss/style.scss', { style: 'expanded' })
 	.pipe(autoprefixer('last 2 version'))
