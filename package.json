@@ -1,23 +1,35 @@
 {
-	"name": "triangle-x",
-	"version": "3.0.0",
-	"description": "Triangle X is the new WordPress theme for The Triangle, Drexel University's Independent Student Newspaper.",
-	"main": "index.php",
-	"repository":
-	{
-		"type": "git",
-		"url": "https://thetriangle.visualstudio.com/Triangle%20X/_git/triangle-x"
-	},
-	"keywords":
-	[
-		"newspaper",
-		"wordpress",
-		"theme",
-		"articles",
-		"features"
-	],
-	"devDependencies":
-	{
-		"gulp": "~3.9.1"
-	}
+  "name": "triangle-x",
+  "version": "1.0.0",
+  "description": "\"The Triangle's new theme\"",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-jshint": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.1.0",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.3",
+    "ruby": "^0.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://thetriangle.visualstudio.com/Triangle%20X/_git/triangle-x"
+  },
+  "author": "\"The Triangle Development Team\"",
+  "license": "ISC"
 }
