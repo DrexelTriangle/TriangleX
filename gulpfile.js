@@ -1,15 +1,13 @@
+'use strict';
+
 var gulp = require('gulp'),
-	sass = require('gulp-ruby-sass'),
-    concat = require('gulp-concat'),
-	jshint = require('gulp-jshint'),
-	uglify = require('gulp-uglify');
+	sass = require('gulp-sass');
 
 gulp.task('default', ['sass']);
 
-gulp.task('sass', () =>
+gulp.task('sass', function()
 {
-    return sass('scss/style.scss')
-        .on('error', sass.logError)
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest('./'));
+    return gulp.src('scss/style.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('./'));
 });
