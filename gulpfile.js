@@ -3,7 +3,7 @@
 var gulp = require('gulp'),
 	sass = require('gulp-sass');
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass:watch']);
 
 gulp.task('sass', function()
 {
