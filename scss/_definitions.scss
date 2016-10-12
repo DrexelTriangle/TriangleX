@@ -1,12 +1,30 @@
+//--------------------------------------------------------------------------------
+//
+//	Triangle Fonts
+//
+//--------------------------------------------------------------------------------
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
+
+$triangle-logo: Roboto Slab, Helvetica, Arial, sans-serif;
+$triangle-headline: 'Playfair Display', serif;
+$triangle-copy: 'Crimson Text', serif;
+
+//--------------------------------------------------------------------------------
+//
+//	Triangle Colors
+//
+//--------------------------------------------------------------------------------
+
 /* Main Triangle color used in header, footer, and other colored elements */
 $triangle-blue: #07294D;
 
-/* Roboto - used for Triangle logo */
-@font-face
-{
-	font-family: Roboto;
-	src: url(https://fonts.googleapis.com/css?family=Roboto);
-}
+//--------------------------------------------------------------------------------
+//
+//	Triangle Mixins
+//
+//--------------------------------------------------------------------------------
 
 /* Mixins are groups of CSS declarations reused throughout the site. Use these instead of manually redefining them in CSS classes. */
 @mixin border-radius($radius)
@@ -16,6 +34,13 @@ $triangle-blue: #07294D;
 	ms-border-radius: $radius;
 	o-border-radius: $radius;
 	webkit-border-radius: $radius;
+}
+
+@mixin box-sizing($val)
+{
+	box-sizing: $val;
+	-moz-box-sizing: $val;
+    -webkit-box-sizing: $val;
 }
 
 @mixin transform($val)
