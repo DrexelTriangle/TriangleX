@@ -44,7 +44,8 @@ function triangle_x_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'triangle-x' ),
+		'main' => esc_html__( 'Main', 'triangle-x' ),
+		'sub' => esc_html__( 'Sub', 'triangle-x' ),
 	) );
 
 	/*

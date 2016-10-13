@@ -9,8 +9,10 @@ files as conciese and focused as possible.
 
 */
 
-// Setup
+// Setup - note that includes.scss must be the first file imported, followed by defenitions.scss
+@import "includes.scss";
 @import "definitions.scss";
+@import "advertisements.scss";
 @import "general.scss";
 
 // General Layout
