@@ -6,7 +6,7 @@
 
 .adcontainer-header
 {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	margin-top: 20px;
 }
 
@@ -28,8 +28,8 @@
 .ad-medium-rectangle
 {
 	@include ad-debug;
-	height: 90px;
-	width: 728px;
+	height: 250px;
+	width: 300px;
 }
 
 .ad-portrait

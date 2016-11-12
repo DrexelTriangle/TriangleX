@@ -5,12 +5,17 @@ html
 
 body
 {
+	color: black;
 	margin: 0px;
-	background: #F8F8F8;
+	//background: #F8F8F8;
+	background: white;
+	font-family: $triangle-font-copy;
 }
 
 h1
 {
+	font-family: $triangle-font-headline;
+	font-size: 36px;
 }
 
 h2

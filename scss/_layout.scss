@@ -1,13 +1,15 @@
-.site
+.wrapper-content
 {
 	margin-top: 55px;
+	height: 100%;
 	width: 100%;
-	position: absolute;
 }
 
-.site-content
+.container-article
 {
 	background-color: #FFFFFF;
 	margin: auto;
 	max-width: 1280px;
+	overflow: hidden;
+	width: 90%;
 }
