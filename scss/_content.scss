@@ -1,0 +1,114 @@
+article.post
+{
+	margin: auto;
+	max-width: 1280px;
+	overflow: hidden;
+	width: 90%;
+}
+
+section.comments
+{
+	margin: auto;
+	max-width: 800px;
+	overflow: hidden;
+	width: 90%;
+}
+
+.article-headline
+{
+	h1
+	{
+		font-family: $triangle-font-headline;
+		font-size: 42px;
+		font-style: italic;
+	}
+	
+	h2
+	{
+		color: grey;
+		font-family: $triangle-font-headline;
+		font-size: 20px;
+		//font-style: italic;
+		margin-top: -30px;
+	}
+}
+
+.article-meta
+{
+	border-bottom: 1px solid lightgrey;
+	border-top: 1px solid lightgrey;
+	min-height: 50px;
+	margin-bottom: 25px;
+	
+	.author
+	{
+		display: inline-block;
+		font-family: $triangle-font-main;
+		font-size: 12px;
+		height: 50px;
+		line-height: 50px;
+		
+		a
+		{
+			color: black;
+			font-weight: bold;
+			text-decoration: none;
+		}
+	}
+	
+	.date
+	{
+		display: inline-block;
+		font-family: $triangle-font-main;
+		font-size: 12px;
+		height: 100%;
+		line-height: 100%;
+		padding-left: 15px;
+	}
+}
+
+.article-content
+{
+	width: 100%;
+	
+	p
+	{
+		font-family: $triangle-font-copy;
+		font-size: 20px;
+		margin: auto;
+		max-width: 708px;
+		padding-bottom: 20px;
+		width: 100%;
+	}
+}
+
+figcaption.wp-caption-text
+{
+	color: grey;
+		font-size: 16px;
+		font-style: italic;
+		margin-top: -5px
+}
+
+.sharedaddy
+{
+	float: right;
+	height: 50px;
+	overflow: hidden;
+	
+	.robots-nocontent
+	{
+		height: 50px;
+	}
+	
+	h3.sd-title
+	{
+		display: none !important;
+	}
+	
+	.sd-content
+	{
+		// TODO - dynamically center sd-content
+		padding-top: 12px;
+	}
+}
