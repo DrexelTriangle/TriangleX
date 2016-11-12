@@ -11,16 +11,18 @@
 
 ?>
 
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'triangle-x' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'triangle-x' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'triangle-x' ), 'triangle-x', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="footer-container">
+		<div class="footer-branding">
+			<div class="logo">
+				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		&copy<?php echo date("Y"); ?> The Triangle. All rights are reserved, except where otherwise noted.
+	</div>
+</footer>
 
 <?php wp_footer(); ?>
 

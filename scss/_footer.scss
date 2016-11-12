@@ -1,0 +1,55 @@
+.site-footer
+{
+	border-top: 6px solid $triangle-color-blue;
+	height: 250px;
+	margin-top: 50px;
+	width: 100%;
+}
+
+.footer-container
+{
+	height: 100%;
+	margin: auto;
+	max-width: 1280px;
+	width: 90%;
+}
+
+.footer-branding
+{
+	height: 36px;
+	padding-top: 10px;
+	width: 100%;
+	
+	.logo
+	{
+		height: 36px;
+		line-height: 36px;
+		position: absolute;
+		text-transform: uppercase;
+		
+		a
+		{
+			color: black;
+			font-family: $triangle-font-logo;
+			font-size: 32px;
+			text-decoration: none;
+		}
+	}
+	
+	.media-icons
+	{
+	}
+}
+
+.copyright
+{
+	border-top: 1px solid grey;
+	color: grey;
+	height: 16px;
+	font-size: 14px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
