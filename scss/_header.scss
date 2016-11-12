@@ -3,10 +3,17 @@
 	background-color: $triangle-color-blue;
 	height: 55px;
 	min-width: 465px;
-	position: absolute;
-	top: 0;
+	position: fixed;
+	top: 0px;
+	@include transition(.4s ease-in-out);
 	width: 100%;
 	z-index: 2;
+	
+	&.hidden
+	{
+		display: none;
+		@include transition(.4s ease-in-out);
+	}
 }
 
 .logo
@@ -162,7 +169,7 @@
 	background-color: white;
 	height: calc(100vh - 55px);
 	overflow-y: auto;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 55px;
 	@include transition(.5s ease-in-out);
@@ -202,7 +209,7 @@
 				padding: 15px;
 				text-align: left;
 				text-decoration: none;
-				vertical-align:middle;
+				vertical-align: middle;
 				width: 250px;
 			}
 			
@@ -241,7 +248,7 @@
 				padding: 15px;
 				text-align: left;
 				text-decoration: none;
-				vertical-align:middle;
+				vertical-align: middle;
 				width: 250px;
 			}
 			

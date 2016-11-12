@@ -23,43 +23,49 @@
 </head>
 
 <body>
-	<header id="masthead" class="site-header" role="banner">
-		<div id="search-icon" class="search-icon">
-			<i class="material-icons md-36">search</i>
-		</div>
-		<div id="search-main" class="search hidden">
-			<form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
-				<input id="searchbox-main" type="search" name="search" id="s" placeholder="Search.." value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
-			</form>
-		</div>
-		
-		<div class="logo">
-			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-		</div>
-
-		<div id="nav-icon" class="hamburger-icon"><span></span><span></span><span></span></div>
-	</header>
-	
-	<div id="nav-main" class="nav-container">
-		<?php wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'main')); ?>
-		<?php wp_nav_menu(array('theme_location' => 'sub', 'menu_class' => 'sub')); ?>
-		
-		<!--<ul class="sub">
-			<li><a href="<?php echo esc_url(home_url('/about')); ?>">About</a><li>
-			<li><a href="<?php echo esc_url(home_url('/advertising')); ?>">Advertising</a><li>
-			<li><a href="<?php echo esc_url(home_url('/classifieds')); ?>">Classifieds</a><li>
-			<li><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact</a><li>
-			<li><a href="<?php echo esc_url(home_url('/staff')); ?>">Staff</a><li>
-			<li><a href="<?php echo esc_url(bloginfo('rss2_url')); ?>">RSS</a><li>
-		</div>-->
+<header id="header-masthead" class="site-header" role="banner">
+	<div id="search-icon" class="search-icon">
+		<i class="material-icons md-36">search</i>
+	</div>
+	<div id="search-main" class="search hidden">
+		<form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+			<input id="searchbox-main" type="search" name="search" id="s" placeholder="Search.." value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
+		</form>
 	</div>
 	
-	<div id="page" class="site">
+	<div id="logo-masthead" class="logo">
+		<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+	</div>
+
+	<div id="nav-icon" class="hamburger-icon"><span></span><span></span><span></span></div>
+</header>
+
+<div id="nav-main" class="nav-container">
+	<?php wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'main')); ?>
+	<?php wp_nav_menu(array('theme_location' => 'sub', 'menu_class' => 'sub')); ?>
+</div>
 	
-		<div class="adcontainer-header">
+	<!--<div id="page" class="site">  #page div is closed in footer -->
+	
+		<!--<div class="adcontainer-header">
 			<div class="ad-leaderboard">
 				This is a test ad!
 			</div>
 		</div>
-
-		<div id="content" class="site-content">
+		
+		<?php
+			$options = get_option('ad_options');
+			if ($options['show_banner_top'] == false) // debug - change to true for production
+			{
+				// If the top ad banner is enabled, show it.
+				echo '<div class="adcontainer-header">';
+				if(function_exists('drawAdsPlace'))
+					drawAdsPlace(array('name' => 'ad-leaderboard'), false);
+				echo '</div>';
+			}
+			else
+			{
+				// ONLY USE FOR DEBUG
+				echo '<div class="adcontainer-header"><div class="ad-leaderboard">This is a test ad!</div></div>';
+			}
+		?>-->
