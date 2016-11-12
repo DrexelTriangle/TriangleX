@@ -14,43 +14,60 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="wrapper-frontpage">
+	<header id="header-frontpage" class="frontpage">
+		<div id="logo-frontpage" class="logo-frontpage"><?php bloginfo('name'); ?></div>
+		<?php wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'frontpage')); ?>
+	</header>
 
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-
+	<section class="frontpage-top">
+		<article class="item-featured">
+			<?php get_template_part('template-parts/frontpage-section', 'featured'); ?>
+		</article>
+	</section>
+	
+	<section class="frontpage-media">
+		Reserved for future use for photoblog and videos
+	</section>
+	
+	<section class="frontpage-main">		
+		<div class="sections-container">
 			<?php
-			endif;
+				// Get sections, exclude no-section and comics
+				$categories = get_categories(array('orderby' => 'term_id', 'parent'  => 0, 'exclude' => '1, 506'));
+				foreach ($categories as $category)
+				{						
+					echo '<section id="'.$category->name.'">';
+					
+					// Echo section name
+					echo '<div class="section-name">';
+					printf('<a href="%1$s">%2$s</a><br />', $category->slug, esc_html($category->name));
+					echo '</div>';
+					
+					// Populate section with most recent articles
+					$categoryPosts = get_posts(array('posts_per_page' => 5, 'offset' => 1, 'category' => $category->term_id));
+					foreach($categoryPosts as $post)
+					{
+						$postID = $post->ID;
+						$title = get_the_title($postID);
+						$thumb = get_the_post_thumbnail($post, array('class' => 'front-page-tease-sm'));
+						$link = get_permalink($postID);
+						
+						echo '<li><a href="'.$link.'">';
+						echo '<div class="thumbnail-container" href="'.$link.'">'.$thumb.'</div>';
+						echo $title;
+						echo '</li></a>';
+					}
+					
+					echo '</section>';
+				}
+			?>
+		</div>
+		
+		<div class="sidebar" style="left:0px;">
+			<div class="ad-medium-rectangle">This is a test ad!</div>
+		</div>
+	</section>
+</div>
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>
