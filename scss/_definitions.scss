@@ -41,6 +41,22 @@ $triangle-color-blue: #07294D;
     -webkit-box-sizing: $val;
 }
 
+@mixin display-flex()
+{
+	display: flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: -webkit-flex;
+}
+
+@mixin flex($val)
+{
+	flex: $val;
+	-ms-flex: $val;
+	-webkit-box-flex: $val;
+	-webkit-flex: $val;
+}
+
 @mixin transform($val)
 {
 	transform: $val;
