@@ -81,7 +81,7 @@ add_action('after_setup_theme', 'triangle_x_setup');
  */
 function triangle_x_content_width()
 {
-	$GLOBALS['content_width'] = apply_filters( 'triangle_x_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters('triangle_x_content_width', 640);
 }
 add_action( 'after_setup_theme', 'triangle_x_content_width', 0 );
 
@@ -103,11 +103,13 @@ add_action( 'after_setup_theme', 'triangle_x_content_width', 0 );
 }
 add_action( 'widgets_init', 'triangle_x_widgets_init' );*/
 
-/**
- * Enqueue scripts and styles.
- */
+// Enqueue scripts and styles.
 function triangle_x_scripts()
 {
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js", false, null);
+	wp_enqueue_script('jquery');
+	
 	wp_enqueue_style('triangle-x-style', get_stylesheet_uri());
 
 	wp_enqueue_script('triangle-x-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
@@ -119,6 +121,7 @@ function triangle_x_scripts()
 }
 add_action('wp_enqueue_scripts', 'triangle_x_scripts');
 
+// Removes ShareDaddy buttons from bottom of content posts.
 function jptweak_remove_share()
 {
     remove_filter('the_content', 'sharing_display', 19);
@@ -128,27 +131,17 @@ function jptweak_remove_share()
 }
 add_action( 'loop_start', 'jptweak_remove_share' );
 
-/**
- * Implement the Custom Header feature.
- */
+// Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
 
-/**
- * Custom template tags for this theme.
- */
+// Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Custom functions that act independently of the theme templates.
- */
+// Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/extras.php';
 
-/**
- * Customizer additions.
- */
+// Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
+// Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';
