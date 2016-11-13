@@ -1,6 +1,11 @@
 $(document).ready(function()
-{	
-	// Open navigation when hamburder icon is clicked
+{
+	if (!$('#header-frontpage').is(":in-viewport"))
+	{
+		$('#header-masthead').toggleClass('hidden');
+	}
+	
+	// Open navigation when hamburger icon is clicked
 	$('#nav-icon').click(function(evt)
 	{
 		$(this).toggleClass('open');
@@ -17,7 +22,7 @@ $(document).ready(function()
 		evt.stopImmediatePropagation();
 	});
 	
-	// Toggle search icon/box when clicked
+	// Close search box when it goes out of focus
 	$('#searchbox-main').focusout(function(evt)
 	{
 		$('#search-main').toggleClass('hidden');
@@ -26,19 +31,18 @@ $(document).ready(function()
 	});
 });
 
-$(window).scroll(function() {
-    /*var top_of_element = $("#header-frontpage").offset().top;
-    var bottom_of_element = $("#header-frontpage").offset()top + $("#header-frontpage").outerHeight;
-    var bottom_of_screen = $(window).scrollTop() + $(window).height();
-
-    if((bottom_of_screen > top_of_element) && (bottom_of_screen < bottom_of_element))
+$(window).scroll(function()
+{
+	if (!$('#header-frontpage').is(":in-viewport"))
+		$('#header-masthead').removeClass('hidden');
+	
+	if ($('#header-frontpage').is(":in-viewport"))
 	{
-        // The element is visible, do something
-		alert("If");
-    }
-    else 
-	{
-        // The element is not visible, do something else
-		alert("Else");
-    }*/
+		if($('#nav-main').hasClass('open'))
+		{
+			$('#nav-main').removeClass('open');
+			$('#nav-icon').removeClass('open');
+		}
+		$('#header-masthead').addClass('hidden');
+	}
 });

@@ -3,6 +3,7 @@
 	background-color: $triangle-color-blue;
 	height: 55px;
 	min-width: 465px;
+	overflow: hidden;
 	position: fixed;
 	top: 0px;
 	@include transition(.4s ease-in-out);
@@ -11,7 +12,9 @@
 	
 	&.hidden
 	{
-		display: none;
+		height: 0px;
+		overflow: hidden;
+		top: -55px;
 		@include transition(.4s ease-in-out);
 	}
 }
@@ -194,7 +197,7 @@
 		{
 			display: inline;
 			float: none;
-			font-family: Roboto Slab, Helvetica, Arial, sans-serif;
+			font-family: $triangle-font-main;
 			font-size: 16px;
 			margin: 0;
 			padding: 0;

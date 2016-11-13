@@ -106,14 +106,16 @@ add_action( 'widgets_init', 'triangle_x_widgets_init' );*/
 // Enqueue scripts and styles.
 function triangle_x_scripts()
 {
+	// jQuery
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js", false, null);
 	wp_enqueue_script('jquery');
 	
+	// jQuery viewport plugin
+	wp_enqueue_script('triangle-x-inviewport', get_template_directory_uri() . '/js/jquery.viewport.js', array(), '20151215', true);
+	
 	wp_enqueue_style('triangle-x-style', get_stylesheet_uri());
-
 	wp_enqueue_script('triangle-x-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
-
 	wp_enqueue_script('triangle-x-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments'))

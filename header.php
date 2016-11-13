@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<header id="header-masthead" class="site-header" role="banner">
+<header id="header-masthead" class="site-header hidden" role="banner">
 	<div id="search-icon" class="search-icon">
 		<i class="material-icons md-36">search</i>
 	</div>
