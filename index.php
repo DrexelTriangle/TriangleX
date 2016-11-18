@@ -56,7 +56,7 @@ get_header(); ?>
 						echo '<li><a href="'.$link.'">';
 						echo '<div class="thumbnail-container" href="'.$link.'">'.$thumb.'</div>';
 						echo $title;
-						echo '</li></a>';
+						echo '</a></li>';
 					}
 					
 					echo '</section>';
