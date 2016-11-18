@@ -14,7 +14,7 @@ $cat = get_queried_object();
 <div class="category-title"><?php single_cat_title('', true); ?></div>
 
 <div class="generic-flex-container">
-	<div class="flex-main">
+	<main class="flex-main">
 		<?php
 			$posts = get_posts(array('posts_per_page' => 15, 'offset' => 0, 'category' => $cat->term_id));
 			
@@ -47,9 +47,9 @@ $cat = get_queried_object();
 				echo '</div>';
 			}
 		?>
-	</div>
+	</main>
 
-	<div class="flex-sidebar">
+	<aside class="flex-sidebar">
 		<div id="subsections" class="sidebar-item">
 			<?php get_template_part('template-parts/sidebar-subsections'); ?>
 		</div>
@@ -59,5 +59,5 @@ $cat = get_queried_object();
 		<div id="most-recent" class="sidebar-item">
 			<?php get_template_part('template-parts/sidebar-recent'); ?>
 		</div>
-	</div>
+	</aside>
 </div>

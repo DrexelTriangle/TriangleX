@@ -17,7 +17,7 @@ get_header(); ?>
 <div class="wrapper-frontpage">
 	<header id="header-frontpage" class="frontpage">
 		<div id="logo-frontpage" class="logo-frontpage"><?php bloginfo('name'); ?></div>
-		<?php wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'frontpage')); ?>
+		<nav><?php wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'frontpage')); ?></nav>
 	</header>
 
 	<section class="frontpage-top">

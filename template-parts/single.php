@@ -7,6 +7,8 @@
  * @package Triangle_X
  */
 
+ the_title('<title>', ' | The Triangle</title>');
+ 
 ?>
 
 <div id="post-<?php the_ID(); ?>" class="generic-container">	
