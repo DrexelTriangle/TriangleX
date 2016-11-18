@@ -1,0 +1,52 @@
+.sidebar-item
+{
+	width: 300px;
+	
+	.title
+	{
+		border-bottom: 3px solid $triangle-color-blue;
+		font-family: $triangle-font-main;
+		font-size: 24px;
+		font-style: italic;
+	}
+}
+
+.sidebar-subsections
+{
+	padding-bottom: 25px;
+
+	ul
+	{
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		
+		li
+		{
+			display: inline-block;
+			list-style-type: none;
+			padding: 5px;
+			width: 100%;
+		}
+		
+		li:hover
+		{
+			background-color: lightgrey;
+		}
+		
+		a
+		{
+			color: black;
+			font-family: $triangle-font-main;
+			text-decoration: none;
+		}
+	}
+}
+
+.sidebar-recent
+{
+}
+
+.sidebar-top-posts
+{
+}

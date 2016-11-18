@@ -20,9 +20,11 @@ files as conciese and focused as possible.
 @import "header.scss";
 @import "footer.scss";
 @import "content.scss";
+@import "category.scss";
+@import "sidebar.scss";
 @import "login.scss";
 
 // Special Layout
 @import "front-page.scss";
 @import "contact.scss";
-@import "error.scss"
+@import "e404.scss"
