@@ -11,7 +11,7 @@
 
 ?>
 
-<footer id="colophon" class="site-footer" role="contentinfo">
+<footer id="colophon" class="footer-wrapper">
 	<div class="footer-container">
 		<div class="footer-branding">
 			<div class="logo">
@@ -19,7 +19,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="copyright">
+	
+	<div class="footer-copyright">
 		&copy<?php echo date("Y"); ?> The Triangle. All rights are reserved, except where otherwise noted.
 	</div>
 </footer>

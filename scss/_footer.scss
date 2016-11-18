@@ -1,7 +1,7 @@
-.site-footer
+.footer-wrapper
 {
 	border-top: 6px solid $triangle-color-blue;
-	height: 250px;
+	min-height: 250px;
 	margin-top: 50px;
 	width: 100%;
 }
@@ -11,6 +11,7 @@
 	height: 100%;
 	margin: auto;
 	max-width: 1280px;
+	min-height: 234px;
 	width: 90%;
 }
 
@@ -41,15 +42,15 @@
 	}
 }
 
-.copyright
+.footer-copyright
 {
+	align: bottom;
 	border-top: 1px solid grey;
 	color: grey;
 	height: 16px;
 	font-size: 14px;
 	padding-bottom: 10px;
 	padding-top: 10px;
-	position: absolute;
 	text-align: center;
 	width: 100%;
 }
