@@ -9,8 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>	
-	<div class="article-headline">
+<div id="post-<?php the_ID(); ?>" class="generic-container">	
+	<div class="single-title">
 		<?php
 			the_title('<h1>', '</h1>');
 		
@@ -19,7 +19,7 @@
 		?>
 	</div>
 	
-	<div class="article-meta">
+	<div class="single-meta">
 		<div class="author">By <?php coauthors_posts_links(); ?></div>
 		<?php
 			the_date('M. j, Y', '<div class="date">', '</div>');
@@ -39,11 +39,12 @@
 		
 	</div>
 	
-	<div class="article-content">
+	<article class="single-content">
 		<?php the_content(); ?>
-	</div>
+	</article>
 
 	<footer class="article-footer">
+		<!-- Displays tags - remove for production? -->
 		<?php //triangle_x_entry_footer(); ?>
 	</footer>
-</article>
+</div>

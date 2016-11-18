@@ -1,11 +1,3 @@
-article.post
-{
-	margin: auto;
-	max-width: 1280px;
-	overflow: hidden;
-	width: 90%;
-}
-
 section.comments
 {
 	margin: auto;
@@ -14,7 +6,7 @@ section.comments
 	width: 90%;
 }
 
-.article-headline
+.single-title
 {
 	h1
 	{
@@ -28,12 +20,11 @@ section.comments
 		color: grey;
 		font-family: $triangle-font-headline;
 		font-size: 20px;
-		//font-style: italic;
 		margin-top: -30px;
 	}
 }
 
-.article-meta
+.single-meta
 {
 	border-bottom: 1px solid lightgrey;
 	border-top: 1px solid lightgrey;
@@ -67,7 +58,7 @@ section.comments
 	}
 }
 
-.article-content
+.single-content
 {
 	width: 100%;
 	
@@ -85,30 +76,7 @@ section.comments
 figcaption.wp-caption-text
 {
 	color: grey;
-		font-size: 16px;
-		font-style: italic;
-		margin-top: -5px
-}
-
-.sharedaddy
-{
-	float: right;
-	height: 50px;
-	overflow: hidden;
-	
-	.robots-nocontent
-	{
-		height: 50px;
-	}
-	
-	h3.sd-title
-	{
-		display: none !important;
-	}
-	
-	.sd-content
-	{
-		// TODO - dynamically center sd-content
-		padding-top: 12px;
-	}
+	font-size: 16px;
+	font-style: italic;
+	margin-top: -5px
 }

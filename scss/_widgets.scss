@@ -1,0 +1,22 @@
+.sharedaddy
+{
+	float: right;
+	height: 50px;
+	overflow: hidden;
+	
+	.robots-nocontent
+	{
+		height: 50px;
+	}
+	
+	h3.sd-title
+	{
+		display: none !important;
+	}
+	
+	.sd-content
+	{
+		// TODO - dynamically center sd-content
+		padding-top: 12px;
+	}
+}

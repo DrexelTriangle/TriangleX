@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-<div id="primary" class="wrapper-content">
+<div id="primary" class="generic-wrapper">
 	<?php get_template_part('template-parts/category', get_queried_object()->name);	?>
 </div>
 

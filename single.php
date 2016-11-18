@@ -9,12 +9,12 @@
 
 get_header(); ?>
 
-<div id="primary" class="wrapper-content">		
+<div class="generic-wrapper">
 	<?php
 		while(have_posts())
 		{
 			the_post();
-			get_template_part('template-parts/content-single', get_post_format());
+			get_template_part('template-parts/single', get_post_format());
 
 			//the_post_navigation();
 		}
@@ -29,6 +29,4 @@ get_header(); ?>
 	</section>
 </div>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>
