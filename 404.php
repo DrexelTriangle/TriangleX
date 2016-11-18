@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-<div class="wrapper-content">
+<div class="generic-wrapper">
 	<div class="e404-container">
 		<div class="e404-code">404</div>
 		<h2>The page you were looking for cannot be found.</h2>
