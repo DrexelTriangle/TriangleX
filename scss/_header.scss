@@ -1,4 +1,4 @@
-.site-header
+.header-global
 {
 	background-color: $triangle-color-blue;
 	height: 55px;
@@ -19,7 +19,7 @@
 	}
 }
 
-.logo
+.header-logo
 {
 	height: 55px;
 	line-height: 55px;
@@ -46,7 +46,7 @@
 	top: 0px;
 }
 
-.search-icon
+.header-search-icon
 {
 	color: white;
 	cursor: pointer;
@@ -66,7 +66,7 @@
 	}
 }
 
-.search
+.header-search
 {
 	display: inline;
 	height: 55px;
@@ -103,7 +103,7 @@
 	}*/
 }
 
-.hamburger-icon
+.header-hamburger-icon
 {
 	cursor: pointer;
 	display: inline;
@@ -167,7 +167,7 @@
 	}
 }
 
-.nav-container
+.header-nav-container
 {
 	background-color: white;
 	height: calc(100vh - 55px);

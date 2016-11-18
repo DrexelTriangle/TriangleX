@@ -19,24 +19,24 @@
 </head>
 
 <body>
-<header id="header-masthead" class="site-header hidden" role="banner">
-	<div id="search-icon" class="search-icon">
+<header id="header-global" class="header-global hidden" role="banner">
+	<div id="search-icon" class="header-search-icon">
 		<i class="material-icons md-36">search</i>
 	</div>
-	<div id="search-main" class="search hidden">
+	<div id="search-main" class="header-search hidden">
 		<form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
 			<input id="searchbox-main" type="search" name="search" id="s" placeholder="Search.." value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
 		</form>
 	</div>
 	
-	<div id="logo-masthead" class="logo">
+	<div class="header-logo">
 		<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
 	</div>
 
-	<div id="nav-icon" class="hamburger-icon"><span></span><span></span><span></span></div>
+	<div id="nav-icon" class="header-hamburger-icon"><span></span><span></span><span></span></div>
 </header>
 
-<div id="nav-main" class="nav-container">
+<div id="nav-main" class="header-nav-container">
 	<?php wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'main')); ?>
 	<?php wp_nav_menu(array('theme_location' => 'sub', 'menu_class' => 'sub')); ?>
 </div>
