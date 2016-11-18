@@ -1,0 +1,27 @@
+.e404-container
+{
+	background-color: white;
+	margin: auto;
+	height: 100vh;
+	max-width: 1280px;
+	max-height: calc(100vh - 55px - 277px);
+	width: 90%;
+	
+	h2
+	{
+		font-family: $triangle-font-main;
+		text-align: center;
+	}
+}
+
+.e404-code
+{
+	height: 275px;
+	font-family: $triangle-font-main;
+	font-size: 250px;
+	font-weight: bold;
+	margin-top: -25px;
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+}
