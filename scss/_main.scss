@@ -9,6 +9,12 @@ files as conciese and focused as possible.
 
 */
 
+// External stylesheets
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
 // The following must be included in the correct order
 @import "includes.scss";
 @import "definitions.scss";
