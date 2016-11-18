@@ -18,6 +18,8 @@ if (!function_exists('triangle_x_setup'))
 	 */
 	function triangle_x_setup()
 	{
+		date_default_timezone_set('America/New_York');
+		
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -43,7 +45,12 @@ if (!function_exists('triangle_x_setup'))
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support('post-thumbnails');
-		add_image_size('front-page-tease-sm', 231, 154, true);
+		add_image_size('front-page-tease', 580, 400, true);
+		add_image_size('single-post-jumbotron', 2400, 840, true);
+		add_image_size('single-post-feature', 1480, 560, true);
+		add_image_size('169-preview-large', 1600, 900, true);
+		add_image_size('169-preview-medium', 800, 450, true);
+		add_image_size('169-preview-small', 400, 225, true);
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(array(
