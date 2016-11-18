@@ -1,0 +1,74 @@
+.category-title
+{
+	border-bottom: 3px solid $triangle-color-blue;
+	font-famiy: $triangle-font-main;
+	font-size: 42px;
+	font-weight: bold;
+	margin: auto;
+	margin-bottom: 25px;
+	max-width: 1280px;
+	padding-top: 50px;
+	width: 90%;
+}
+
+.category-post
+{
+	border-bottom: 1px solid lightgrey;
+	@include display-flex();
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+
+.date
+{
+	display: inline-block;
+	font-family: $triangle-font-main;
+	font-size: 12px;
+	padding-top: 5px;
+	text-align: top;
+}
+
+.category-post-info
+{
+	display: inline-block;
+	@include flex(1);
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+a.category-headline
+{
+	color: black;
+	font-family: $triangle-font-headline;
+	font-size: 22px;
+	font-weight: bold;
+	text-decoration: none;
+	
+	&:hover
+	{
+		border-bottom: 2px solid black;
+	}
+}
+
+.category-author
+{
+	color: grey;
+	font-family: $triangle-font-main;
+	font-size: 12px;
+	height: 24px;
+	line-height: 24px;
+	
+	a
+	{
+		color: grey;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+}
+
+.category-tease
+{
+	color: black;
+	font-family: $triangle-font-copy;
+	font-size: 18px;
+}
