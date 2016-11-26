@@ -1,3 +1,7 @@
+/**
+ * @author  Mudit Ameta
+ * @license https://github.com/zeusdeux/isInViewport/blob/master/license.md MIT
+ */
 (function($, window) {
 
   // polyfilling trim for ie < 9. sigh ;-;
