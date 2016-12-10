@@ -8,6 +8,7 @@
 .generic-container
 {
 	margin: auto;
+	margin-bottom: 50px;
 	max-width: 1280px;
 	overflow: hidden;
 	width: 90%;
@@ -17,19 +18,45 @@
 {
 	@include display-flex();
 	margin: auto;
+	margin-bottom: 50px;
 	max-width: 1280px;
 	overflow: hidden;
 	width: 90%;
 	
-	main.flex-main
+	.flex-main
 	{
 		flex-grow: 1;
 		padding-right: 20px;
 	}
 	
-	aside.flex-sidebar
+	.flex-sidebar
 	{
 		border-left: 1px solid lightgrey;
 		padding-left: 20px;
+	}
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		flex-wrap: wrap;
+		overflow: hidden;
+		padding: 0px;
+		width: 100%;
+		
+		.flex-main
+		{
+			@include box-sizing(border-box);
+			flex-direction: row;
+			overflow: hidden;
+			padding: 10px;
+			width: 100%;
+		}
+		
+		.flex-sidebar
+		{
+			border: none;
+			flex-direction: row;
+			padding: 0px;
+			width: 100%;
+		}
 	}
 }

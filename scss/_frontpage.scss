@@ -1,0 +1,237 @@
+.frontpage-header
+{
+	margin: auto;
+	max-width: 1280px;
+	overflow: hidden;
+	width: 90%;
+	
+	.logo-frontpage
+	{
+		font-family: $triangle-font-logo;
+		font-size: calc(12px + (85) * ((100vw) / (1280)));
+		height: calc(12px + (85) * ((100vw) / (1280)));
+		line-height: calc(12px + (85) * ((100vw) / (1280)));
+		margin: auto;
+		text-align: center;
+		text-transform: uppercase;
+	}
+		
+	ul.frontpage
+	{
+		align-items: stretch;
+		border-bottom: 1px solid black;
+		border-top: 2px solid black;
+		@include display-flex();
+		//flex-wrap: nowrap;
+		list-style-type: none;
+		margin-top: 15px;
+		padding: 0;
+		width: 100%;
+		
+		li
+		{
+			@include flex(1);
+			font-family: Roboto Slab, Helvetica, Arial, sans-serif;
+			font-size: 16px;
+			margin: 0;
+			padding: 0;
+			
+			a
+			{
+				color: black;
+				display: inline-block;
+				height: 25px;
+				line-height: normal;
+				margin: 0;
+				padding-bottom: 15px;
+				padding-top: 15px;
+				text-align: center;
+				text-decoration: none;
+				vertical-align: middle;
+				width: 100%;
+			}
+			
+			a:hover
+			{
+				background-color: #E8E8E8;
+				border-style: none;
+			}
+		}
+	}
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		display: none;
+	}
+}
+
+.wrapper-frontpage
+{
+	height: 100%;
+	width: 100%;
+}
+
+.frontpage-section-top
+{
+	margin: auto;
+	max-width: 1280px;
+	overflow: hidden;
+	width: 90%;
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		@include box-sizing(border-box);
+		padding: 10px;
+		padding-top: 55px;
+		width: 100%;
+	}
+}
+
+.frontpage-section-media
+{
+	background-color: #333333;
+	height: 500px;
+	margin-bottom: 5	0px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.frontpage-item-container
+{
+	@include display-flex();
+	flex-wrap: wrap;
+	height: 100%;
+	justify-content: space-around;
+	padding: 0px;
+	width: 100%;
+}
+
+.frontpage-feature
+{
+	display: inline-block;
+	margin-bottom: 25px;
+	width: 65%;
+	
+	img
+	{
+		height: auto;
+		margin: 0;
+		width: 100%;
+	}
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		width: 100%;
+	}
+}
+
+.frontpage-feature-link
+{
+	color: black;
+	font-family: $triangle-font-headline;
+	font-size: 42px;
+	height: 42px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	text-decoration: none;
+	
+	&:hover
+	{
+		text-decoration: underline;
+	}
+}
+
+.frontpage-feature-excerpt
+{
+	font-family: $triangle-font-copy;
+	padding-top: 10px;
+	width: 100%;
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		display: none;
+	}
+}
+
+.frontpage-item-list
+{
+	border-bottom: 1px solid lightgrey;
+	display: inline-block;
+	list-style: none;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	width: 100%;
+	
+	a
+	{
+		color: black;
+		display: inline-block;
+		font-family: $triangle-font-headline;
+		font-size: 20px;
+		text-decoration: none;
+		width: 100%;
+	}
+	
+	a:hover
+	{
+		text-decoration: underline;
+	}
+	
+	&:last-child
+	{
+		border: none;
+	}
+}
+
+.frontpage-item-thumbnail
+{
+	display: inline-block;
+	margin-bottom: 20px;
+	max-height: 300px;
+	overflow: hidden;
+	padding: 15px;
+	vertical-align: top;
+	width: 231px;
+	
+	img
+	{
+		background-image: url(images/backgrounds/bg-story-sm.png);
+		height: 154px;
+		overflow: hidden;
+		width: 231px;
+	}
+	
+	.link
+	{
+		color: black;
+		display: inline-block;
+		font-family: $triangle-font-headline;
+		font-size: 16px;
+		text-decoration: none;
+	}
+	
+	.link-big
+	{
+		color: black;
+		display: inline-block;
+		font-family: $triangle-font-headline;
+		font-size: 24px;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	
+	a:hover
+	{
+		text-decoration: underline;
+	}
+}
+
+.frontpage-postinfo
+{
+	display: inline-block;
+	font-family: $triangle-font-main;
+	font-size: 10px;
+	padding-top: 5px;
+	text-align: top;
+	width: 100%;
+}

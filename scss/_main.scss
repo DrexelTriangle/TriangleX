@@ -30,9 +30,13 @@ files as conciese and focused as possible.
 @import "advertisements.scss";
 @import "widgets.scss";
 
+// Front Page
+@import "frontpage.scss";
+@import "frontpage-feature.scss";
+@import "frontpage-category.scss";
+
 // Template styles
 @import "category.scss";
-@import "front-page.scss";
 @import "single.scss";
 
 // Special Layout

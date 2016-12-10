@@ -27,9 +27,18 @@
 @mixin flex($val)
 {
 	flex: $val;
+	-moz-flex: $val;
 	-ms-flex: $val;
 	-webkit-box-flex: $val;
 	-webkit-flex: $val;
+}
+
+@mixin flex-wrap($val)
+{
+	flex-wrap: $val;
+	-moz-flex-wrap: $val;
+	-ms-flex-wrap: $val;
+	-webkit-flex-wrap: $val;
 }
 
 @mixin transform($val)

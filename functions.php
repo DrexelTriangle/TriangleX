@@ -90,14 +90,15 @@ function triangle_x_content_width()
 {
 	$GLOBALS['content_width'] = apply_filters('triangle_x_content_width', 640);
 }
-add_action( 'after_setup_theme', 'triangle_x_content_width', 0 );
+add_action('after_setup_theme', 'triangle_x_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-/*function triangle_x_widgets_init() {
+function triangle_x_widgets_init()
+{
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'triangle-x' ),
 		'id'            => 'sidebar-1',
@@ -106,9 +107,9 @@ add_action( 'after_setup_theme', 'triangle_x_content_width', 0 );
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+	));
 }
-add_action( 'widgets_init', 'triangle_x_widgets_init' );*/
+add_action('widgets_init', 'triangle_x_widgets_init');
 
 // Enqueue scripts and styles.
 function triangle_x_scripts()
@@ -130,27 +131,56 @@ function triangle_x_scripts()
 }
 add_action('wp_enqueue_scripts', 'triangle_x_scripts');
 
-// Removes ShareDaddy buttons from bottom of content posts.
-function jptweak_remove_share()
+// Set the excerpt length to more than necessary
+function triangle_x_excerpt_length($length)
 {
-    remove_filter('the_content', 'sharing_display', 19);
-    remove_filter('the_excerpt', 'sharing_display', 19);
-    if (class_exists('Jetpack_Likes'))
-        remove_filter('the_content', array(Jetpack_Likes::init(), 'post_likes'), 30, 1);
+	return 999;
 }
-add_action( 'loop_start', 'jptweak_remove_share' );
+add_filter('excerpt_length', 'triangle_x_excerpt_length', 999);
+
+// Get the first paragraph of the article
+function triangle_x_excerpt($text, $raw_excerpt)
+{
+	if($raw_excerpt)
+	{
+        $content = apply_filters('the_content', get_the_content());
+        $text = (preg_match(sprintf('~(<p>.+?</p>){%d}~i', 1), $content, $matches)) ? $matches[ 0 ] : $content;
+    }
+
+    $text = preg_replace("/<img[^>]+\>/i", "", $text);
+	return wp_strip_all_tags($text);
+}
+add_filter('get_the_excerpt', 'triangle_x_excerpt', 20, 2);
+
+// Remove read more link at end of excerpt
+function no_excerpt_more($more)
+{
+	return '';
+}
+add_filter('excerpt_more', 'no_excerpt_more');
+
+// Disable admin bar
+add_filter( 'show_admin_bar', '__return_false' );
+show_admin_bar(false);
+show_admin_bar(0);
+
+// Abstraction layer for advertisement functions
+require get_template_directory() . '/inc/advertisements.php';
 
 // Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
 
-// Custom template tags for this theme.
-require get_template_directory() . '/inc/template-tags.php';
+// Customizer additions.
+require get_template_directory() . '/inc/customizer.php';
+
+// Helper functions for populating the front page
+require get_template_directory() . '/inc/frontpage-helper.php';
 
 // Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/extras.php';
 
-// Customizer additions.
-require get_template_directory() . '/inc/customizer.php';
-
 // Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';
+
+// Custom template tags for this theme.
+require get_template_directory() . '/inc/template-tags.php';

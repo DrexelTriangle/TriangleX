@@ -1,40 +1,52 @@
-@mixin ad-debug
+.ad-disclaimer
 {
-	border: 3px solid black;
-	@include box-sizing(border-box);
+	color: lightgrey;
+	font-size: 12px;
+	height: 12px;
+	margin: 0px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 100%;
 }
 
-.adcontainer-header
+.ad-container-banner-top
 {
+	border-bottom: 1px solid black;
+	margin: auto;
 	margin-bottom: 20px;
 	margin-top: 20px;
+	max-width: 1280px;
+	overflow-x: auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	width: 90%;
 }
 
-.ad-billboard
+.ad-container-banner-inline
 {
-	@include ad-debug;
-	height: 250px;
-	width: 970px;
-}
-
-.ad-leaderboard
-{
-	@include ad-debug;
+	border-bottom: 1px solid lightgrey;
+	border-top: 1px solid lightgrey;
 	margin: auto;
-	height: 90px;
-	width: 728px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	max-width: 1280px;
+	overflow-x: auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	width: 100%;
 }
 
-.ad-medium-rectangle
+.ad-container-banner-bottom
 {
-	@include ad-debug;
-	height: 250px;
-	width: 300px;
-}
-
-.ad-portrait
-{
-	@include ad-debug;
-	height: 1050ps;
-	width: 300px;
+	border-top: 1px solid black;
+	margin: auto;
+	margin-top: 20px;
+	max-width: 1280px;
+	overflow-x: auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	width: 90%;
 }
