@@ -24,9 +24,14 @@
 		<i class="material-icons md-36">search</i>
 	</div>
 	<div id="search-main" class="header-search hidden">
-		<form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
-			<input id="searchbox-main" type="search" name="search" id="s" placeholder="Search.." value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
+		<?php //get_search_form(); ?>
+		<form role="search" method="get" class="search-form" action="http://thetriangle/">
+			<input id="searchbox-main" type="search" class="search-field" placeholder="Search..." value="" name="s">
+			<!--<input type="submit" class="search-submit" value="Search">-->
 		</form>
+		<!--<form role="search" method="get" action="/">
+			<input id="searchbox-main" type="search" name="s?" id="s" placeholder="Search.." value="<?php echo esc_attr(get_search_query()); ?>">
+		</form>-->
 	</div>
 	
 	<div class="header-logo">
@@ -37,31 +42,18 @@
 </header>
 
 <div id="nav-main" class="header-nav-container">
-	<?php wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'main')); ?>
-	<?php wp_nav_menu(array('theme_location' => 'sub', 'menu_class' => 'sub')); ?>
-</div>
-	
-	<!--<div id="page" class="site">  #page div is closed in footer -->
-	
-		<!--<div class="adcontainer-header">
-			<div class="ad-leaderboard">
-				This is a test ad!
-			</div>
-		</div>
+	<?php
+		if(has_nav_menu('main'))
+			wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'main'));
+		else
+			// Display error message if menu "main" has not been defined within WordPress
+			echo 'Menu "main" is not defined!</br>';
+			
 		
-		<?php
-			$options = get_option('ad_options');
-			if ($options['show_banner_top'] == false) // debug - change to true for production
-			{
-				// If the top ad banner is enabled, show it.
-				echo '<div class="adcontainer-header">';
-				if(function_exists('drawAdsPlace'))
-					drawAdsPlace(array('name' => 'ad-leaderboard'), false);
-				echo '</div>';
-			}
-			else
-			{
-				// ONLY USE FOR DEBUG
-				echo '<div class="adcontainer-header"><div class="ad-leaderboard">This is a test ad!</div></div>';
-			}
-		?>-->
+		if(has_nav_menu('sub'))
+			wp_nav_menu(array('theme_location' => 'sub', 'menu_class' => 'sub'));
+		else
+			// Display error message if menu "sub" has not been defined within WordPress
+			echo 'Menu "sub" is not defined!</br>';
+	?>
+</div>

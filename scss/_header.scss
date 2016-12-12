@@ -74,7 +74,7 @@
 	
 	&.hidden
 	{
-		input[type=search], textarea
+		.search-field
 		{
 			@include transition(.4s ease-in-out);
 			visibility: hidden;
@@ -82,9 +82,8 @@
 		}
 	}
 	
-	input[type=search], textarea
+	.search-field
 	{
-		/*background-color: darken( $triangle-blue, 5% );*/
 		border: none;
 		@include border-radius(30px);
 		height: 24px;
@@ -95,12 +94,6 @@
 		padding-left: 10px;
 		width: 250px;
 	}
-	
-	/*input[type=search]:focus
-	{
-		outline: none;
-		width: 250px;
-	}*/
 }
 
 .header-hamburger-icon
