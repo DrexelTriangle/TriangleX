@@ -1,10 +1,5 @@
 $(document).ready(function()
-{
-	if (!$('#header-frontpage').is(":in-viewport"))
-	{
-		$('#header-global').toggleClass('hidden');
-	}
-	
+{	
 	// Open navigation when hamburger icon is clicked
 	$('#nav-icon').click(function(evt)
 	{

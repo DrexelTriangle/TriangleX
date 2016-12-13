@@ -19,7 +19,8 @@
 </head>
 
 <body>
-<header id="header-global" class="header-global hidden" role="banner">
+<!--<header id="header-global" class="header-global hidden" role="banner">-->
+<header id="header-global" class="<?php is_front_page() ? print('header-global hidden') : print('header-global') ?>" role="banner">
 	<div id="search-icon" class="header-search-icon">
 		<i class="material-icons md-36">search</i>
 	</div>
