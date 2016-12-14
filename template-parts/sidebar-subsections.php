@@ -10,7 +10,7 @@ $subcategories = get_categories(array('child_of' => $cat->term_id));
 ?>
 
 <div class="sidebar-subsections">
-	<div class="title">Sub Sections</div>
+	<div class="sidebar-title">Sub Sections</div>
 	<?php
 		if(sizeof($subcategories) > 0)
 		{			

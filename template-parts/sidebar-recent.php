@@ -6,4 +6,5 @@
  */
 ?>
 
-<div class="title">Most Recent Articles</div>
+<div class="sidebar-title">Most Recent Articles</div>
+<?php echo do_shortcode('[jetpack_top_posts_widget types="post" count="5" display="grid"]'); ?>
