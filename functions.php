@@ -131,34 +131,6 @@ function triangle_x_scripts()
 }
 add_action('wp_enqueue_scripts', 'triangle_x_scripts');
 
-// Set the excerpt length to more than necessary
-function triangle_x_excerpt_length($length)
-{
-	return 999;
-}
-add_filter('excerpt_length', 'triangle_x_excerpt_length', 999);
-
-// Get the first paragraph of the article
-function triangle_x_excerpt($text, $raw_excerpt)
-{
-	if($raw_excerpt)
-	{
-        $content = apply_filters('the_content', get_the_content());
-        $text = (preg_match(sprintf('~(<p>.+?</p>){%d}~i', 1), $content, $matches)) ? $matches[ 0 ] : $content;
-    }
-
-    $text = preg_replace("/<img[^>]+\>/i", "", $text);
-	return wp_strip_all_tags($text);
-}
-add_filter('get_the_excerpt', 'triangle_x_excerpt', 20, 2);
-
-// Remove read more link at end of excerpt
-function no_excerpt_more($more)
-{
-	return '';
-}
-add_filter('excerpt_more', 'no_excerpt_more');
-
 // Disable admin bar
 add_filter( 'show_admin_bar', '__return_false' );
 show_admin_bar(false);
@@ -173,11 +145,14 @@ require get_template_directory() . '/inc/custom-header.php';
 // Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
-// Helper functions for populating the front page
-require get_template_directory() . '/inc/frontpage-helper.php';
+// Customizer additions.
+require get_template_directory() . '/inc/excerpt.php';
 
 // Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/extras.php';
+
+// Helper functions for populating the front page
+require get_template_directory() . '/inc/frontpage-helper.php';
 
 // Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';
