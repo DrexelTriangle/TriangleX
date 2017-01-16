@@ -54,7 +54,9 @@
 {
 	width: 100%;
 	
-	p
+	p,
+	ol,
+	ul
 	{
 		font-family: $triangle-font-copy;
 		font-size: 20px;
@@ -63,14 +65,37 @@
 		padding-bottom: 20px;
 		width: 100%;
 	}
-}
-
-figcaption.wp-caption-text
-{
-	color: grey;
-	font-size: 16px;
-	font-style: italic;
-	margin-top: -5px
+	
+	li
+	{
+		padding-bottom: 10px;
+		
+		span
+		{
+			padding-left: 5px;
+		}
+	}
+	
+	figure
+	{
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-bottom: 15px;
+		
+		img
+		{
+			height: auto;
+			width: auto;
+		}
+		
+		figcaption
+		{
+			color: grey;
+			font-size: 16px;
+			font-style: italic;
+			margin-top: -5px
+		}
+	}
 }
 
 .single-comments

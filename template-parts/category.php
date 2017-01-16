@@ -11,6 +11,8 @@ $cat = get_queried_object();
  
 ?>
 
+<?php insert_ad('Global Banner Top', 'banner-top'); ?>
+
 <div class="category-title"><?php single_cat_title('', true); ?></div>
 
 <div class="generic-flex-container">
@@ -20,19 +22,22 @@ $cat = get_queried_object();
 			
 			foreach($posts as $post)
 			{
+				the_post();
+				setup_postdata($post);
+				
 				$postID = $post->ID;
 				$title = get_the_title($postID);
 				$link = get_permalink($postID);
 				$date = get_the_date('M. j, Y', $postID);
 				$authors = coauthors_posts_links(null, null, null, null, false);
-				//$excerpt = get_the_excerpt($postID);
+				$excerpt = get_the_excerpt($postID);
 				$excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post_id));
 				$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
 				
 				echo '<div class="category-post">';
 				
 				// Left box - date
-				printf('<div class="date">%1$s</div>', esc_attr($date));
+				printf('<div class="category-date">%1$s</div>', esc_attr($date));
 				
 				// Middle box flex - headline, author, and excerpt
 				echo '<div class="category-post-info">';
@@ -54,10 +59,17 @@ $cat = get_queried_object();
 			<?php get_template_part('template-parts/sidebar-subsections'); ?>
 		</div>
 	
-		<div id="ad-top" class="ad-medium-rectangle" style="margin-bottom:25px;">This is a test ad!</div>
+		<div id="ad-sidebar" style="margin-bottom:25px;">
+			<?php
+				if(function_exists('drawAdsPlace'))
+							drawAdsPlace(array('name' => 'Global Medium Rectangle Sidebar'), false);
+			?>
+		</div>
 
 		<div id="most-recent" class="sidebar-item">
 			<?php get_template_part('template-parts/sidebar-recent'); ?>
 		</div>
 	</aside>
 </div>
+
+<?php insert_ad('Global Banner Bottom', 'banner-bottom'); ?>

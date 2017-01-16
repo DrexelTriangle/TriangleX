@@ -19,20 +19,17 @@
 </head>
 
 <body>
-<!--<header id="header-global" class="header-global hidden" role="banner">-->
+<?php insert_breaking_news(); ?>
+
 <header id="header-global" class="<?php is_front_page() ? print('header-global hidden') : print('header-global') ?>" role="banner">
 	<div id="search-icon" class="header-search-icon">
 		<i class="material-icons md-36">search</i>
 	</div>
+	
 	<div id="search-main" class="header-search hidden">
-		<?php //get_search_form(); ?>
 		<form role="search" method="get" class="search-form" action="http://thetriangle/">
 			<input id="searchbox-main" type="search" class="search-field" placeholder="Search..." value="" name="s">
-			<!--<input type="submit" class="search-submit" value="Search">-->
 		</form>
-		<!--<form role="search" method="get" action="/">
-			<input id="searchbox-main" type="search" name="s?" id="s" placeholder="Search.." value="<?php echo esc_attr(get_search_query()); ?>">
-		</form>-->
 	</div>
 	
 	<div class="header-logo">

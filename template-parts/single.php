@@ -11,6 +11,8 @@
  
 ?>
 
+<?php insert_ad('Global Banner Top', 'banner-top'); ?>
+
 <div id="post-<?php the_ID(); ?>" class="generic-container">	
 	<div class="single-title">
 		<?php
@@ -53,3 +55,5 @@
 		?>
 	</div>
 </div>
+
+<?php insert_ad('Global Banner Bottom', 'banner-bottom'); ?>

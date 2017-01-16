@@ -15,7 +15,7 @@
 	}
 }
 
-.frontpage-category-news
+.frontpage-category-side
 {
 	display: inline-block;
 	float: right;
@@ -23,15 +23,20 @@
 	width: 30%;
 }
 
-.frontpage-category-sports
+.frontpage-category-main
 {
 	width: 100%;	
 }
 
 @media screen and (max-width: $screen-target-min)
 {
-	.frontpage-category-sports,
-	.frontpage-category-news
+	.frontpage-category-title
+	{
+		margin-bottom: 0px;
+	}
+
+	.frontpage-category-side,
+	.frontpage-category-main
 	{
 		display: inline-block;
 		width: 100%;
@@ -44,6 +49,8 @@
 		ul
 		{
 			display: inline-block;
+			height: auto;
+			margin: 0px;
 			width: 100%;
 		}
 		
@@ -52,8 +59,8 @@
 			border-bottom: 1px solid lightgrey;
 			display: inline-block;
 			list-style: none;
-			margin-bottom: 20px;
-			padding: 0px;
+			margin-bottom: 0px;
+			padding: 0px !important;
 			width: 100%;
 			
 			.link,
@@ -62,10 +69,17 @@
 				color: black;
 				display: inline-block;
 				font-family: $triangle-font-headline;
-				font-size: 24px;
-				font-weight: bold;
+				font-size: 28px;
+				font-weight: normal;
+				padding-bottom: 25px;
+				padding-top: 25px;
 				text-decoration: none;
 				width: 100%;
+				
+				&:hover
+				{
+					background-color: lightgrey;
+				}
 			}
 			
 			&:last-child

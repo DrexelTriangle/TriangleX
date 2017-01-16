@@ -33,16 +33,16 @@ get_header(); ?>
 			<?php get_frontpage_feature(); ?>
 		</section>
 		
-		<section id="frontpage-category-opinion" class="frontpage-category-news">
-			<h1 class="frontpage-category-title"><a href="news">Opinion</a></h1>
-			<?php populate_category('opinion', 8); ?>
+		<section id="frontpage-category-opinion" class="frontpage-category-side">
+			<h1 class="frontpage-category-title"><a href="opinion">Opinion</a></h1>
+			<?php populate_category('opinion', 6); ?>
 		</section>
 		
 		<?php insert_ad('Global Banner Inline', 'banner-inline'); ?>
 		
-		<section id="frontpage-category-news" class="frontpage-category-sports">
-			<h1 class="frontpage-category-title"><a href="sports">News</a></h1>
-			<?php populate_category_include_thumbnails('news', 8); ?>
+		<section id="frontpage-category-news" class="frontpage-category-main">
+			<h1 class="frontpage-category-title"><a href="news">News</a></h1>
+			<?php populate_category_include_thumbnails('news', 5, 'single'); ?>
 		</section>
 	</div>
 		
@@ -52,23 +52,41 @@ get_header(); ?>
 	
 	<div class="generic-flex-container">		
 		<main class="flex-main">			
-			<section id="section-entertainment" class="frontpage-category-sports">
+			<section id="section-entertainment" class="frontpage-category-main">
 				<h1 class="frontpage-category-title"><a href="entertainment">Arts & Entertainment</a></h1>
 				<?php populate_category_include_thumbnails('entertainment', 6); ?>
 			</section>
 			
-			<section id="section-sports" class="frontpage-category-sports">
-				<h1 class="frontpage-category-title"><a href="opinion">Sports</a></h1>
+			<section id="section-sports" class="frontpage-category-main">
+				<h1 class="frontpage-category-title"><a href="sports">Sports</a></h1>
 				<?php populate_category_include_thumbnails('sports', 6); ?>
 			</section>
 			
-			<section id="section-style" class="frontpage-category-sports">
+			<section id="section-style" class="frontpage-category-main">
 				<h1 class="frontpage-category-title"><a href="style">Style</a></h1>
 				<?php populate_category_include_thumbnails('style', 6); ?>
 			</section>
 		</main>
 		
 		<aside class="flex-sidebar">
+			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			
+			<div id="poll" class="sidebar-item">
+				<div class="sidebar-poll">
+					<div class="sidebar-title">Weekly Poll</div>
+					<?php get_poll(); ?>
+				</div>
+			</div>
+			
+			<div id="newsletter" class="sidebar-item">
+				<?php get_template_part('template-parts/sidebar-newsletter'); ?>
+			</div>
+			
+			<div id="podcasts" class="sidebar-item">
+				<div class="sidebar-title">Podcasts</div>
+				Put latest podcasts here?
+			</div>
+			
 			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
 		</aside>
 	</div>

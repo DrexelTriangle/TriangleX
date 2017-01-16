@@ -91,7 +91,7 @@
 {
 	background-color: #333333;
 	height: 500px;
-	margin-bottom: 5	0px;
+	margin-bottom: 50px;
 	overflow: hidden;
 	width: 100%;
 }
@@ -104,6 +104,12 @@
 	justify-content: space-around;
 	padding: 0px;
 	width: 100%;
+	
+	&.single
+	{
+		//height: 300px;
+		//overflow: hidden;
+	}
 }
 
 .frontpage-feature
@@ -193,6 +199,11 @@
 	vertical-align: top;
 	width: 231px;
 	
+	&.single
+	{
+		padding: 5px;
+	}
+	
 	img
 	{
 		background-image: url(images/backgrounds/bg-story-sm.png);
@@ -234,4 +245,9 @@
 	padding-top: 5px;
 	text-align: top;
 	width: 100%;
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		display: none;
+	}
 }
