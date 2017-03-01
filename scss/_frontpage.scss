@@ -65,6 +65,35 @@
 	}
 }
 
+.frontpage-navbar-container
+{
+	background: white;
+	border-bottom: 1px solid lightgrey;
+	display: flex;
+	height: 55px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 2;
+}
+
+.frontpage-navbar-links
+{
+	flex: 1;
+	height: 55px;
+	line-height: 55px;
+	padding-right: 15px;
+	text-align: right;
+	
+	a
+	{
+		color: black;
+		height: 55px;
+		font-weight: bold;
+		text-decoration: none;
+	}
+}
+
 .wrapper-frontpage
 {
 	height: 100%;
@@ -145,6 +174,11 @@
 	{
 		text-decoration: underline;
 	}
+}
+
+.frontpage-author-link
+{
+	
 }
 
 .frontpage-feature-excerpt

@@ -27,12 +27,11 @@ function get_frontpage_feature()
 			$title = get_the_title();
 			$category = get_the_category();
 			$excerpt = get_the_excerpt();
-			$author = get_the_author();
+			$author = get_the_author_link();
 			$date = get_the_date();
 			$link = get_permalink();
 			$catName = $category[0]->cat_name;
 			
-			printf('<h1 class="frontpage-category-title">Featured This Week in %1$s</h1>', $catName);
 			printf('<a href="%1$s">%2$s</a>', $link, $thumb);
 			printf('<a class="frontpage-feature-link" href="%1$s">%2$s</a>', $link, $title);
 			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', $author, $date);

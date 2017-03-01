@@ -1,6 +1,7 @@
 .header-global
 {
 	background-color: $triangle-color-blue;
+	display: flex;
 	height: 55px;
 	min-width: 465px;
 	overflow: hidden;
@@ -61,6 +62,7 @@
 
 .header-logo
 {
+	flex: 1;
 	height: 55px;
 	line-height: 55px;
 	margin: auto;
@@ -82,21 +84,17 @@
 	font-size: 36px;
 	height: 55px;
 	line-height: 55px;
-	position: absolute;
-	top: 0px;
+	margin: auto;
 }
 
 .header-search-icon
 {
-	color: white;
 	cursor: pointer;
-	display: inline;
-	height: 30px;
+	height: 55px;
 	outline: none;
-	position: absolute;
-	left: 25px;
+	text-align: center;
 	@include transition(.4s ease-in-out);
-	width: 30px;
+	width: 60px;
 	z-index: 1;
 
 	&.hidden
@@ -106,11 +104,19 @@
 	}
 }
 
+.header-search-icon.white
+{
+	color: white;
+}
+
+.header-search-icon.black
+{
+	color: black;
+}
+
 .header-search
 {
-	display: inline;
 	height: 55px;
-	position: absolute;
 	
 	&.hidden
 	{
@@ -132,6 +138,7 @@
 		margin-top: 15px;
 		outline: none;
 		padding-left: 10px;
+		visibility: hidden;
 		width: 250px;
 	}
 }
@@ -139,28 +146,24 @@
 .header-hamburger-icon
 {
 	cursor: pointer;
-	display: inline;
-	height: 30px;
+	height: 55px;
 	outline: none;
-	position: absolute;
-	right: 25px;
-	top: 15px;
 	@include transform(rotate(0deg));
-	width: 30px;
+	width: 60px;
 	z-index: 1;
 
 	span
 	{
-		background: white;
 		@include border-radius(4px);
 		display: block;
 		height: 4px;
 		left: 0;
+		margin: 15px;
 		opacity: 1;
 		position: absolute;
 		@include transform(rotate(0deg));
 		@include transition(.25s ease-in-out);
-		width: 100%;
+		width: 30px;
 	}
 	
 	span:nth-child(1)
@@ -198,6 +201,16 @@
 			@include transform(rotate(-135deg));
 		}
 	}
+}
+
+.header-hamburger-icon.white
+{
+	span { background: white; }
+}
+
+.header-hamburger-icon.black
+{
+	span { background: black; }
 }
 
 .header-nav-container

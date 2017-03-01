@@ -1,29 +1,47 @@
 $(document).ready(function()
 {	
 	// Open navigation when hamburger icon is clicked
-	$('#nav-icon').click(function(evt)
+	$('.header-hamburger-icon').click(function(evt)
 	{
 		$(this).toggleClass('open');
 		$('#nav-main').toggleClass('open');
 		evt.stopImmediatePropagation();
 	});
 	
-	// Open and focus search box when search icon is clicked
-	$('#search-icon').click(function(evt)
+	// Global search - Open and focus search box when search icon is clicked
+	/*$('#search-icon').click(function(evt)
 	{
-		$(this).toggleClass('hidden');
-		$('#search-main').toggleClass('hidden');
-		$('#searchbox-main').focus();
+		// Hide element but preserve space to avoid logo resizing
+		$(this).css('visibility', 'hidden');
+		//$('#search-main').css('visibility', 'visible');
+		//$('#searchbox-main').focus();
 		evt.stopImmediatePropagation();
 	});
 	
-	// Close search box when it goes out of focus
+	// Global search - Close search box when it goes out of focus
 	$('#searchbox-main').focusout(function(evt)
 	{
-		$('#search-main').toggleClass('hidden');
-		$('#search-icon').toggleClass('hidden').delay(50000);
+		//$('#search-main').css('visibility', 'hidden');
+		$('#search-icon').css('visibility', 'visible');
 		evt.stopImmediatePropagation();
 	});
+	
+	// Frontpage search - Open and focus search box when search icon is clicked
+	$('#search-icon-frontpage').click(function(evt)
+	{
+		$(this).toggleClass('hidden');
+		//$('#search-frontpage').toggleClass('hidden');
+		$('#searchbox-frontpage').focus();
+		evt.stopImmediatePropagation();
+	});
+	
+	// Frontpage search - Close search box when it goes out of focus
+	$('#searchbox-frontpage').focusout(function(evt)
+	{
+		//$('#search-frontpage').toggleClass('hidden');
+		$('#search-icon-frontpage').toggleClass('hidden').delay(50000);
+		evt.stopImmediatePropagation();
+	});*/
 });
 
 $(window).scroll(function()
@@ -33,10 +51,10 @@ $(window).scroll(function()
 	
 	if ($('#header-frontpage').is(":in-viewport"))
 	{
-		if($('#nav-main').hasClass('open'))
+		if($('.header-hamburger-icon').hasClass('open'))
 		{
 			$('#nav-main').removeClass('open');
-			$('#nav-icon').removeClass('open');
+			$('.header-hamburger-icon').removeClass('open');
 		}
 		$('#header-global').addClass('hidden');
 	}

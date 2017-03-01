@@ -16,6 +16,7 @@
 
 .footer-branding
 {
+	display: flex;
 	height: 36px;
 	padding-top: 10px;
 	width: 100%;
@@ -24,7 +25,6 @@
 	{
 		height: 36px;
 		line-height: 36px;
-		position: absolute;
 		text-transform: uppercase;
 		
 		a
@@ -35,9 +35,18 @@
 			text-decoration: none;
 		}
 	}
+}
+
+.footer-social
+{
+	flex: 1;
+	font-size: 20px;
+	padding-left: 35px;
 	
-	.media-icons
+	i
 	{
+		color: white;
+		margin-left: 20px;
 	}
 }
 

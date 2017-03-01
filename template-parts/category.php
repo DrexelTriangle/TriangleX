@@ -31,7 +31,7 @@ $cat = get_queried_object();
 				$date = get_the_date('M. j, Y', $postID);
 				$authors = coauthors_posts_links(null, null, null, null, false);
 				$excerpt = get_the_excerpt($postID);
-				$excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post_id));
+				$excerpt = get_the_excerpt($postID);
 				$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
 				
 				echo '<div class="category-post">';

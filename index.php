@@ -14,7 +14,22 @@
 
 get_header(); ?>
 
-<div class="wrapper-frontpage">
+<div class="frontpage-navbar-container">
+	<div id="search-icon-frontpage" class="header-search-icon black">
+		<i class="material-icons md-36">search</i>
+	</div>
+	
+	<div class="frontpage-navbar-links">
+		<a href="about" rel="About">About Us</a> |
+		<a href="advertising" rel="Advertising">Advertising</a> |
+		<a href="classifieds" rel="Classifieds">Classifieds</a> |
+		<a href="contact" rel="Contact">Contact</a>
+	</div>
+	
+	<div id="nav-icon-frontpage" class="header-hamburger-icon black"><span></span><span></span><span></span></div>
+</div>
+
+<div class="generic-wrapper">
 	<header id="header-frontpage" class="frontpage-header">
 		<div id="logo-frontpage" class="logo-frontpage"><?php bloginfo('name'); ?></div>
 		<nav>
@@ -46,9 +61,9 @@ get_header(); ?>
 		</section>
 	</div>
 		
-	<div class="frontpage-section-media">
+	<!--<div class="frontpage-section-media">
 		Reserved for future use for photoblog and videos
-	</div>
+	</div>-->
 	
 	<div class="generic-flex-container">		
 		<main class="flex-main">			
@@ -60,11 +75,6 @@ get_header(); ?>
 			<section id="section-sports" class="frontpage-category-main">
 				<h1 class="frontpage-category-title"><a href="sports">Sports</a></h1>
 				<?php populate_category_include_thumbnails('sports', 6); ?>
-			</section>
-			
-			<section id="section-style" class="frontpage-category-main">
-				<h1 class="frontpage-category-title"><a href="style">Style</a></h1>
-				<?php populate_category_include_thumbnails('style', 6); ?>
 			</section>
 		</main>
 		
@@ -82,10 +92,10 @@ get_header(); ?>
 				<?php get_template_part('template-parts/sidebar-newsletter'); ?>
 			</div>
 			
-			<div id="podcasts" class="sidebar-item">
+			<!--<div id="podcasts" class="sidebar-item">
 				<div class="sidebar-title">Podcasts</div>
 				Put latest podcasts here?
-			</div>
+			</div>-->
 			
 			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
 		</aside>

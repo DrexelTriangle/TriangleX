@@ -15,6 +15,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
 	<?php wp_head(); ?>
 </head>
 
@@ -22,21 +23,21 @@
 <?php insert_breaking_news(); ?>
 
 <header id="header-global" class="<?php is_front_page() ? print('header-global hidden') : print('header-global') ?>" role="banner">
-	<div id="search-icon" class="header-search-icon">
+	<div id="search-icon" class="header-search-icon white">
 		<i class="material-icons md-36">search</i>
 	</div>
 	
-	<div id="search-main" class="header-search hidden">
+	<!--<div id="search-main" class="header-search">
 		<form role="search" method="get" class="search-form" action="http://thetriangle/">
 			<input id="searchbox-main" type="search" class="search-field" placeholder="Search..." value="" name="s">
 		</form>
-	</div>
+	</div>-->
 	
 	<div class="header-logo">
 		<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
 	</div>
 
-	<div id="nav-icon" class="header-hamburger-icon"><span></span><span></span><span></span></div>
+	<div id="nav-icon" class="header-hamburger-icon white"><span></span><span></span><span></span></div>
 </header>
 
 <div id="nav-main" class="header-nav-container">
