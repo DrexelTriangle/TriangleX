@@ -81,11 +81,13 @@
 		margin-left: 0px;
 		margin-right: 0px;
 		margin-bottom: 15px;
+		//max-width: 900px;
+		width: 100%;
 		
 		img
 		{
 			height: auto;
-			width: auto;
+			max-width: 100%;
 		}
 		
 		figcaption

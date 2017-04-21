@@ -15,23 +15,59 @@ $cat = get_queried_object();
 
 <div class="category-title"><?php single_cat_title('', true); ?></div>
 
+<div class="generic-container">
+	<div class="category-highlights-container">
+		<?php
+			$query = new WP_Query(array('posts_per_page' => 2, 'offset' => 0, 'cat' => $cat->term_id));
+
+			while($query->have_posts())
+			{
+				$query->the_post();
+				$link = get_permalink();
+				
+				printf('<li>');
+				printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail());
+				printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+				printf('<div class="category-tease">%1$s</div>', get_the_summary($post->ID));
+				printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
+				printf('</li>');
+			}
+		?>
+		
+		<div class="category-highlights-right">
+			<?php
+				$query = new WP_Query(array('posts_per_page' => 2, 'offset' => 2, 'cat' => $cat->term_id));
+				
+				while($query->have_posts())
+				{
+					$query->the_post();
+					$link = get_permalink();
+					
+					printf('<li>');
+					printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+					printf('<div class="category-tease">%1$s %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID));
+					printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
+					printf('</li>');
+				}
+			?>
+		</div>
+	</div>
+</div>	
+
 <div class="generic-flex-container">
 	<main class="flex-main">
-		<?php
-			$posts = get_posts(array('posts_per_page' => 15, 'offset' => 0, 'category' => $cat->term_id));
+		<?php			
+			$query = new WP_Query(array('posts_per_page' => 15, 'offset' => 4, 'cat' => $cat->term_id));
 			
-			foreach($posts as $post)
+			while($query->have_posts())
 			{
-				the_post();
-				setup_postdata($post);
+				$query->the_post();
 				
-				$postID = $post->ID;
-				$title = get_the_title($postID);
-				$link = get_permalink($postID);
-				$date = get_the_date('M. j, Y', $postID);
+				$title = get_the_title();
+				$link = get_permalink();
+				$date = get_the_date('M. j, Y');
 				$authors = coauthors_posts_links(null, null, null, null, false);
-				$excerpt = get_the_excerpt($postID);
-				$excerpt = get_the_excerpt($postID);
+				$excerpt = get_the_summary($post->ID);
 				$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
 				
 				echo '<div class="category-post">';
@@ -42,8 +78,8 @@ $cat = get_queried_object();
 				// Middle box flex - headline, author, and excerpt
 				echo '<div class="category-post-info">';
 				printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
-				printf('<div class="category-author">By %1$s</div>', $authors);
 				printf('<div class="category-tease">%1$s</div>', $excerpt);
+				printf('<div class="category-author">By %1$s</div>', $authors);
 				echo '</div>';
 				
 				// Right box - thumbnail

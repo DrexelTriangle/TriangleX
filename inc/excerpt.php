@@ -35,4 +35,18 @@ function triangle_x_excerpt($text, $raw_excerpt)
 }
 add_filter('get_the_excerpt', 'triangle_x_excerpt', 20, 2);
 
+function get_the_summary($id)
+{
+	$value = get_field("summary", $id);
+
+	if($value)
+	{		
+		return $value;
+	}
+	else
+	{		
+		return get_the_excerpt($id);
+	}
+}
+
 ?>

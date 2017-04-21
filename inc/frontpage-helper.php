@@ -40,6 +40,34 @@ function get_frontpage_feature()
 	}
 }
 
+// Gets first sponsored article
+function get_sponsored_message()
+{
+	$posts = get_posts(array('posts_per_page' => 1, 'offset' => 0, 'category' => 'sponsored-article'));
+			
+	foreach($posts as $post)
+	{
+		the_post();
+		setup_postdata($post);
+		
+		$postID = $post->ID;
+		$title = get_the_title($postID);
+		$link = get_permalink($postID);
+		$date = get_the_date('M. j, Y', $postID);
+		$sponsor = get_the_author($postID);
+		$excerpt = get_the_excerpt($postID);
+		$excerpt = get_the_excerpt($postID);
+		$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
+		
+		printf($thumb);
+		echo '<div class="category-post-info">';
+		printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
+		printf('<div class="category-author">Sponsored by %1$s</div>', $sponsor);
+		printf('<div class="category-tease">%1$s</div>', $excerpt);
+		echo '</div>';
+	}
+}
+
 // Prints out results from specified category without thumbnails
 function populate_category($cat, $numPosts)
 {
@@ -65,20 +93,19 @@ function populate_category($cat, $numPosts)
 // Prints out results from specified category with thumbnails
 function populate_category_include_thumbnails($cat, $numPosts, $ulClass = '')
 {
-	$posts = [];
-	$posts = get_posts(array('posts_per_page' => $numPosts, 'offset' => 0, 'category_name' => $cat));
+	$query = new WP_Query(array('posts_per_page' => $numPosts, 'offset' => 0, 'category_name' => $cat));
 	
 	echo '<ul class="frontpage-item-container ' . $ulClass . '">';
 	
-	foreach ($posts as $post)
+	while($query->have_posts())
 	{
+		$query->the_post();
 		$postID = $post->ID;
-		setup_postdata($post);
 		
 		echo '<li class="frontpage-item-thumbnail ' . $ulClass . '">';
 		if(has_post_thumbnail($postID))
 		{
-			printf('<a href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_post_thumbnail($postID));
+			printf('<a href="%1$s">%2$s</a>', get_the_permalink($postID), the_post_thumbnail());
 			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y', $postID));
 			printf('<a class="link" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
 		}
@@ -86,7 +113,7 @@ function populate_category_include_thumbnails($cat, $numPosts, $ulClass = '')
 		{
 			printf('<a class="link-big" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
 			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y', $postID));
-			printf('<p>%1$s</p>', get_the_excerpt($post));
+			printf('<p>%1$s</p>', get_the_summary($postID));
 		}
 		echo '</li>';
 	}

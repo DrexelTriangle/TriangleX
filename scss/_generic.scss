@@ -20,23 +20,28 @@
 	margin: auto;
 	margin-bottom: 50px;
 	max-width: 1280px;
+	min-width: 0;
 	overflow: hidden;
 	width: 90%;
 	
 	.flex-main
 	{
-		flex-grow: 1;
+		flex: 1 0;
+		min-width: 0;
 		padding-right: 20px;
+		overflow: hidden;
 	}
 	
 	.flex-sidebar
 	{
 		border-left: 1px solid lightgrey;
+		flex: 0 0 300px;
 		padding-left: 20px;
 	}
 	
 	@media screen and (max-width: $screen-target-min)
 	{
+		flex-direction: row;
 		flex-wrap: wrap;
 		overflow: hidden;
 		padding: 0px;
@@ -45,7 +50,6 @@
 		.flex-main
 		{
 			@include box-sizing(border-box);
-			flex-direction: row;
 			overflow: hidden;
 			padding: 10px;
 			width: 100%;

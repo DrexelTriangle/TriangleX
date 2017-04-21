@@ -45,9 +45,9 @@ if (!function_exists('triangle_x_setup'))
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support('post-thumbnails');
-		add_image_size('front-page-tease', 580, 400, true);
-		add_image_size('single-post-jumbotron', 2400, 840, true);
-		add_image_size('single-post-feature', 1480, 560, true);
+		add_image_size('standard-monitor', 1280, 960, true);
+		add_image_size('hd-video', 1280, 720, true);
+		add_image_size('feature-jumbotron', 1480, 560, true);
 		add_image_size('169-preview-large', 1600, 900, true);
 		add_image_size('169-preview-medium', 800, 450, true);
 		add_image_size('169-preview-small', 400, 225, true);
@@ -124,6 +124,7 @@ function triangle_x_scripts()
 	
 	wp_enqueue_style('triangle-x-style', get_stylesheet_uri());
 	wp_enqueue_script('triangle-x-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
+	wp_enqueue_script('triangle-x-nocopy', get_template_directory_uri() . '/js/noCopy.js', array(), '20151215', true);
 	wp_enqueue_script('triangle-x-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments'))

@@ -8,6 +8,15 @@ $(document).ready(function()
 		evt.stopImmediatePropagation();
 	});
 	
+	// Change logo depending on screen size
+	$(window).resize(function(){
+		if ($(window).width() <= 800)
+		{	
+			$('#triangle-logo').text("T");
+			$('#menu-notif').toggle();
+		}
+	});
+	
 	// Global search - Open and focus search box when search icon is clicked
 	/*$('#search-icon').click(function(evt)
 	{

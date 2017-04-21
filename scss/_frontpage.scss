@@ -22,7 +22,6 @@
 		border-bottom: 1px solid black;
 		border-top: 2px solid black;
 		@include display-flex();
-		//flex-wrap: nowrap;
 		list-style-type: none;
 		margin-top: 15px;
 		padding: 0;
@@ -92,6 +91,11 @@
 		font-weight: bold;
 		text-decoration: none;
 	}
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		visibility: hidden;
+	}
 }
 
 .wrapper-frontpage
@@ -133,12 +137,13 @@
 	justify-content: space-around;
 	padding: 0px;
 	width: 100%;
-	
-	&.single
-	{
-		//height: 300px;
-		//overflow: hidden;
-	}
+}
+
+.frontpage-item-container.single
+{
+	align-items: stretch;
+	display: flex;
+	flex-wrap: none;
 }
 
 .frontpage-feature
@@ -233,11 +238,6 @@
 	vertical-align: top;
 	width: 231px;
 	
-	&.single
-	{
-		padding: 5px;
-	}
-	
 	img
 	{
 		background-image: url(images/backgrounds/bg-story-sm.png);
@@ -268,6 +268,21 @@
 	a:hover
 	{
 		text-decoration: underline;
+	}
+}
+
+.frontpage-item-thumbnail.single
+{
+	@include flex(1);
+	margin: 0px;
+	padding: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	
+	img
+	{
+		height: auto;
+		width: 100%;
 	}
 }
 

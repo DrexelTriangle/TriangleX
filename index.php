@@ -30,6 +30,8 @@ get_header(); ?>
 </div>
 
 <div class="generic-wrapper">
+	<?php insert_ad('Global Banner Inline', 'banner-top'); ?>
+
 	<header id="header-frontpage" class="frontpage-header">
 		<div id="logo-frontpage" class="logo-frontpage"><?php bloginfo('name'); ?></div>
 		<nav>
@@ -38,7 +40,7 @@ get_header(); ?>
 					wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'frontpage'));
 				else
 					// Display error message if menu "main" has not been defined within WordPress
-					echo '<div class="menu-main-container"><ul class="frontpage"><li>Menu "main" is not defined!</li></ul>';
+					echo '<div class="menu-main-container"><ul class="frontpage"><li>Menu "main" is not defined!</li></ul></div>';
 			?>
 		</nav>
 	</header>
@@ -53,7 +55,12 @@ get_header(); ?>
 			<?php populate_category('opinion', 6); ?>
 		</section>
 		
-		<?php insert_ad('Global Banner Inline', 'banner-inline'); ?>
+		<section id="frontpage-sponsor" class="ad-container-sponsor-frontpage">
+			<div class="category-post" style="border: none">
+				<?php get_sponsored_message(); ?>
+			</div>
+			<p class="ad-disclaimer">Advertisement</p>
+		</section>
 		
 		<section id="frontpage-category-news" class="frontpage-category-main">
 			<h1 class="frontpage-category-title"><a href="news">News</a></h1>
@@ -66,7 +73,12 @@ get_header(); ?>
 	</div>-->
 	
 	<div class="generic-flex-container">		
-		<main class="flex-main">			
+		<main class="flex-main">
+			<section id="section-opinion" class="frontpage-category-main">
+				<h1 class="frontpage-category-title"><a href="opinion">Opinion</a></h1>
+				<?php populate_category_include_thumbnails('opinion', 6); ?>
+			</section>
+		
 			<section id="section-entertainment" class="frontpage-category-main">
 				<h1 class="frontpage-category-title"><a href="entertainment">Arts & Entertainment</a></h1>
 				<?php populate_category_include_thumbnails('entertainment', 6); ?>
@@ -92,14 +104,16 @@ get_header(); ?>
 				<?php get_template_part('template-parts/sidebar-newsletter'); ?>
 			</div>
 			
-			<!--<div id="podcasts" class="sidebar-item">
+			<div id="podcasts" class="sidebar-item">
 				<div class="sidebar-title">Podcasts</div>
 				Put latest podcasts here?
-			</div>-->
+			</div>
 			
 			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
 		</aside>
 	</div>
+	
+	<?php insert_ad('Global Banner Inline', 'banner-bottom'); ?>
 </div>
 
 <?php get_footer(); ?>

@@ -13,7 +13,7 @@
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
-<div id="post-<?php the_ID(); ?>" class="generic-container">	
+<div class="generic-container" style="margin-bottom: 0px;">
 	<div class="single-title">
 		<?php
 			the_title('<h1>', '</h1>');
@@ -38,22 +38,48 @@
 			}
 		?>
 	</div>
+</div>
 
-	<div class="article-image">
+<div id="post-<?php the_ID(); ?>" class="generic-flex-container">
+	<main class="flex-main">
+		<div class="article-image">
+			
+		</div>
 		
-	</div>
+		<article class="single-content">
+			<?php the_content(); ?>
+		</article>
+		
+		<div class="single-comments">
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template.
+				if(comments_open() || get_comments_number())
+					comments_template();
+			?>
+		</div>
+	</main>
 	
-	<article class="single-content">
-		<?php the_content(); ?>
-	</article>
-	
-	<div class="single-comments">
-		<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if(comments_open() || get_comments_number())
-				comments_template();
-		?>
-	</div>
+	<aside class="flex-sidebar">
+		<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			
+		<div id="poll" class="sidebar-item">
+			<div class="sidebar-poll">
+				<div class="sidebar-title">Weekly Poll</div>
+				<?php get_poll(); ?>
+			</div>
+		</div>
+		
+		<div id="newsletter" class="sidebar-item">
+			<?php get_template_part('template-parts/sidebar-newsletter'); ?>
+		</div>
+		
+		<!--<div id="podcasts" class="sidebar-item">
+			<div class="sidebar-title">Podcasts</div>
+			Put latest podcasts here?
+		</div>-->
+		
+		<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+	</aside>
 </div>
 
 <?php insert_ad('Global Banner Bottom', 'banner-bottom'); ?>

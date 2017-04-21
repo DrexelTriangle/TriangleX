@@ -11,7 +11,7 @@
 
 .ad-container-banner-top
 {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid lightgrey;
 	margin: auto;
 	margin-bottom: 20px;
 	margin-top: 20px;
@@ -40,7 +40,7 @@
 
 .ad-container-banner-bottom
 {
-	border-top: 1px solid black;
+	border-top: 1px solid lightgrey;
 	margin: auto;
 	margin-top: 20px;
 	max-width: 1280px;
@@ -49,4 +49,16 @@
 	padding-top: 10px;
 	text-align: center;
 	width: 90%;
+}
+
+.ad-container-sponsor-frontpage
+{
+	border: 1px solid green;
+	margin: 10px;
+	padding: 15px;
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		display: none;
+	}
 }

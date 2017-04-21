@@ -34,7 +34,8 @@
 	</div>-->
 	
 	<div class="header-logo">
-		<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+		<a id="triangle-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+		<a id="menu-notif" style="color: white; font-size: 12px; right: 60px; position: absolute;">Menu</a>
 	</div>
 
 	<div id="nav-icon" class="header-hamburger-icon white"><span></span><span></span><span></span></div>
