@@ -22,16 +22,12 @@
 <body>
 <?php insert_breaking_news(); ?>
 
+<?php get_template_part('template-parts/search-modal'); ?>
+
 <header id="header-global" class="<?php is_front_page() ? print('header-global hidden') : print('header-global') ?>" role="banner">
 	<div id="search-icon" class="header-search-icon white">
 		<i class="material-icons md-36">search</i>
 	</div>
-	
-	<!--<div id="search-main" class="header-search">
-		<form role="search" method="get" class="search-form" action="http://thetriangle/">
-			<input id="searchbox-main" type="search" class="search-field" placeholder="Search..." value="" name="s">
-		</form>
-	</div>-->
 	
 	<div class="header-logo">
 		<a id="triangle-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
