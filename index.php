@@ -50,9 +50,9 @@ get_header(); ?>
 			<?php get_frontpage_feature(); ?>
 		</section>
 		
-		<section id="frontpage-category-opinion" class="frontpage-category-side">
-			<h1 class="frontpage-category-title"><a href="opinion">Opinion</a></h1>
-			<?php populate_category('opinion', 6); ?>
+		<section id="frontpage-category-popular" class="frontpage-category-side">
+			<h1 class="frontpage-category-title">Most Popular</h1>
+			<?php populate_most_popular(6); ?>
 		</section>
 		
 		<section id="frontpage-sponsor" class="ad-container-sponsor-frontpage">
@@ -104,10 +104,10 @@ get_header(); ?>
 				<?php get_template_part('template-parts/sidebar-newsletter'); ?>
 			</div>
 			
-			<div id="podcasts" class="sidebar-item">
+			<!--<div id="podcasts" class="sidebar-item">
 				<div class="sidebar-title">Podcasts</div>
 				Put latest podcasts here?
-			</div>
+			</div>-->
 			
 			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
 		</aside>

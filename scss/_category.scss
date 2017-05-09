@@ -156,3 +156,25 @@
 	font-family: $triangle-font-copy;
 	margin-top: 8px;
 }
+
+.category-pagination
+{
+	padding: 10px;
+
+	a
+	{
+		color: black;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	
+	a:hover
+	{
+		text-decoration: underline;
+	}
+
+	.next
+	{
+		float: right;
+	}
+}

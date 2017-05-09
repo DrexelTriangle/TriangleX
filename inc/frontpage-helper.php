@@ -23,12 +23,12 @@ function get_frontpage_feature()
 		{
 			$query_featured->the_post();
 			$postID = get_the_ID();
-			$thumb = get_the_post_thumbnail($post);
+			$thumb = get_the_post_thumbnail();
 			$title = get_the_title();
 			$category = get_the_category();
 			$excerpt = get_the_excerpt();
 			$author = get_the_author_link();
-			$date = get_the_date();
+			$date = get_the_date('M. j, Y');
 			$link = get_permalink();
 			$catName = $category[0]->cat_name;
 			
@@ -44,28 +44,54 @@ function get_frontpage_feature()
 function get_sponsored_message()
 {
 	$posts = get_posts(array('posts_per_page' => 1, 'offset' => 0, 'category' => 'sponsored-article'));
-			
-	foreach($posts as $post)
+	
+	if (!empty($posts))
 	{
-		the_post();
-		setup_postdata($post);
-		
-		$postID = $post->ID;
-		$title = get_the_title($postID);
-		$link = get_permalink($postID);
-		$date = get_the_date('M. j, Y', $postID);
-		$sponsor = get_the_author($postID);
-		$excerpt = get_the_excerpt($postID);
-		$excerpt = get_the_excerpt($postID);
-		$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
-		
-		printf($thumb);
-		echo '<div class="category-post-info">';
-		printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
-		printf('<div class="category-author">Sponsored by %1$s</div>', $sponsor);
-		printf('<div class="category-tease">%1$s</div>', $excerpt);
-		echo '</div>';
+		foreach($posts as $post)
+		{
+			the_post();
+			setup_postdata($post);
+			
+			$postID = $post->ID;
+			$title = get_the_title($postID);
+			$link = get_permalink($postID);
+			$date = get_the_date('M. j, Y', $postID);
+			$sponsor = get_the_author($postID);
+			$excerpt = get_the_excerpt($postID);
+			$excerpt = get_the_excerpt($postID);
+			$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
+			
+			printf($thumb);
+			echo '<div class="category-post-info">';
+			printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
+			printf('<div class="category-author">Sponsored by %1$s</div>', $sponsor);
+			printf('<div class="category-tease">%1$s</div>', $excerpt);
+			echo '</div>';
+		}
 	}
+}
+
+function populate_most_popular($numPosts)
+{
+	if(function_exists('stats_get_csv'))
+	{
+        $popular = stats_get_csv('postviews', array('days' => 2, 'limit' => $numPosts));
+		
+        echo '<ul class="frontpage-item-container">';
+		
+        foreach ($popular as $p)
+		{			
+			echo '<li class="frontpage-item-list">';
+			printf('<a class="link" href="%1$s">%2$s</a>', $p['post_permalink'], $p['post_title']);
+			//printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', $p['post_author'], get_the_date('M. j, Y', $postID));
+			printf('<div class="frontpage-postinfo">By %1$s</div>', $p['post_author']);
+			echo '</li>';
+        }
+        
+		echo '</ul>';
+	}
+	else
+		echo("No popular posts found. Check Jetpack connection.");
 }
 
 // Prints out results from specified category without thumbnails
@@ -105,7 +131,7 @@ function populate_category_include_thumbnails($cat, $numPosts, $ulClass = '')
 		echo '<li class="frontpage-item-thumbnail ' . $ulClass . '">';
 		if(has_post_thumbnail($postID))
 		{
-			printf('<a href="%1$s">%2$s</a>', get_the_permalink($postID), the_post_thumbnail());
+			printf('<a href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_post_thumbnail($postID));
 			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y', $postID));
 			printf('<a class="link" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
 		}
