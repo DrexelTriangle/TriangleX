@@ -41,7 +41,7 @@
 	
 	@media screen and (max-width: $screen-target-min)
 	{
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap;
 		overflow: hidden;
 		padding: 0px;

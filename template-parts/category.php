@@ -24,12 +24,14 @@ $cat = get_queried_object();
 			{
 				$query->the_post();
 				$link = get_permalink();
+				$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
 				
 				printf('<li>');
 				printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail());
 				printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
 				printf('<div class="category-tease">%1$s</div>', get_the_summary($post->ID));
-				printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
+				//printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
+				printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
 				printf('</li>');
 			}
 		?>
@@ -42,11 +44,13 @@ $cat = get_queried_object();
 				{
 					$query->the_post();
 					$link = get_permalink();
+					$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
 					
 					printf('<li>');
 					printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
-					printf('<div class="category-tease">%1$s %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID));
-					printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
+					printf('<div class="category-tease"><a href="%3$s">%1$s</a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
+					//printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
+					printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
 					printf('</li>');
 				}
 			?>
@@ -83,7 +87,7 @@ $cat = get_queried_object();
 				echo '</div>';
 				
 				// Right box - thumbnail
-				printf($thumb);
+				printf('<a href="%1$s">%2$s</a>', $link, $thumb);
 				
 				echo '</div>';
 			}
@@ -96,19 +100,37 @@ $cat = get_queried_object();
 	</main>
 
 	<aside class="flex-sidebar">
-		<div id="subsections" class="sidebar-item">
-			<?php get_template_part('template-parts/sidebar-subsections'); ?>
-		</div>
-	
 		<div id="ad-sidebar" style="margin-bottom:25px;">
 			<?php
 				if(function_exists('drawAdsPlace'))
 							drawAdsPlace(array('name' => 'Global Medium Rectangle Sidebar'), false);
 			?>
 		</div>
+	
+		<div id="subsections" class="sidebar-item">
+			<?php get_template_part('template-parts/sidebar-subsections'); ?>
+		</div>
 
 		<div id="most-recent" class="sidebar-item">
 			<?php get_template_part('template-parts/sidebar-recent'); ?>
+		</div>
+		
+		<div id="poll" class="sidebar-item">
+			<div class="sidebar-poll">
+				<div class="sidebar-title">Weekly Poll</div>
+				<?php get_poll(); ?>
+			</div>
+		</div>
+		
+		<div id="newsletter" class="sidebar-item">
+			<?php get_template_part('template-parts/sidebar-newsletter'); ?>
+		</div>
+		
+		<div id="ad-sidebar" style="margin-bottom:25px;">
+			<?php
+				if(function_exists('drawAdsPlace'))
+							drawAdsPlace(array('name' => 'Global Medium Rectangle Sidebar'), false);
+			?>
 		</div>
 	</aside>
 </div>

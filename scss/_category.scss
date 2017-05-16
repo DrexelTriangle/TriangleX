@@ -38,18 +38,6 @@
 		padding-right: 15px;
 		width: 25%;
 	}
-	
-	@media screen and (max-width: $screen-target-min)
-	{
-		li
-		{
-			border: none !important;
-			padding-bottom: 30px !important;
-			padding-left: 0px !important;
-			padding-right: 0px !important;
-			width: 100% !important;
-		}
-	}
 }
 
 .category-highlights-right
@@ -104,6 +92,7 @@
 
 .category-date
 {
+	color: grey;
 	display: inline-block;
 	font-family: $triangle-font-main;
 	font-size: 12px;
@@ -138,7 +127,6 @@
 	color: grey;
 	font-family: $triangle-font-main;
 	font-size: 12px;
-	//height: 24px;
 	line-height: 12px;
 	margin-top: 11px;
 	
@@ -176,5 +164,39 @@
 	.next
 	{
 		float: right;
+	}
+}
+
+@media screen and (max-width: $screen-target-min)
+{
+	.category-post,
+	.category-highlights-container,
+	.category-highlights-container li,
+	.category-highlights-right
+	{
+		border-bottom: 1px solid lightgrey;
+		border-left: none !important;
+		border-right: none !important;
+		padding-bottom: 30px !important;
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+		padding-top: 30px !important;
+		width: 100% !important;
+	}
+	
+	.category-post-info
+	{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	img
+	{
+		display: none;
+	}
+	
+	.category-date
+	{
+		display: none;
 	}
 }
