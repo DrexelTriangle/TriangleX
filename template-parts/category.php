@@ -100,11 +100,8 @@ $cat = get_queried_object();
 	</main>
 
 	<aside class="flex-sidebar">
-		<div id="ad-sidebar" style="margin-bottom:25px;">
-			<?php
-				if(function_exists('drawAdsPlace'))
-							drawAdsPlace(array('name' => 'Global Medium Rectangle Sidebar'), false);
-			?>
+		<div class="sidebar-item">
+			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
 		</div>
 	
 		<div id="subsections" class="sidebar-item">
@@ -126,11 +123,8 @@ $cat = get_queried_object();
 			<?php get_template_part('template-parts/sidebar-newsletter'); ?>
 		</div>
 		
-		<div id="ad-sidebar" style="margin-bottom:25px;">
-			<?php
-				if(function_exists('drawAdsPlace'))
-							drawAdsPlace(array('name' => 'Global Medium Rectangle Sidebar'), false);
-			?>
+		<div class="sidebar-item">
+			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
 		</div>
 	</aside>
 </div>

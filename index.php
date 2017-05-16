@@ -91,7 +91,9 @@ get_header(); ?>
 		</main>
 		
 		<aside class="flex-sidebar">
-			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			<div class="sidebar-item">
+				<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			</div>
 			
 			<div id="poll" class="sidebar-item">
 				<div class="sidebar-poll">
@@ -109,7 +111,9 @@ get_header(); ?>
 				Put latest podcasts here?
 			</div>-->
 			
-			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			<div class="sidebar-item">
+				<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			</div>
 		</aside>
 	</div>
 	
