@@ -13,7 +13,8 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1">
+	<!--<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
 	<?php wp_head(); ?>
@@ -32,6 +33,12 @@
 	<div class="header-logo">
 		<a id="triangle-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
 		<a id="menu-notif" style="color: white; font-size: 12px; right: 60px; position: absolute;">Menu</a>
+	</div>
+	
+	<div class="header-logo-image">
+		<div class="img-container">
+			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '//images/tri-icon.png'; ?>"></img></a>
+		</div>
 	</div>
 
 	<div id="nav-icon" class="header-hamburger-icon white"><span></span><span></span><span></span></div>

@@ -3,7 +3,6 @@
 	background-color: $triangle-color-blue;
 	display: flex;
 	height: 55px;
-	min-width: 465px;
 	overflow: hidden;
 	position: fixed;
 	top: 0px;
@@ -17,6 +16,12 @@
 		overflow: hidden;
 		top: -55px;
 		@include transition(.4s ease-in-out);
+		
+		@media screen and (max-width: $screen-target-min)
+		{
+			height: 55px;
+			top: 0px;
+		}
 	}
 }
 
@@ -75,6 +80,30 @@
 		font-family: $triangle-font-logo;
 		font-size: 40px;
 		text-decoration: none;
+	}
+}
+
+.header-logo-image
+{
+	display: none;
+	flex: 1;
+	height: 55px;
+	
+	.img-container
+	{
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	
+	img
+	{
+		flex: 1;
+		height: 45px;
+		vertical-align: middle;
+		width: auto;
 	}
 }
 
@@ -278,5 +307,18 @@
 				border: none;
 			}
 		}
+	}
+}
+
+@media screen and (max-width: $screen-target-min)
+{
+	.header-logo
+	{
+		display: none;
+	}
+	
+	.header-logo-image
+	{
+		display: inline;
 	}
 }

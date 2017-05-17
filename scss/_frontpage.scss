@@ -74,6 +74,11 @@
 	top: 0px;
 	width: 100%;
 	z-index: 2;
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		display: none;
+	}
 }
 
 .frontpage-navbar-links
