@@ -110,3 +110,35 @@
 	text-align: center;
 	width: 100%;
 }
+
+@media screen and (max-width: $screen-target-min)
+{
+	.footer-tagline,
+	.footer-nav-container,
+	.footer-copyright,
+	.footer-disclaimer
+	{
+		display: none;
+	}
+	
+	.footer-wrapper
+	{
+		margin-bottom: 25px;
+		margin-top: 25px;
+	}
+	
+	.footer-branding
+	{
+		display: inline;
+		width: 100%;
+	}
+	
+	.footer-branding.logo,
+	.footer-social
+	{
+		display: inline-block;
+		padding: 0px;
+		text-align: center;
+		width: 100%;
+	}
+}
