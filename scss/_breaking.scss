@@ -1,0 +1,61 @@
+.marquee
+{
+	background-color: #cc0000;
+	color: white;
+	height: 45px;
+	margin-bottom: -55px;
+	margin-top: 55px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+.marquee div
+{
+	animation: marquee 25s linear infinite;
+	display: block;
+	font-size: 24px;
+	height: 45px;
+	line-height: 45px;
+	overflow: hidden;
+	position: absolute;
+	width: 200%;
+	
+	&:hover
+	{
+		animation-play-state: paused;
+	}
+}
+
+.marquee span
+{
+	float: left;
+	width: 50%;
+}
+
+@keyframes marquee
+{
+	0% { left: 0; }
+	100% { left: -100%; }
+}
+
+.breaking-notification
+{
+	display: inline-block;
+	font-family: $triangle-font-main;
+	font-weight: bold;
+}
+
+.breaking-headline
+{
+	color: white;
+	display: inline-block;
+	font-family: $triangle-font-main;
+	font-weight: normal;
+	text-decoration: none;
+	
+	&:hover
+	{
+		text-decoration: underline;
+	}
+}

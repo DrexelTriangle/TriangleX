@@ -167,9 +167,7 @@ function insert_breaking_news()
 	{
 		$i = 1;
 		$post_count = $query_breaking->post_count;
-		
-		echo '<div class="header-breaking">';
-		echo '<b>Breaking News! </b>';
+		$span = '';
 
 		while($query_breaking->have_posts())
 		{
@@ -178,7 +176,8 @@ function insert_breaking_news()
 			// Make sure any breaking news items aren't duplicated, using our array.
 			$do_not_duplicate[] = $post->ID; 
 			
-			printf('<a href=%1$s>%2$s</a>', get_the_permalink(), get_the_title());
+			// Concatenate breaking news stories into one string
+			$span .= sprintf('<span class="breaking-notification">Breaking News: <a class="breaking-headline" href=%1$s>%2$s</a></span>', get_the_permalink(), get_the_title());
 			
 			// Use our count to add an elipsis to the end of each title except the last one.
 			if($i < $post_count)
@@ -186,8 +185,12 @@ function insert_breaking_news()
 			
 			$i++;
 		}
-			
-		echo '</div>';
+		
+		// Echo marquee with duplaicated spans
+		echo '<div class="marquee"> <div>';
+		echo $span;
+		echo $span;
+		echo '</div> </div>';
 	}
 }
 
