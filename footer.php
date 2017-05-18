@@ -43,12 +43,44 @@
 						<i class="fa fa-youtube-play fa-stack-1x"></i>
 					</span>
 				</a>
+				<a href="http://thetriangle.us2.list-manage.com/subscribe/post?u=6eb4aab81745d3436b16a6181&id=7389750c95" target="_blank">
+					<span class="fa-stack fa-1x">
+						<i class="fa fa-circle fa-stack-2x" style="color: #07294D;"></i>
+						<i class="fa fa-envelope-o fa-stack-1x"></i>
+					</span>
+				</a>
+			</div>
+			
+			<div class="footer-tagline">
+				THE INDEPENDENT STUDENT NEWSPAPER AT DREXEL UNIVERSITY SINCE 1926
 			</div>
 		</div>
+		
+		<nav class="footer-nav-container">
+			<ul class="footer-nav-links">
+				<a href="/" rel="Home">Home</a> |
+				<a href="news" rel="News">News</a> |
+				<a href="opinion" rel="Opinion">Opinion</a> |
+				<a href="entertainment" rel="Arts and Entertainment">A&E</a> |
+				<a href="sports" rel="Sports">Sports</a> |
+				<a href="style" rel="Style">Style</a> |
+				<a href="about" rel="About">About Us</a> |
+				<a href="staff" rel="Staff">Staff Directory</a> |
+				<a href="advertising" rel="Advertising">Advertising</a> |
+				<a href="classifieds" rel="Classifieds">Classifieds</a> |
+				<a href="join" rel="Join">Join</a> |
+				<a href="contact" rel="Contact">Contact</a> |
+				<a href="feed" rel="RSS Feed">RSS</a>
+			</ul>
+		</nav>
 	</div>
 	
 	<div class="footer-copyright">
 		&copy<?php echo date("Y"); ?> The Triangle. All rights are reserved, except where otherwise noted.
+	</div>
+	
+	<div class="footer-disclaimer">
+		The Triangle is an independent student organization and is not owned nor operated by Drexel University.
 	</div>
 </footer>
 

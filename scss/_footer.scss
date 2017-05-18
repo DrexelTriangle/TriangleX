@@ -1,7 +1,6 @@
 .footer-wrapper
 {
 	border-top: 6px solid $triangle-color-blue;
-	min-height: 250px;
 	width: 100%;
 }
 
@@ -10,21 +9,19 @@
 	height: 100%;
 	margin: auto;
 	max-width: 1280px;
-	min-height: 234px;
 	width: 90%;
 }
 
 .footer-branding
 {
 	display: flex;
-	height: 36px;
-	padding-top: 10px;
+	height: 50px;
 	width: 100%;
 	
 	.logo
 	{
-		height: 36px;
-		line-height: 36px;
+		height: 100%;
+		line-height: 50px;
 		text-transform: uppercase;
 		
 		a
@@ -41,7 +38,9 @@
 {
 	flex: 1;
 	font-size: 20px;
+	height: 100%;
 	padding-left: 35px;
+	padding-top: 5px;
 	
 	i
 	{
@@ -50,13 +49,62 @@
 	}
 }
 
+.footer-tagline
+{
+	font-family: $triangle-font-main;
+	font-size: 14px;
+	line-height: 50px;
+}
+
+.footer-nav-container
+{
+	margin-bottom: 35px;
+	margin-top: 35px;
+	text-align: center;
+	width: 100%;
+}
+
+.footer-nav-links
+{
+	display: inline;
+	padding: 0;
+	width: 100%;
+
+	a
+	{
+		color: black;
+		height: 55px;
+		font-family: $triangle-font-main;
+		font-size: 12px;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	
+	a:hover
+	{
+		text-decoration: underline;
+	}
+}
+
 .footer-copyright
 {
-	align: bottom;
-	border-top: 1px solid grey;
 	color: grey;
 	height: 16px;
 	font-size: 14px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+.footer-disclaimer
+{
+	border-top: 1px solid lightgrey;
+	color: grey;
+	height: 16px;
+	line-height: 16px;
+	font-size: 14px;
+	font-style: italic;
 	padding-bottom: 10px;
 	padding-top: 10px;
 	text-align: center;

@@ -30,8 +30,8 @@
 		li
 		{
 			@include flex(1);
-			font-family: Roboto Slab, Helvetica, Arial, sans-serif;
-			font-size: 16px;
+			font-family: $triangle-font-main;
+			font-size: 14px;
 			margin: 0;
 			padding: 0;
 			
