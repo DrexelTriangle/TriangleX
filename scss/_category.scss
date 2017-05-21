@@ -4,10 +4,8 @@
 	font-famiy: $triangle-font-main;
 	font-size: 42px;
 	font-weight: bold;
-	margin: auto;
 	margin-bottom: 25px;
-	max-width: 1280px;
-	width: 90%;
+	width: 100%;
 }
 
 .category-highlights-container
@@ -169,10 +167,65 @@
 
 @media screen and (max-width: $screen-target-min)
 {
-	.category-post,
-	.category-highlights-container,
-	.category-highlights-container li,
+	#section-articles { padding-top: 0px; }
+	
+	.category-title
+	{
+		margin-bottom: 0px;
+		padding-left: 10px;
+	}
+	
+	#section-highlights
+	{
+		margin: 0px;
+		width: 100%;
+	}
+
+	.category-highlights-container
+	{
+		border-bottom: none;
+		padding-bottom: 0px;
+		
+		li
+		{
+			border-bottom: 1px solid lightgrey !important;
+			border-left: none !important;
+			border-right: none !important;
+			margin-left: 10px !important;
+			margin-right: 10px !important;
+			padding-bottom: 30px !important;
+			padding-left: 0px !important;
+			padding-right: 0px !important;
+			padding-top: 30px !important;
+			width: 100% !important;
+		}
+	}
+	
 	.category-highlights-right
+	{
+		border-left: none !important;
+		border-right: none !important;
+		margin-left: 10px !important;
+		margin-right: 10px !important;
+		padding: 0px !important;
+		width: 100% !important;
+		
+		li
+		{
+			border-bottom: 1px solid lightgrey !important;
+			border-left: none !important;
+			border-right: none !important;
+			margin-left: 0px !important;
+			margin-right: 0px !important;
+			padding-bottom: 30px !important;
+			padding-left: 0px !important;
+			padding-right: 0px !important;
+			padding-top: 30px !important;
+			width: 100% !important;
+		}
+	}
+
+	.category-post
 	{
 		border-bottom: 1px solid lightgrey;
 		border-left: none !important;

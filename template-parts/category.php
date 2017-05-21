@@ -13,9 +13,9 @@ $cat = get_queried_object();
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
-<div class="category-title"><?php single_cat_title('', true); ?></div>
+<div id="section-highlights" class="generic-container">
+	<div class="category-title"><?php single_cat_title('', true); ?></div>
 
-<div class="generic-container">
 	<div class="category-highlights-container">
 		<?php
 			$query = new WP_Query(array('posts_per_page' => 2, 'offset' => 0, 'cat' => $cat->term_id));
@@ -59,7 +59,7 @@ $cat = get_queried_object();
 </div>	
 
 <div class="generic-flex-container">
-	<main class="flex-main">
+	<main id="section-articles" class="flex-main">
 		<?php			
 			$query = new WP_Query(array('posts_per_page' => 15, 'offset' => 4, 'cat' => $cat->term_id));
 			
