@@ -13,7 +13,9 @@ $author = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : ge
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
-<div class="category-title">Articles by <?php printf('%1$s %2$s', $author->first_name, $author->last_name); ?></div>
+<div class="generic-container">
+	<div class="category-title">Articles by <?php printf('%1$s %2$s', $author->first_name, $author->last_name); ?></div>
+</div>
 
 <div class="generic-flex-container">
 	<main class="flex-main">
