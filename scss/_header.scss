@@ -191,7 +191,7 @@
 		width: 250px;
 	}
 	
-	ul.main
+	.main
 	{
 		border-bottom: 1px solid #CCCCCC;
 		width: 100%;
@@ -227,10 +227,18 @@
 				background-color: #E1E1E0;
 				border: none;
 			}
+			
+			@media screen and (max-width: $screen-target-min)
+			{
+				a:hover
+				{
+					background-color: transparent;
+				}
+			}
 		}
 	}
 	
-	ul.sub
+	.sub
 	{
 		width: 100%;
 		overflow-x: hidden;
@@ -265,6 +273,14 @@
 			{
 				background-color: #E1E1E0;
 				border: none;
+			}
+			
+			@media screen and (max-width: $screen-target-min)
+			{
+				a:hover
+				{
+					background-color: transparent;
+				}
 			}
 		}
 	}
