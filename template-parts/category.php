@@ -15,45 +15,70 @@ $cat = get_queried_object();
 
 <div id="section-highlights" class="generic-container">
 	<div class="category-title"><?php single_cat_title('', true); ?></div>
+	
+	<?php $highlights = new WP_Query(array('posts_per_page' => 4, 'offset' => 0, 'cat' => $cat->term_id)); ?>
 
-	<div class="category-highlights-container">
-		<?php
-			$query = new WP_Query(array('posts_per_page' => 2, 'offset' => 0, 'cat' => $cat->term_id));
-
-			while($query->have_posts())
-			{
-				$query->the_post();
-				$link = get_permalink();
-				$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
-				
-				printf('<li>');
-				printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail());
-				printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
-				printf('<div class="category-tease">%1$s</div>', get_the_summary($post->ID));
-				//printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
-				printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
-				printf('</li>');
-			}
-		?>
-		
-		<div class="category-highlights-right">
-			<?php
-				$query = new WP_Query(array('posts_per_page' => 2, 'offset' => 2, 'cat' => $cat->term_id));
-				
-				while($query->have_posts())
-				{
-					$query->the_post();
+	<div class="highlights-container">
+		<div class="highlights-left">
+			<div class="story">
+				<?php
+					$highlights->the_post();
 					$link = get_permalink();
 					$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
 					
-					printf('<li>');
+					printf('<a href="%1$s"><div class="highlights-thumbnail-desktop">%2$s</div></a>', $link, get_the_post_thumbnail());
+					printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
 					printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
-					printf('<div class="category-tease"><a href="%3$s">%1$s</a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
-					//printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date());
+					printf('<div class="category-tease">%1$s</div>', get_the_summary($post->ID));
 					printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
-					printf('</li>');
-				}
-			?>
+				?>
+			</div>
+		</div>
+		
+		<div class="highlights-center">
+			<div class="story">
+				<?php
+					$highlights->the_post();
+					$link = get_permalink();
+					$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
+					
+					printf('<a href="%1$s"><div class="highlights-thumbnail-desktop">%2$s</div></a>', $link, get_the_post_thumbnail());
+					printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
+					printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+					printf('<div class="category-tease">%1$s</div>', get_the_summary($post->ID));
+					printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
+				?>
+			</div>
+		</div>
+		
+		<div class="highlights-right">
+			<div class="story">
+				<div class="highlights-right-top">
+					<?php
+						$highlights->the_post();
+						$link = get_permalink();
+						$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
+						
+						printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
+						printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+						printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
+						printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
+					?>
+				</div>
+				
+				<div class="highlights-right-bottom">
+					<?php
+						$highlights->the_post();
+						$link = get_permalink();
+						$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
+						
+						printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
+						printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+						printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
+						printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
+					?>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>	
@@ -87,7 +112,7 @@ $cat = get_queried_object();
 				echo '</div>';
 				
 				// Right box - thumbnail
-				printf('<a href="%1$s">%2$s</a>', $link, $thumb);
+				printf('<a href="%1$s"><div class="category-thumbnail">%2$s</div></a>', $link, $thumb);
 				
 				echo '</div>';
 			}

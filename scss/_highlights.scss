@@ -1,0 +1,161 @@
+.highlights-container
+{
+	border-bottom: 1px solid lightgrey;
+	@include display-flex();
+	list-style: none;
+	padding-bottom: 50px;
+}
+
+.highlights-left
+{
+	width: 45%;
+	
+	img
+	{
+		height: auto;
+		width: 100%;
+	}
+	
+	.story
+	{
+		padding-right: 15px;
+	}
+}
+
+.highlights-center
+{
+	border-left: 1px solid lightgrey;
+	border-right: 1px solid lightgrey;
+	box-sizing: border-box;
+	width: 30%;
+	
+	img
+	{
+		height: auto;
+		width: 100%;
+	}
+	
+	.story
+	{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+.highlights-right
+{
+	list-style: none;
+	width: 25%;
+	
+	img
+	{
+		float: right;
+		height: 90px;
+		padding-left: 5px;
+		width: 90px;
+	}
+	
+	.story
+	{
+		padding-left: 15px;
+	}
+}
+
+.highlights-right-top
+{
+	display: inline-block;
+	border-bottom: 1px solid lightgrey;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.highlights-right-bottom
+{
+	display: inline-block;
+	border: none;
+	padding: 0px;
+	padding-top: 15px;
+	width: 100%;
+}
+
+.highlights-thumbnail-desktop
+{
+	display: block;
+}
+
+.highlights-thumbnail-mobile
+{
+	display: none;
+}
+
+@media screen and (max-width: $screen-target-min)
+{
+	#section-highlights
+	{
+		margin: 0px;
+		width: 100%;
+	}
+
+	.highlights-container
+	{
+		border-bottom: none;
+		box-sizing: border-box;
+		flex-direction: column;
+		flex-wrap: wrap;
+		padding-bottom: 0px;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 100%;
+		
+		img
+		{
+			//display: none;
+		}
+	}
+	
+	.highlights-left,
+	.highlights-center,
+	.highlights-right
+	{
+		flex: 1;
+		border-left: none;
+		border-right: none;
+		padding-left: 0px;
+		padding-right: 0px;
+		width: 100%;
+		
+		.story
+		{
+			border-bottom: 1px solid lightgrey;
+			padding-bottom: 30px;
+			padding-left: 0px;
+			padding-right: 0px;
+			padding-top: 30px;
+			width: 100%;
+		}
+	}
+	
+	.highlights-right-top
+	{
+		padding-bottom: 30px;
+	}
+	
+	.highlights-right-bottom
+	{
+		padding-top: 30px;
+	}
+	
+	.highlights-thumbnail-desktop
+	{
+		display: none;
+	}
+
+	.highlights-thumbnail-mobile
+	{
+		display: block;
+		float: right;
+		height: 90px;
+		padding-left: 5px;
+		width: 90px;
+	}
+}

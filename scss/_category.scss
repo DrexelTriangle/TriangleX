@@ -8,68 +8,6 @@
 	width: 100%;
 }
 
-.category-highlights-container
-{
-	border-bottom: 1px solid lightgrey;
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none;
-	padding-bottom: 50px;
-	
-	img
-	{
-		height: auto;
-		width: 100%;
-	}
-	
-	li:nth-child(1)
-	{
-		padding-right: 15px;
-		width: 45%;
-	}
-	
-	li:nth-child(2)
-	{
-		border-left: 1px solid lightgrey;
-		border-right: 1px solid lightgrey;
-		padding-left: 15px;
-		padding-right: 15px;
-		width: 25%;
-	}
-}
-
-.category-highlights-right
-{
-	list-style: none;
-	padding-left: 15px;
-	width: 25%;
-	
-	img
-	{
-		float: right;
-		height: 90px;
-		padding-left: 5px;
-		width: 90px;
-	}
-	
-	li:nth-child(1)
-	{
-		display: inline-block;
-		border-bottom: 1px solid lightgrey;
-		padding-bottom: 15px;
-		width: 100%;
-	}
-	
-	li:nth-child(2)
-	{
-		display: inline-block;
-		border: none;
-		padding: 0px;
-		padding-top: 15px;
-		width: 100%;
-	}
-}
-
 .category-post
 {
 	border-bottom: 1px solid lightgrey;
@@ -174,56 +112,6 @@
 		margin-bottom: 0px;
 		padding-left: 10px;
 	}
-	
-	#section-highlights
-	{
-		margin: 0px;
-		width: 100%;
-	}
-
-	.category-highlights-container
-	{
-		border-bottom: none;
-		padding-bottom: 0px;
-		
-		li
-		{
-			border-bottom: 1px solid lightgrey !important;
-			border-left: none !important;
-			border-right: none !important;
-			margin-left: 10px !important;
-			margin-right: 10px !important;
-			padding-bottom: 30px !important;
-			padding-left: 0px !important;
-			padding-right: 0px !important;
-			padding-top: 30px !important;
-			width: 100% !important;
-		}
-	}
-	
-	.category-highlights-right
-	{
-		border-left: none !important;
-		border-right: none !important;
-		margin-left: 10px !important;
-		margin-right: 10px !important;
-		padding: 0px !important;
-		width: 100% !important;
-		
-		li
-		{
-			border-bottom: 1px solid lightgrey !important;
-			border-left: none !important;
-			border-right: none !important;
-			margin-left: 0px !important;
-			margin-right: 0px !important;
-			padding-bottom: 30px !important;
-			padding-left: 0px !important;
-			padding-right: 0px !important;
-			padding-top: 30px !important;
-			width: 100% !important;
-		}
-	}
 
 	.category-post
 	{
@@ -243,7 +131,7 @@
 		padding-right: 0px;
 	}
 	
-	.attachment-169-preview-medium
+	.category-thumbnail
 	{
 		display: none;
 	}
