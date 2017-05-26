@@ -1,0 +1,51 @@
+.text-bold
+{
+	font-weight: bold;
+}
+
+.text-headline-small
+{
+	color: black;
+	font-family: $triangle-font-headline;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.text-headline-medium
+{
+	color: black;
+	font-family: $triangle-font-headline;
+	font-size: 22px;
+	font-weight: bold;
+	text-decoration: none;
+	
+	&:hover
+	{
+		border-bottom: 2px solid black;
+	}
+}
+
+.text-headline-large
+{
+	color: black;
+	font-family: $triangle-font-headline;
+	font-size: 42px;
+	text-decoration: none;
+}
+
+.text-headline-small:hover,
+.text-headline-large:hover
+{
+	text-decoration: underline;
+}
+
+@media screen and (max-width: $screen-target-min)
+{
+	.text-headline-small,
+	.text-highline-medium,
+	.text-headline-large
+	{
+		font-size: 22px;
+		font-weight: bold;
+	}
+}

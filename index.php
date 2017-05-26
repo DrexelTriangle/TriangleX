@@ -59,7 +59,6 @@ get_header(); ?>
 			<div class="category-post" style="border: none">
 				<?php get_sponsored_message(); ?>
 			</div>
-			<p class="ad-disclaimer">Advertisement</p>
 		</section>
 		
 		<section id="frontpage-category-news" class="frontpage-category-main">

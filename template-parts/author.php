@@ -38,7 +38,7 @@ $author = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : ge
 				
 				// Middle box flex - headline, author, and excerpt
 				echo '<div class="category-post-info">';
-				printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
+				printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
 				printf('<div class="category-tease">%1$s</div>', $excerpt);
 				printf('<div class="category-author">By %1$s</div>', $authors);
 				echo '</div>';

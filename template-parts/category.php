@@ -28,7 +28,7 @@ $cat = get_queried_object();
 					
 					printf('<a href="%1$s"><div class="highlights-thumbnail-desktop">%2$s</div></a>', $link, get_the_post_thumbnail());
 					printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
-					printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+					printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
 					printf('<div class="category-tease">%1$s</div>', get_the_summary($post->ID));
 					printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
 				?>
@@ -44,7 +44,7 @@ $cat = get_queried_object();
 					
 					printf('<a href="%1$s"><div class="highlights-thumbnail-desktop">%2$s</div></a>', $link, get_the_post_thumbnail());
 					printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
-					printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+					printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
 					printf('<div class="category-tease">%1$s</div>', get_the_summary($post->ID));
 					printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
 				?>
@@ -60,7 +60,7 @@ $cat = get_queried_object();
 						$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
 						
 						printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
-						printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+						printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
 						printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
 						printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
 					?>
@@ -73,7 +73,7 @@ $cat = get_queried_object();
 						$timeSincePost = human_time_diff(get_post_time('U', true), current_time('timestamp'));
 						
 						printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
-						printf('<a class="category-headline" href="%1$s">%2$s</a>', $link, get_the_title());
+						printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
 						printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
 						printf('<div class="category-author">%1$s ago • By %2$s</div>', $timeSincePost, coauthors_posts_links(null, null, null, null, false));
 					?>
@@ -106,7 +106,7 @@ $cat = get_queried_object();
 				
 				// Middle box flex - headline, author, and excerpt
 				echo '<div class="category-post-info">';
-				printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
+				printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
 				printf('<div class="category-tease">%1$s</div>', $excerpt);
 				printf('<div class="category-author">By %1$s</div>', $authors);
 				echo '</div>';

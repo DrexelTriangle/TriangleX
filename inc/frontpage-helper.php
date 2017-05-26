@@ -33,8 +33,8 @@ function get_frontpage_feature()
 			$catName = $category[0]->cat_name;
 			
 			printf('<a href="%1$s">%2$s</a>', $link, $thumb);
-			printf('<a class="frontpage-feature-link" href="%1$s">%2$s</a>', $link, $title);
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', $author, $date);
+			printf('<a class="text-headline-large" href="%1$s">%2$s</a>', $link, $title);
+			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), $date);
 			printf('<div class="frontpage-feature-excerpt">%1$s</div>', $excerpt);
 		}
 	}
@@ -63,9 +63,10 @@ function get_sponsored_message()
 			
 			printf($thumb);
 			echo '<div class="category-post-info">';
-			printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
+			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
 			printf('<div class="category-author">Sponsored by %1$s</div>', $sponsor);
 			printf('<div class="category-tease">%1$s</div>', $excerpt);
+			printf('<p><p class="ad-disclaimer">Advertisement</p></p>');
 			echo '</div>';
 		}
 	}
@@ -82,7 +83,7 @@ function populate_most_popular($numPosts)
         foreach ($popular as $p)
 		{			
 			echo '<li class="frontpage-item-list">';
-			printf('<a class="link" href="%1$s">%2$s</a>', $p['post_permalink'], $p['post_title']);
+			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', $p['post_permalink'], $p['post_title']);
 			//printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', $p['post_author'], get_the_date('M. j, Y', $postID));
 			printf('<div class="frontpage-postinfo">By %1$s</div>', $p['post_author']);
 			echo '</li>';
@@ -108,7 +109,7 @@ function populate_category($cat, $numPosts)
 		setup_postdata($post);
 		
 		echo '<li class="frontpage-item-list">';
-		printf('<a class="link" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
+		printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
 		printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y', $postID));
 		echo '</li>';
 	}
@@ -132,13 +133,13 @@ function populate_category_include_thumbnails($cat, $numPosts, $ulClass = '')
 		if(has_post_thumbnail($postID))
 		{
 			printf('<a href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_post_thumbnail($postID));
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y', $postID));
-			printf('<a class="link" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
+			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
+			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
 		}
 		else
 		{
-			printf('<a class="link-big" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y', $postID));
+			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
+			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
 			printf('<p>%1$s</p>', get_the_summary($postID));
 		}
 		echo '</li>';
