@@ -7,9 +7,12 @@
  * @package Triangle_X
  */
 
+$do_not_duplicate = array();
+ 
 // Check to see if there are any featured articles, display the most recent one if there are
 function get_frontpage_feature()
 {
+	global $do_not_duplicate;
 	$query_featured = new WP_Query(array(
 		'meta_key' => 'featured_article',
 		'post_type' => array('post', 'snowball'),
@@ -24,6 +27,7 @@ function get_frontpage_feature()
 			$query_featured->the_post();
 			$postID = get_the_ID();
 			$link = get_permalink();
+			array_push($do_not_duplicate, $postID);
 			
 			printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail());
 			printf('<a class="text-headline-large" href="%1$s">%2$s</a>', $link, get_the_title());
@@ -112,7 +116,8 @@ function populate_category($cat, $numPosts)
 // Prints out results from specified category with thumbnails
 function populate_category_include_thumbnails($cat, $numPosts, $ulClass = '')
 {
-	$query = new WP_Query(array('posts_per_page' => $numPosts, 'offset' => 0, 'category_name' => $cat));
+	global $do_not_duplicate;
+	$query = new WP_Query(array('posts_per_page' => $numPosts, 'offset' => 0, 'category_name' => $cat, 'post__not_in' => $do_not_duplicate));
 	
 	echo '<ul class="frontpage-item-container ' . $ulClass . '">';
 	
@@ -143,12 +148,6 @@ function populate_category_include_thumbnails($cat, $numPosts, $ulClass = '')
 // Inserts breaking news alert
 function insert_breaking_news()
 {
-	// Create an array that we can refrence later to see
-	// what content has been looped through already. We'll add
-	// content to this as we move down the front page.
-	global $do_not_duplicate;
-	$do_not_duplicate = array(); 
-
 	// Check to see if we have any breaking news using custom fields
 	$query_breaking = new WP_Query(array(
 		'meta_key' => 'breaking_news',
@@ -167,7 +166,7 @@ function insert_breaking_news()
 			$query_breaking->the_post();
 			
 			// Make sure any breaking news items aren't duplicated, using our array.
-			$do_not_duplicate[] = $post->ID; 
+			//$do_not_duplicate[] = $post->ID; 
 			
 			// Concatenate breaking news stories into one string
 			$span .= sprintf('<span class="breaking-notification">Breaking News: <a class="breaking-headline" href=%1$s>%2$s</a></span>', get_the_permalink(), get_the_title());
