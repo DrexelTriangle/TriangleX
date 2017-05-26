@@ -23,19 +23,12 @@ function get_frontpage_feature()
 		{
 			$query_featured->the_post();
 			$postID = get_the_ID();
-			$thumb = get_the_post_thumbnail();
-			$title = get_the_title();
-			$category = get_the_category();
-			$excerpt = get_the_excerpt();
-			$author = get_the_author_link();
-			$date = get_the_date('M. j, Y');
 			$link = get_permalink();
-			$catName = $category[0]->cat_name;
 			
-			printf('<a href="%1$s">%2$s</a>', $link, $thumb);
-			printf('<a class="text-headline-large" href="%1$s">%2$s</a>', $link, $title);
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), $date);
-			printf('<div class="frontpage-feature-excerpt">%1$s</div>', $excerpt);
+			printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail());
+			printf('<a class="text-headline-large" href="%1$s">%2$s</a>', $link, get_the_title());
+			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
+			printf('<div class="frontpage-feature-excerpt">%1$s</div>', get_the_summary($postID));
 		}
 	}
 }
@@ -57,7 +50,6 @@ function get_sponsored_message()
 			$link = get_permalink($postID);
 			$date = get_the_date('M. j, Y', $postID);
 			$sponsor = get_the_author($postID);
-			$excerpt = get_the_excerpt($postID);
 			$excerpt = get_the_excerpt($postID);
 			$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
 			
@@ -110,7 +102,7 @@ function populate_category($cat, $numPosts)
 		
 		echo '<li class="frontpage-item-list">';
 		printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
-		printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y', $postID));
+		printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y'));
 		echo '</li>';
 	}
 	

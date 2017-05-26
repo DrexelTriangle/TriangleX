@@ -12,7 +12,9 @@ get_header(); ?>
 <div class="generic-wrapper">
 	<?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
-	<div class="category-title"><?php printf(esc_html__( 'Search Results for: %s', 'triangle-x' ), '<span>' . get_search_query() . '</span>'); ?></div>
+	<div class="generic-container">
+		<div class="category-title"><?php printf(esc_html__( 'Search Results for: %s', 'triangle-x' ), '<span>' . get_search_query() . '</span>'); ?></div>
+	</div>
 
 	<div class="generic-flex-container">
 		<main class="flex-main">
@@ -24,27 +26,22 @@ get_header(); ?>
 						the_post();
 
 						$postID = get_the_ID();
-						$title = get_the_title($postID);
 						$link = get_permalink($postID);
-						$date = get_the_date('M. j, Y', $postID);
-						$authors = coauthors_posts_links(null, null, null, null, false);
-						$excerpt = get_the_summary($postID);
-						$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
 						
 						echo '<div class="category-post">';
 						
 						// Left box - date
-						printf('<div class="category-date">%1$s</div>', esc_attr($date));
+						printf('<div class="category-date">%1$s</div>', get_the_date('M. j, Y'));
 						
 						// Middle box flex - headline, author, and excerpt
 						echo '<div class="category-post-info">';
-						printf('<a class="category-headline" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
-						printf('<div class="category-author">By %1$s</div>', $authors);
-						printf('<div class="category-tease">%1$s</div>', $excerpt);
+						printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), get_the_title());
+						printf('<div class="category-author">By %1$s</div>', coauthors_posts_links(null, null, null, null, false));
+						printf('<div class="category-tease">%1$s</div>', get_the_summary($postID));
 						echo '</div>';
 						
 						// Right box - thumbnail
-						printf('<a href="%1$s">%2$s</a>', $link,$thumb);
+						printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail($post, array('class' => '169-preview-medium')));
 						
 						echo '</div>';
 					}
