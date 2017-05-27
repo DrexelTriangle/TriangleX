@@ -19,7 +19,7 @@ get_header(); ?>
 		while (have_posts())
 		{
 			the_post();
-			get_template_part('template-parts/page', get_the_title());
+			get_template_part('template-parts/page', $post->post_name);
 		}
 	?>
 </div>
