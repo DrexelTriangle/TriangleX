@@ -272,6 +272,11 @@
 
 @media screen and (max-width: $screen-target-min)
 {
+	#frontpage-category-popular
+	{
+		display: none;
+	}
+
 	.frontpage-item-thumbnail,
 	.frontpage-item-thumbnail.single
 	{

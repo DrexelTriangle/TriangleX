@@ -42,10 +42,10 @@
 @media screen and (max-width: $screen-target-min)
 {
 	.text-headline-small,
-	.text-highline-medium,
+	.text-headline-medium,
 	.text-headline-large
 	{
 		font-size: 22px;
-		font-weight: bold;
+		font-weight: normal;
 	}
 }

@@ -66,6 +66,14 @@
 	
 	@media screen and (max-width: $screen-target-min)
 	{
-		display: none;
+		height: 100%;
+		margin: 0px;
+		margin-bottom: 10px;
+		padding-right: 15px;
+	
+		img
+		{
+			display: none;
+		}
 	}
 }
