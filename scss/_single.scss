@@ -44,8 +44,8 @@
 		display: inline-block;
 		font-family: $triangle-font-main;
 		font-size: 12px;
-		height: 100%;
-		line-height: 100%;
+		height: 50px;
+		line-height: 50px;
 		padding-left: 15px;
 	}
 }
@@ -106,4 +106,18 @@
 	max-width: 800px;
 	overflow: hidden;
 	width: 90%;
+}
+
+@media screen and (max-width: $screen-target-min)
+{
+	.single-title
+	{
+		h1 { font-size: 28px; }
+		h2 { font-size: 15px; }
+	}
+	
+	.single-meta
+	{
+		.date { float: right; }
+	}
 }
