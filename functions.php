@@ -124,6 +124,7 @@ function triangle_x_scripts()
 	
 	wp_enqueue_style('triangle-x-style', get_stylesheet_uri());
 	wp_enqueue_script('triangle-x-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
+	wp_enqueue_script('triangle-x-search', get_template_directory_uri() . '/js/search.js', array(), '20151215', true);
 	wp_enqueue_script('triangle-x-nocopy', get_template_directory_uri() . '/js/noCopy.js', array(), '20151215', true);
 	wp_enqueue_script('triangle-x-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 

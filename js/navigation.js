@@ -7,21 +7,6 @@ $(document).ready(function()
 		$('#nav-main').toggleClass('open');
 		evt.stopImmediatePropagation();
 	});
-	
-	// Global search - Open and focus search box when search icon is clicked
-	$('.header-search-icon').click(function(evt)
-	{
-		$('#search-modal').fadeToggle();
-		$('#searchbox-main').focus();
-		evt.stopImmediatePropagation();
-	});
-	
-	// Global search - Close search modal when the user clicks close button
-	$('#search-close').click(function(evt)
-	{
-		$('#search-modal').fadeToggle();
-		evt.stopImmediatePropagation();
-	});
 });
 
 $(window).scroll(function()

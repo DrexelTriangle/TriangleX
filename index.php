@@ -19,6 +19,12 @@ get_header(); ?>
 		<i class="material-icons md-36">search</i>
 	</div>
 	
+	<div class="search-container">
+		<form role="search" method="get" class="search-form" action="http://thetriangle/">
+			<input id="searchbox-frontpage" type="search" class="search-textbox" placeholder="Search..." value="" name="s">
+		</form>
+	</div>
+	
 	<div class="frontpage-navbar-links">
 		<a href="about" rel="About">About Us</a> |
 		<a href="advertising" rel="Advertising">Advertising</a> |

@@ -14,7 +14,6 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1">
-	<!--<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
 	<?php wp_head(); ?>
@@ -23,11 +22,15 @@
 <body>
 <?php insert_breaking_news(); ?>
 
-<?php get_template_part('template-parts/search-modal'); ?>
-
 <header id="header-global" class="<?php is_front_page() ? print('header-global hidden') : print('header-global') ?>" role="banner">
-	<div id="search-icon" class="header-search-icon white">
+	<div id="header-search-icon" class="header-search-icon white">
 		<i class="material-icons md-36">search</i>
+	</div>
+	
+	<div class="search-container">
+		<form role="search" method="get" class="search-form" action="http://thetriangle/">
+			<input id="searchbox-main" type="search" class="search-textbox" placeholder="Search..." value="" name="s">
+		</form>
 	</div>
 	
 	<div class="header-logo">
@@ -37,7 +40,7 @@
 	
 	<div class="header-logo-image">
 		<div class="img-container">
-			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '//images/tri-icon.png'; ?>"></img></a>
+			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><img id="logo-mobile" src="<?php echo get_template_directory_uri() . '//images/tri-icon.png'; ?>"></img></a>
 		</div>
 	</div>
 
