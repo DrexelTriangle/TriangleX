@@ -14,8 +14,10 @@
 <footer id="colophon" class="footer-wrapper">
 	<div class="footer-container">
 		<div class="footer-branding">
-			<div class="logo">
-				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+			<div class="footer-logo">
+				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+					<img src="<?php echo get_template_directory_uri() . '//images/logo-black.svg'; ?>"></img>
+				</a>
 			</div>
 			
 			<div class="footer-social">

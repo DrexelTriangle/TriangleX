@@ -33,17 +33,23 @@
 	margin: auto;
 	text-align: center;
 	text-transform: uppercase;
-	
-	a
+}
+
+.header-logo-desktop
+{
+	display: flex;
+	flex-direction: column;
+	height: 55px;
+	justify-content: center;
+	line-height: 0px;
+
+	img
 	{
-		color: white;
-		font-family: $triangle-font-logo;
-		font-size: 40px;
-		text-decoration: none;
+		height: 40px;
 	}
 }
 
-.header-logo-image
+.header-logo-mobile
 {
 	display: none;
 	flex: 1;
@@ -293,7 +299,7 @@
 		display: none;
 	}
 	
-	.header-logo-image
+	.header-logo-mobile
 	{
 		display: inline;
 	}

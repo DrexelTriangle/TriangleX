@@ -34,11 +34,15 @@
 	</div>
 	
 	<div class="header-logo">
-		<a id="triangle-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+		<div class="header-logo-desktop">
+			<a id="triangle-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+				<img src="<?php echo get_template_directory_uri() . '//images/logo-white.svg'; ?>"></img>
+			</a>
+		</div>
 		<a id="menu-notif" style="color: white; font-size: 12px; right: 60px; position: absolute;">Menu</a>
 	</div>
 	
-	<div class="header-logo-image">
+	<div class="header-logo-mobile">
 		<div class="img-container">
 			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><img id="logo-mobile" src="<?php echo get_template_directory_uri() . '//images/tri-icon.png'; ?>"></img></a>
 		</div>

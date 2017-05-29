@@ -5,15 +5,10 @@
 	overflow: hidden;
 	width: 90%;
 	
-	.logo-frontpage
+	.frontpage-logo
 	{
-		font-family: $triangle-font-logo;
-		font-size: calc(12px + (85) * ((100vw) / (1280)));
-		height: calc(12px + (85) * ((100vw) / (1280)));
-		line-height: calc(12px + (85) * ((100vw) / (1280)));
 		margin: auto;
-		text-align: center;
-		text-transform: uppercase;
+		width: fit-content;
 	}
 		
 	ul.frontpage

@@ -39,7 +39,10 @@ get_header(); ?>
 	<?php insert_ad('Global Banner Inline', 'banner-top'); ?>
 
 	<header id="header-frontpage" class="frontpage-header">
-		<div id="logo-frontpage" class="logo-frontpage"><?php bloginfo('name'); ?></div>
+		<!--<div id="logo-frontpage" class="logo-frontpage"><?php bloginfo('name'); ?></div>-->
+		<div class="frontpage-logo">
+			<img src="<?php echo get_template_directory_uri() . '//images/logo-black.svg'; ?>"></img>
+		</div>
 		<nav>
 			<?php
 				if(has_nav_menu('main'))
