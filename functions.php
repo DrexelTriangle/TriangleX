@@ -159,5 +159,8 @@ require get_template_directory() . '/inc/frontpage-helper.php';
 // Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';
 
+// Advertisement options admin page
+require get_template_directory() . '/inc/options.php';
+
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
