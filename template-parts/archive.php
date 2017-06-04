@@ -5,10 +5,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Triangle_X
- */
-
-$cat = get_queried_object();
- 
+ */ 
 ?>
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
@@ -20,18 +17,16 @@ $cat = get_queried_object();
 <div class="generic-flex-container">
 	<main class="flex-main">
 		<?php			
-			$query = new WP_Query(array('posts_per_page' => 15, 'offset' => 0, 'author' => $cat->author_id));
-			
-			while($query->have_posts())
+			while(have_posts())
 			{
-				$query->the_post();
+				the_post();
 				
 				$title = get_the_title();
 				$link = get_permalink();
 				$date = get_the_date('M. j, Y');
 				$authors = coauthors_posts_links(null, null, null, null, false);
 				$excerpt = get_the_summary($post->ID);
-				$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
+				$thumb = get_the_post_thumbnail(null, array('class' => '169-preview-medium'));
 				
 				echo '<div class="category-post">';
 				
@@ -46,11 +41,16 @@ $cat = get_queried_object();
 				echo '</div>';
 				
 				// Right box - thumbnail
-				printf($thumb);
+				printf('<a href="%1$s"><div class="category-thumbnail">%2$s</div></a>', $link, $thumb);
 				
 				echo '</div>';
 			}
 		?>
+		
+		<!-- TODO: figure out why this causes last story to have bottom border -->
+		<div class="category-pagination">
+			<?php posts_nav_link(' ','<< Newer Stories','Older Stories >>'); ?>
+		</div>
 	</main>
 
 	<aside class="flex-sidebar">	
