@@ -28,7 +28,7 @@
 	</div>
 	
 	<div class="search-container">
-		<form role="search" method="get" class="search-form" action="http://thetriangle/">
+		<form role="search" method="get" class="search-form" action="<?php echo get_site_url(); ?>">
 			<input id="searchbox-main" type="search" class="search-textbox" placeholder="Search..." value="" name="s">
 		</form>
 	</div>
