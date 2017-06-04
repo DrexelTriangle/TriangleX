@@ -13,9 +13,11 @@ $cat = get_queried_object();
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
-<div id="section-highlights" class="generic-container">
-	<div class="category-title"><?php single_cat_title('', true); ?></div>
-	
+<div class="category-title">
+	<h1 class="text-title-large"><?php single_cat_title('', true); ?></h1>
+</div>
+
+<div id="section-highlights" class="generic-container">	
 	<?php $highlights = new WP_Query(array('posts_per_page' => 4, 'offset' => 0, 'cat' => $cat->term_id)); ?>
 
 	<div class="highlights-container">

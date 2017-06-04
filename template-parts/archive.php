@@ -13,7 +13,9 @@ $cat = get_queried_object();
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
-<?php the_archive_title('<div class="category-title">', '</div>'); ?>
+<div class="category-title">
+	<h1 class="text-title-large"><?php the_archive_title() ?></h1>
+</div>
 
 <div class="generic-flex-container">
 	<main class="flex-main">

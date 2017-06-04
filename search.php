@@ -11,9 +11,9 @@ get_header(); ?>
 
 <div class="generic-wrapper">
 	<?php insert_ad('Global Banner Top', 'banner-top'); ?>
-
-	<div class="generic-container">
-		<div class="category-title"><?php printf(esc_html__( 'Search Results for: %s', 'triangle-x' ), '<span>' . get_search_query() . '</span>'); ?></div>
+	
+	<div class="category-title">
+		<h1 class="text-title-large"><?php printf(esc_html__( 'Search Results for: %s', 'triangle-x' ), '<span>' . get_search_query() . '</span>'); ?></h1>
 	</div>
 
 	<div class="generic-flex-container">
@@ -41,7 +41,7 @@ get_header(); ?>
 						echo '</div>';
 						
 						// Right box - thumbnail
-						printf('<a href="%1$s"><div class="category-thumbnail">%2$s</div></a>', $link, $thumb);
+						printf('<a href="%1$s"><div class="category-thumbnail">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
 						
 						echo '</div>';
 					}
