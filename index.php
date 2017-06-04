@@ -36,7 +36,7 @@ get_header(); ?>
 </div>
 
 <div class="generic-wrapper">
-	<?php insert_ad('Global Banner Inline', 'banner-top'); ?>
+	<?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
 	<header id="header-frontpage" class="frontpage-header">
 		<div class="frontpage-logo">
@@ -99,7 +99,7 @@ get_header(); ?>
 		
 		<aside class="flex-sidebar">
 			<div class="sidebar-item">
-				<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+				<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
 			</div>
 			
 			<div id="poll" class="sidebar-item">
@@ -119,12 +119,12 @@ get_header(); ?>
 			</div>-->
 			
 			<div class="sidebar-item">
-				<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+				<?php insert_ad('Global Medium Rectangle Bottom', 'medium-rectangle');	?>
 			</div>
 		</aside>
 	</div>
 	
-	<?php insert_ad('Global Banner Inline', 'banner-bottom'); ?>
+	<?php insert_ad('Global Banner Bottom', 'banner-bottom'); ?>
 </div>
 
 <?php get_footer(); ?>

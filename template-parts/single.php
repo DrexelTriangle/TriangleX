@@ -60,7 +60,11 @@
 	</main>
 	
 	<aside class="flex-sidebar">
-		<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+		<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
+			
+		<div id="most-recent" class="sidebar-item">
+			<?php get_template_part('template-parts/sidebar-recent'); ?>
+		</div>
 			
 		<div id="poll" class="sidebar-item">
 			<div class="sidebar-poll">
@@ -73,12 +77,7 @@
 			<?php get_template_part('template-parts/sidebar-newsletter'); ?>
 		</div>
 		
-		<!--<div id="podcasts" class="sidebar-item">
-			<div class="sidebar-title">Podcasts</div>
-			Put latest podcasts here?
-		</div>-->
-		
-		<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+		<?php insert_ad('Global Medium Rectangle Bottom', 'medium-rectangle');	?>
 	</aside>
 </div>
 

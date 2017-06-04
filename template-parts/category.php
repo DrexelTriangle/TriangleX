@@ -126,7 +126,7 @@ $cat = get_queried_object();
 
 	<aside class="flex-sidebar">
 		<div class="sidebar-item">
-			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
 		</div>
 	
 		<div id="subsections" class="sidebar-item">
@@ -149,7 +149,7 @@ $cat = get_queried_object();
 		</div>
 		
 		<div class="sidebar-item">
-			<?php insert_ad('Global Medium Rectangle Sidebar', 'medium-rectangle');	?>
+			<?php insert_ad('Global Medium Rectangle Bottom', 'medium-rectangle');	?>
 		</div>
 	</aside>
 </div>
