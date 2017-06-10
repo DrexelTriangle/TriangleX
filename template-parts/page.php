@@ -11,9 +11,11 @@
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
-<div class="generic-container">
-	<div class="category-title"><center><?php the_title(); ?></center></div>
+<div class="category-title">
+	<center><h1 class="text-title-large"><?php the_title(); ?></h1></center>
+</div>
 
+<div class="generic-container">
 	<div style="margin-left: 15%; margin-right: 15%;">
 		<?php the_content(); ?>
 	</div>
