@@ -12,7 +12,7 @@
 		
 	ul.frontpage
 	{
-		align-items: stretch;
+		@include align-items(stretch);
 		border-bottom: 1px solid black;
 		border-top: 2px solid black;
 		@include display-flex();
@@ -62,7 +62,7 @@
 {
 	background: white;
 	border-bottom: 1px solid lightgrey;
-	display: flex;
+	@include display-flex();
 	height: 55px;
 	position: absolute;
 	top: 0px;
@@ -77,7 +77,7 @@
 
 .frontpage-navbar-links
 {
-	flex: 1;
+	@include flex(1);
 	height: 55px;
 	line-height: 55px;
 	padding-right: 15px;
@@ -132,15 +132,15 @@
 	@include display-flex();
 	flex-wrap: wrap;
 	height: 100%;
-	justify-content: space-around;
+	@include justify-content(space-around);
 	padding: 0px;
 	width: 100%;
 }
 
 .frontpage-item-container.single
 {
-	align-items: stretch;
-	display: flex;
+	@include align-items(stretch);
+	@include display-flex();
 }
 
 .frontpage-feature
@@ -238,8 +238,7 @@
 	img
 	{
 		overflow: hidden;
-		-o-object-fit: cover;
-		object-fit: cover;
+		@include object-fit(cover);
 		width: 100%;
 	}
 }

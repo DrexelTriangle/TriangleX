@@ -26,7 +26,7 @@
 	
 	.flex-main
 	{
-		flex: 1 0;
+		@include flex(1 0);
 		min-width: 0;
 		padding-right: 20px;
 		overflow: hidden;
@@ -35,14 +35,14 @@
 	.flex-sidebar
 	{
 		border-left: 1px solid lightgrey;
-		flex: 0 0 300px;
+		@include flex(0 0 300px);
 		padding-left: 20px;
 	}
 	
 	@media screen and (max-width: $screen-target-min)
 	{
-		flex-direction: column;
-		flex-wrap: wrap;
+		@include flex-direction(column);
+		@include flex-wrap(wrap);
 		overflow: hidden;
 		padding: 0px;
 		width: 100%;

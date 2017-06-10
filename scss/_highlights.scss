@@ -100,8 +100,8 @@
 	{
 		border-bottom: none;
 		box-sizing: border-box;
-		flex-direction: column;
-		flex-wrap: wrap;
+		@include flex-direction(column);
+		@include flex-wrap(wrap);
 		padding-bottom: 0px;
 		padding-left: 10px;
 		padding-right: 10px;
@@ -117,7 +117,7 @@
 	.highlights-center,
 	.highlights-right
 	{
-		flex: 1;
+		@include flex(1);
 		border-left: none;
 		border-right: none;
 		padding-left: 0px;

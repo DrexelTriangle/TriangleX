@@ -1,7 +1,7 @@
 .header-global
 {
 	background-color: $triangle-color-blue;
-	display: flex;
+	@include display-flex();
 	height: 55px;
 	overflow: hidden;
 	position: fixed;
@@ -27,7 +27,7 @@
 
 .header-logo
 {
-	flex: 1;
+	@include flex(1);
 	height: 55px;
 	line-height: 55px;
 	margin: auto;
@@ -37,10 +37,10 @@
 
 .header-logo-desktop
 {
-	display: flex;
-	flex-direction: column;
+	@include display-flex();
+	@include flex-direction(column);
 	height: 55px;
-	justify-content: center;
+	@include justify-content(center);
 	line-height: 0px;
 
 	img
@@ -52,21 +52,21 @@
 .header-logo-mobile
 {
 	display: none;
-	flex: 1;
+	@include flex(1);
 	height: 55px;
 	
 	.img-container
 	{
+		@include align-items(center);
 		display: flex;
 		height: 100%;
-		justify-content: center;
-		align-items: center;
+		@include justify-content(center);
 		width: 100%;
 	}
 	
 	img
 	{
-		flex: 1;
+		@include flex(1);
 		height: 45px;
 		vertical-align: middle;
 		width: auto;

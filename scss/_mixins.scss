@@ -1,5 +1,11 @@
 /* Mixins are groups of CSS declarations with vendor prefixes to be reused throughout the site. Use these instead of manually redefining them in CSS classes. */
 
+@mixin align-items($val)
+{
+	align-items: $val;
+	-webkit-align-items: $val;
+}
+
 @mixin border-radius($radius)
 {
 	border-radius: $radius;
@@ -33,12 +39,33 @@
 	-webkit-flex: $val;
 }
 
+@mixin flex-direction($val)
+{
+	flex-direction: $val;
+	-moz-flex-direction: $val;
+	-ms-flex-direction: $val;
+	-webkit-flex-direction: $val;
+}
+
 @mixin flex-wrap($val)
 {
 	flex-wrap: $val;
 	-moz-flex-wrap: $val;
 	-ms-flex-wrap: $val;
 	-webkit-flex-wrap: $val;
+}
+
+@mixin justify-content($val)
+{
+	justify-content: $val;
+	-moz-justify-content: $val;
+	-webkit-justify-content: $val;
+}
+
+@mixin object-fit($val)
+{
+	object-fit: $val;
+	-o-object-fit: $val;
 }
 
 @mixin transform($val)
