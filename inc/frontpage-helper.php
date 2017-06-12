@@ -169,7 +169,8 @@ function insert_breaking_news()
 			//$do_not_duplicate[] = $post->ID; 
 			
 			// Concatenate breaking news stories into one string
-			$span .= sprintf('<span class="breaking-notification">Breaking News: <a class="breaking-headline" href=%1$s>%2$s</a></span>', get_the_permalink(), get_the_title());
+			$span = sprintf('<span id="breaking-1" class="breaking-notification">Breaking News: <a class="breaking-headline" href=%1$s>%2$s</a></span>', get_the_permalink(), get_the_title());
+			$span .= sprintf('<span id="breaking-2" class="breaking-notification">Breaking News: <a class="breaking-headline" href=%1$s>%2$s</a></span>', get_the_permalink(), get_the_title());
 			
 			// Use our count to add an elipsis to the end of each title except the last one.
 			if($i < $post_count)
@@ -180,7 +181,6 @@ function insert_breaking_news()
 		
 		// Echo marquee with duplaicated spans
 		echo '<div class="marquee"> <div>';
-		echo $span;
 		echo $span;
 		echo '</div> </div>';
 	}

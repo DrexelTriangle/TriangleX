@@ -59,3 +59,34 @@
 		text-decoration: underline;
 	}
 }
+
+@media screen and (max-width: $screen-target-min)
+{
+	#breaking-2
+	{
+		display: none;
+	}
+	
+	#breaking-1
+	{
+		display: inline;
+		text-align: center;
+		width: 100%;
+	}
+	
+	.marquee
+	{
+		height: auto;
+	}
+	
+	.marquee div
+	{
+		animation: none;
+		font-size: 16px;
+		height: auto;
+		line-height: normal;
+		overflow: initial;
+		position: static;
+		width: auto;
+	}
+}
