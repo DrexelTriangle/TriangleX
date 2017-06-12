@@ -34,7 +34,7 @@
 				color: black;
 				display: inline-block;
 				height: 25px;
-				line-height: normal;
+				line-height: 25px;
 				margin: 0;
 				padding-bottom: 15px;
 				padding-top: 15px;
@@ -162,11 +162,6 @@
 	}
 }
 
-.frontpage-author-link
-{
-	
-}
-
 .frontpage-feature-excerpt
 {
 	font-family: $triangle-font-copy;
@@ -179,7 +174,7 @@
 	}
 }
 
-/*.frontpage-item-list
+.frontpage-item-list
 {
 	border-bottom: 1px solid lightgrey;
 	display: inline-block;
@@ -188,26 +183,11 @@
 	padding-top: 10px;
 	width: 100%;
 	
-	a
-	{
-		color: black;
-		display: inline-block;
-		font-family: $triangle-font-headline;
-		font-size: 20px;
-		text-decoration: none;
-		width: 100%;
-	}
-	
-	a:hover
-	{
-		text-decoration: underline;
-	}
-	
 	&:last-child
 	{
 		border: none;
 	}
-}*/
+}
 
 .frontpage-item-thumbnail
 {
