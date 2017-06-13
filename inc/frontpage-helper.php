@@ -46,7 +46,7 @@ function get_sponsored_message()
 		return;
 	}
 	
-	$posts = get_posts(array('posts_per_page' => 1, 'offset' => 0, 'category' => 'sponsored-article'));
+	$posts = get_posts(array('posts_per_page' => 1, 'offset' => 0, 'category_name' => 'sponsored-articles'));
 	
 	if (!empty($posts))
 	{
