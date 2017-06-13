@@ -63,11 +63,7 @@ get_header(); ?>
 			<?php populate_most_popular(6); ?>
 		</section>
 		
-		<section id="frontpage-sponsor" class="ad-container-sponsor-frontpage">
-			<div class="category-post" style="border: none">
-				<?php get_sponsored_message(); ?>
-			</div>
-		</section>
+		<?php get_sponsored_message(); ?>
 		
 		<section id="frontpage-category-news" class="frontpage-category-main">
 			<h1 class="frontpage-category-title"><a href="news">News</a></h1>

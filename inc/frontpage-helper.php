@@ -40,6 +40,12 @@ function get_frontpage_feature()
 // Gets first sponsored article
 function get_sponsored_message()
 {
+	$options = get_option('ad_options');
+	if ($options['show_frontpage_sponsor'] == false)
+	{
+		return;
+	}
+	
 	$posts = get_posts(array('posts_per_page' => 1, 'offset' => 0, 'category' => 'sponsored-article'));
 	
 	if (!empty($posts))
@@ -57,13 +63,17 @@ function get_sponsored_message()
 			$excerpt = get_the_excerpt($postID);
 			$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
 			
+			printf('<section id="frontpage-sponsor" class="ad-container-sponsor-frontpage">');
+			printf('<div class="category-post" style="border: none">');
 			printf($thumb);
-			echo '<div class="category-post-info">';
+			printf('<div class="category-post-info">');
 			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
 			printf('<div class="category-author">Sponsored by %1$s</div>', $sponsor);
 			printf('<div class="category-tease">%1$s</div>', $excerpt);
 			printf('<p><p class="ad-disclaimer">Advertisement</p></p>');
-			echo '</div>';
+			printf('</div>');
+			printf('</div>');
+			printf('</section>');
 		}
 	}
 }
