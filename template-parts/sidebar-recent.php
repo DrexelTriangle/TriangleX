@@ -7,4 +7,19 @@
 ?>
 
 <div class="sidebar-title">Most Recent Articles</div>
-<?php echo do_shortcode('[jetpack_top_posts_widget types="post" count="5" display="grid"]'); ?>
+
+<?php
+	$args = array('post_type' => array('post', 'snowball'), 'numberposts' => '5');
+	$recent_posts = wp_get_recent_posts($args);	
+	
+	print('<ul class="frontpage-item-container">');
+		
+	foreach ($recent_posts as $r)
+	{	
+		echo '<li class="frontpage-item-list">';
+		printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_permalink($r["ID"]), $r['post_title']);
+		echo '</li>';
+	}
+	
+	print('</ul>');
+?>
