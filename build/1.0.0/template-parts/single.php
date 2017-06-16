@@ -1,0 +1,84 @@
+<?php
+/**
+ * Template part for displaying posts.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Triangle_X
+ */
+
+ the_title('<title>', ' | The Triangle</title>');
+ 
+?>
+
+<?php insert_ad('Global Banner Top', 'banner-top'); ?>
+
+<div class="generic-container" style="margin-bottom: 0px;">
+	<div class="single-title">
+		<?php
+			the_title('<h1>', '</h1>');
+		
+			if (the_subtitle('', '', false) !== '' || the_subtitle('', '', false) !== false)
+				echo the_subtitle('<h2>', '</h2>');
+		?>
+	</div>
+	
+	<div class="single-meta">
+		<div class="author">By <?php coauthors_posts_links(); ?></div>
+		<?php
+			the_date('M. j, Y', '<div class="date">', '</div>');
+			
+			if (function_exists('sharing_display'))
+				sharing_display('', true);
+			 
+			if (class_exists('Jetpack_Likes'))
+			{
+				$custom_likes = new Jetpack_Likes;
+				echo $custom_likes->post_likes('');
+			}
+		?>
+	</div>
+</div>
+
+<div id="post-<?php the_ID(); ?>" class="generic-flex-container">
+	<main class="flex-main">
+		<div class="article-image">
+			
+		</div>
+		
+		<article class="single-content">
+			<?php the_content(); ?>
+		</article>
+		
+		<div class="single-comments">
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template.
+				if(comments_open() || get_comments_number())
+					comments_template();
+			?>
+		</div>
+	</main>
+	
+	<aside class="flex-sidebar">
+		<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
+			
+		<div id="most-recent" class="sidebar-item">
+			<?php get_template_part('template-parts/sidebar-recent'); ?>
+		</div>
+			
+		<div id="poll" class="sidebar-item">
+			<div class="sidebar-poll">
+				<div class="sidebar-title">Weekly Poll</div>
+				<?php get_poll(); ?>
+			</div>
+		</div>
+		
+		<div id="newsletter" class="sidebar-item">
+			<?php get_template_part('template-parts/sidebar-newsletter'); ?>
+		</div>
+		
+		<?php insert_ad('Global Medium Rectangle Bottom', 'medium-rectangle');	?>
+	</aside>
+</div>
+
+<?php insert_ad('Global Banner Bottom', 'banner-bottom'); ?>
