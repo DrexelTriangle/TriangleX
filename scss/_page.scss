@@ -1,0 +1,14 @@
+.page-container
+{
+	font-size: 20px;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+@media screen and (max-width: $screen-target-min)
+{
+	.page-container
+	{
+		margin: 0px;
+	}
+}

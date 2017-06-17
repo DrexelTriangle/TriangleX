@@ -16,7 +16,7 @@
 </div>
 
 <div class="generic-container">
-	<div style="margin-left: 15%; margin-right: 15%;">
+	<div class="page-container">
 		<?php the_content(); ?>
 	</div>
 </div>
