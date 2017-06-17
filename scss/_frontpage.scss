@@ -200,9 +200,9 @@
 	
 	img
 	{
-		background-image: url(images/backgrounds/bg-story-sm.png);
 		height: 154px;
 		overflow: hidden;
+		@include object-fit(cover);
 		width: 231px;
 	}
 }
