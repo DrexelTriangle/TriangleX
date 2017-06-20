@@ -60,7 +60,7 @@ get_header(); ?>
 		
 		<section id="frontpage-category-popular" class="frontpage-category-side">
 			<h1 class="frontpage-category-title">Most Popular</h1>
-			<?php populate_most_popular(6); ?>
+			<?php populate_most_popular(8); ?>
 		</section>
 		
 		<?php get_sponsored_message(); ?>

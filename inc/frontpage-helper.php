@@ -87,12 +87,16 @@ function populate_most_popular($numPosts)
         echo '<ul class="frontpage-item-container">';
 		
         foreach ($popular as $p)
-		{			
-			echo '<li class="frontpage-item-list">';
-			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', $p['post_permalink'], $p['post_title']);
-			//printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', $p['post_author'], get_the_date('M. j, Y', $postID));
-			printf('<div class="frontpage-postinfo">By %1$s</div>', $p['post_author']);
-			echo '</li>';
+		{
+			// Do not include home page as most popular
+			if($p['post_id'] == 0)
+				continue;
+			$post = get_post($p['post_id']);
+			
+			print('<li class="frontpage-item-list">');
+			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($post->ID), $post->post_title);
+			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author_meta('display_name', $post->post_author), get_the_date('M. j, Y', $post->ID));
+			print('</li>');
         }
         
 		echo '</ul>';
