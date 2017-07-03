@@ -48,8 +48,12 @@ get_header(); ?>
 				}
 				
 				else
-					get_template_part( 'template-parts/content', 'none' );
+					get_template_part('template-parts/content', 'none');
 			?>
+			
+			<div class="category-pagination">
+				<?php posts_nav_link(' ','<< Newer Stories','Older Stories >>'); ?>
+			</div>
 		</main>
 		
 		<aside class="flex-sidebar">		

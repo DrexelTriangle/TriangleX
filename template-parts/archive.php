@@ -47,7 +47,6 @@
 			}
 		?>
 		
-		<!-- TODO: figure out why this causes last story to have bottom border -->
 		<div class="category-pagination">
 			<?php posts_nav_link(' ','<< Newer Stories','Older Stories >>'); ?>
 		</div>

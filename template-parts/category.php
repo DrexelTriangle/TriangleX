@@ -118,12 +118,10 @@ $cat = get_queried_object();
 				
 				echo '</div>';
 			}
+			
+			// Allow infinite scroll using Ajax Load More plugin
+			echo do_shortcode("[ajax_load_more post_type='post, snowball' repeater='default' offset='19' posts_per_page='15' transition='fade' category='" . $cat->slug . "']");
 		?>
-		
-		<!-- TODO: figure out why this causes last story to have bottom border -->
-		<div class="category-pagination">
-			<?php posts_nav_link(' ','<< Newer Stories','Older Stories >>'); ?>
-		</div>
 	</main>
 
 	<aside class="flex-sidebar">

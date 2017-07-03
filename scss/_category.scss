@@ -13,11 +13,6 @@
 	padding-bottom: 15px;
 	padding-top: 15px;
 	
-	&:last-child
-	{
-		border-bottom: none;
-	}
-	
 	@media screen and (max-width: $screen-target-min)
 	{
 		width: 100%;
