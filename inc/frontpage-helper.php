@@ -59,7 +59,6 @@ function get_sponsored_message()
 			$title = get_the_title($postID);
 			$link = get_permalink($postID);
 			$date = get_the_date('M. j, Y', $postID);
-			$sponsor = get_the_author($postID);
 			$excerpt = get_the_excerpt($postID);
 			$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
 			
@@ -68,7 +67,7 @@ function get_sponsored_message()
 			printf($thumb);
 			printf('<div class="category-post-info">');
 			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
-			printf('<div class="category-author">Sponsored by %1$s</div>', $sponsor);
+			printf('<div class="category-author">Sponsored by %1$s</div>', wp_strip_all_tags(coauthors_posts_links($postID, null, null, null, false)));
 			printf('<div class="category-tease">%1$s</div>', $excerpt);
 			printf('<p><p class="ad-disclaimer">Advertisement</p></p>');
 			printf('</div>');
