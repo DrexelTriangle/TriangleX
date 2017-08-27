@@ -13,8 +13,8 @@
 </div>
 
 <div class="generic-container">
-	<p>Can&rsquo;t see the PDF? Click <a href="http://files.thetriangle.org/rate-cards/ratecard-2016.pdf">here</a> to download a copy.</p>
-	<iframe style="width: 100%; height: 11in;" src="http://files.thetriangle.org/rate-cards/ratecard-2016.pdf" frameborder="0" seamless></iframe>
+	<p>Can&rsquo;t see the PDF? Click <a href="http://files.thetriangle.org/rate-cards/ratecard.pdf">here</a> to download a copy.</p>
+	<iframe style="width: 100%; height: 11in;" src="http://files.thetriangle.org/rate-cards/ratecard.pdf" frameborder="0" seamless></iframe>
 </div>
 
 <?php insert_ad('Global Banner Bottom', 'banner-bottom'); ?>
