@@ -9,7 +9,7 @@
 <div class="sidebar-title">Most Recent Articles</div>
 
 <?php
-	$args = array('post_type' => array('post', 'snowball'), 'numberposts' => '5');
+	$args = array('post_type' => array('post', 'snowball'), 'numberposts' => '5', 'post_status' => 'publish');
 	$recent_posts = wp_get_recent_posts($args);	
 	
 	print('<ul class="frontpage-item-container">');

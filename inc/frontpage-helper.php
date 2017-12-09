@@ -81,7 +81,7 @@ function populate_most_popular($numPosts)
 {
 	if(function_exists('stats_get_csv'))
 	{
-        $popular = stats_get_csv('postviews', array('days' => 2, 'limit' => $numPosts));
+        $popular = stats_get_csv('postviews', array('days' => 1, 'limit' => $numPosts));
 		
         echo '<ul class="frontpage-item-container">';
 		
