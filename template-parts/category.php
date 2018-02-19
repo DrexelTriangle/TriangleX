@@ -133,8 +133,8 @@ $cat = get_queried_object();
 			<?php get_template_part('template-parts/sidebar-subsections'); ?>
 		</div>
 
-		<div id="most-recent" class="sidebar-item">
-			<?php get_template_part('template-parts/sidebar-recent'); ?>
+		<div id="social-links" class="sidebar-item">
+			<?php get_template_part('template-parts/sidebar-social'); ?>
 		</div>
 		
 		<div id="poll" class="sidebar-item">

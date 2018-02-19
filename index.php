@@ -40,7 +40,7 @@ get_header(); ?>
 
 	<header id="header-frontpage" class="frontpage-header">
 		<div class="frontpage-logo">
-			<img src="<?php echo get_template_directory_uri() . '//images/logo-black.svg'; ?>"></img>
+			<img src="<?php echo get_template_directory_uri() . '/images/logo-black.svg'; ?>"></img>
 		</div>
 		<nav>
 			<?php
@@ -52,22 +52,27 @@ get_header(); ?>
 			?>
 		</nav>
 	</header>
-
-	<div class="frontpage-section-top">
-		<section class="frontpage-feature">
-			<?php get_frontpage_feature(); ?>
-		</section>
+	
+	<div class="generic-container">
+		<!-- News section to display only for desktop -->
+		<section id="section-news-desktop" class="frontpage-category-news">	
+			<div class="left">
+				<ul class="stories-teaser">
+					<?php get_news_teasers(); ?>
+				</ul>
+			</div>
 		
-		<section id="frontpage-category-popular" class="frontpage-category-side">
-			<h1 class="frontpage-category-title">Most Popular</h1>
-			<?php populate_most_popular(8); ?>
-		</section>
-		
-		<?php get_sponsored_message(); ?>
-		
-		<section id="frontpage-category-news" class="frontpage-category-main">
-			<h1 class="frontpage-category-title"><a href="news">News</a></h1>
-			<?php populate_category_include_thumbnails('news', 5, 'single'); ?>
+			<div class="feature">
+				<div id="featured-story">
+					<?php get_frontpage_feature(); ?>
+				</div>
+			</div>
+			
+			<div class="right">
+				<ul class="stories-list">
+					<?php get_news_stories(); ?>
+				</ul>
+			</div>
 		</section>
 	</div>
 		
@@ -77,25 +82,39 @@ get_header(); ?>
 	
 	<div class="generic-flex-container">		
 		<main class="flex-main">
+			<!-- News section to display only for mobile -->
+			<section id="section-news-mobile" class="frontpage-category-main">
+				<div class="frontpage-feature">
+					<?php get_frontpage_feature(); ?>
+				</div>
+			
+				<h1 class="frontpage-category-title"><a href="/news">News</a></h1>
+				<?php populate_category('news', 6, 'stories-sixpack'); ?>
+			</section>
+		
 			<section id="section-opinion" class="frontpage-category-main">
-				<h1 class="frontpage-category-title"><a href="opinion">Opinion</a></h1>
-				<?php populate_category_include_thumbnails('opinion', 6); ?>
+				<h1 class="frontpage-category-title"><a href="/opinion">Opinion</a></h1>
+				<?php populate_category('opinion', 6, 'stories-sixpack'); ?>
 			</section>
 		
 			<section id="section-entertainment" class="frontpage-category-main">
-				<h1 class="frontpage-category-title"><a href="entertainment">Arts & Entertainment</a></h1>
-				<?php populate_category_include_thumbnails('entertainment', 6); ?>
+				<h1 class="frontpage-category-title"><a href="/entertainment">Arts & Entertainment</a></h1>
+				<?php populate_category('entertainment', 6, 'stories-sixpack'); ?>
 			</section>
 			
 			<section id="section-sports" class="frontpage-category-main">
-				<h1 class="frontpage-category-title"><a href="sports">Sports</a></h1>
-				<?php populate_category_include_thumbnails('sports', 6); ?>
+				<h1 class="frontpage-category-title"><a href="/sports">Sports</a></h1>
+				<?php populate_category('sports', 6, 'stories-sixpack'); ?>
 			</section>
 		</main>
 		
 		<aside class="flex-sidebar">
 			<div class="sidebar-item">
 				<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
+			</div>
+			
+			<div id="social-links" class="sidebar-item">
+				<?php get_template_part('template-parts/sidebar-social'); ?>
 			</div>
 			
 			<div id="poll" class="sidebar-item">

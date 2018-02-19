@@ -99,10 +99,31 @@
 	}
 }
 
-.sidebar-recent
-{
-}
-
-.sidebar-top-posts
-{
+.sidebar-social
+{	
+	.social-links
+	{
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+	
+		.social-item
+		{
+			height: 26px;
+			margin-top: 10px;
+		
+			a
+			{
+				color: grey;
+				display: inline-block;
+				height: 26px;
+				text-decoration: none;
+			}
+			
+			i
+			{
+				width: 26px;
+			}
+		}
+	}
 }

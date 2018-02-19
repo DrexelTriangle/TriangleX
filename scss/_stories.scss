@@ -1,0 +1,99 @@
+.stories-teaser
+{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
+	.story-item
+	{
+		img
+		{
+			float: right;
+			height: 90px;
+			padding-left: 15px;
+			width: 90px;
+		}
+	
+		&:first-child
+		{
+			border-bottom: 1px solid lightgrey;
+			padding-bottom: 15px;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+.stories-list
+{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
+	.story-item
+	{
+		border-bottom: 1px solid lightgrey;
+		display: inline-block;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		width: 100%;
+		
+		&:last-child
+		{
+			border-bottom: none;
+			margin-bottom: 0px;
+			padding-bottom: 0px;
+		}
+	}
+}
+
+.stories-sixpack
+{
+	@include display-flex();
+	flex-wrap: wrap;
+	height: 100%;
+	@include justify-content(space-around);
+	list-style: none;
+	padding: 0px;
+	width: 100%;
+	
+	.story-item
+	{
+		display: inline-block;
+		max-height: 300px;
+		overflow: hidden;
+		padding: 15px;
+		vertical-align: top;
+		width: 231px;
+		
+		img
+		{
+			height: 154px;
+			overflow: hidden;
+			@include object-fit(cover);
+			width: 231px;
+		}
+	}
+}
+
+@media screen and (max-width: $screen-target-min)
+{
+	.stories-teaser,
+	.stories-list,
+	.stories-sixpack
+	{
+		width: 100%;
+	
+		.story-item
+		{
+			border-bottom: 1px solid lightgrey;
+			display: inline-block;
+			list-style: none;
+			margin-bottom: 0px;
+			padding-bottom: 30px;
+			padding-left: 0px;
+			padding-right: 0px;
+			padding-top: 30px;
+			width: 100%;
+		}
+	}
+}

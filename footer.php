@@ -27,7 +27,7 @@
 						<i class="fa fa-facebook fa-stack-1x"></i>
 					</span>
 				</a>
-				<a href="https://twitter.com/thetriangle/" target="_blank">
+				<a href="https://twitter.com/drexeltriangle" target="_blank">
 					<span class="fa-stack fa-1x">
 						<i class="fa fa-circle fa-stack-2x" style="color: #00acee;"></i>
 						<i class="fa fa-twitter fa-stack-1x"></i>

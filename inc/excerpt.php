@@ -15,11 +15,11 @@ function disable_excerpt_more($more)
 add_filter('excerpt_more', 'disable_excerpt_more');
 
 // Set the excerpt length to more than necessary
-function triangle_x_excerpt_length($length)
+/*function triangle_x_excerpt_length($length)
 {
 	return 999;
 }
-add_filter('excerpt_length', 'triangle_x_excerpt_length', 999);
+add_filter('excerpt_length', 'triangle_x_excerpt_length', 999);*/
 
 // Get the first paragraph of the article
 function triangle_x_excerpt($text, $raw_excerpt)
@@ -44,8 +44,8 @@ function get_the_summary($id)
 		return $value;
 	}
 	else
-	{		
-		return get_the_excerpt($id);
+	{	
+		return substr(get_the_excerpt($id), 0, 160) . '...';
 	}
 }
 

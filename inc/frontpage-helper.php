@@ -31,8 +31,9 @@ function get_frontpage_feature()
 			
 			printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail());
 			printf('<a class="text-headline-large" href="%1$s">%2$s</a>', $link, get_the_title());
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
-			printf('<div class="frontpage-feature-excerpt">%1$s</div>', get_the_summary($postID));
+			printf('<div class="frontpage-postinfo">Featured this week in %1$s</div>', get_the_category()[0]->name);
+			printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
+			printf('<p>%1$s</p>', get_the_summary($postID));
 		}
 	}
 }
@@ -77,77 +78,82 @@ function get_sponsored_message()
 	}
 }
 
-function populate_most_popular($numPosts)
+function get_news_teasers()
 {
-	if(function_exists('stats_get_csv'))
+	// Get feature post to make sure it's not duplicated because this function is called before the global array is populated
+	$do_not_duplicate = array();
+	$query_featured = new WP_Query(array(
+		'meta_key' => 'featured_article',
+		'post_type' => array('post', 'snowball'),
+		'meta_value' => 1,
+		'posts_per_page' => 1
+	));
+
+	if($query_featured->have_posts())
 	{
-        $popular = stats_get_csv('postviews', array('days' => 1, 'limit' => $numPosts));
-		
-        echo '<ul class="frontpage-item-container">';
-		
-        foreach ($popular as $p)
+		while($query_featured->have_posts())
 		{
-			// Do not include home page as most popular
-			if($p['post_id'] == 0)
-				continue;
-			$post = get_post($p['post_id']);
-			
-			print('<li class="frontpage-item-list">');
-			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($post->ID), $post->post_title);
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author_meta('display_name', $post->post_author), get_the_date('M. j, Y', $post->ID));
-			print('</li>');
-        }
-        
-		echo '</ul>';
+			$query_featured->the_post();
+			array_push($do_not_duplicate, get_the_ID());
+		}
+	}	
+	
+	$query = new WP_Query(array('posts_per_page' => 2, 'offset' => 0, 'category_name' => 'news', 'post__not_in' => $do_not_duplicate));
+
+	while($query->have_posts())
+	{
+		$query->the_post();
+		$link = get_the_permalink();
+		
+		echo '<li class="story-item">';
+		printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
+		printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
+		printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
+		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
+		echo '<li class="story-item">';
 	}
-	else
-		echo("No popular posts found. Check Jetpack connection.");
 }
 
-// Prints out results from specified category without thumbnails
-function populate_category($cat, $numPosts)
+function get_news_stories()
 {
-	$posts = [];
-	$posts = get_posts(array('posts_per_page' => $numPosts, 'offset' => 0, 'category_name' => $cat));
-	
-	echo '<ul class="frontpage-item-container">';
-	
-	foreach($posts as $post)
+	global $do_not_duplicate;
+	$query = new WP_Query(array('posts_per_page' => 3, 'offset' => 2, 'category_name' => 'news', 'post__not_in' => $do_not_duplicate));
+
+	while($query->have_posts())
 	{
-		$postID = $post->ID;
-		setup_postdata($post);
-		
-		echo '<li class="frontpage-item-list">';
+		$query->the_post();
+		echo '<li class="story-item">';		
 		printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
-		printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', get_the_author($postID), get_the_date('M. j, Y'));
+		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
+		printf('<p>%1$s</p>', get_the_summary($postID));
 		echo '</li>';
-	}
-	
-	echo '</ul>';
+	}	
 }
 
 // Prints out results from specified category with thumbnails
-function populate_category_include_thumbnails($cat, $numPosts, $ulClass = '')
+function populate_category($cat, $numPosts, $ulClass)
 {
 	global $do_not_duplicate;
 	$query = new WP_Query(array('posts_per_page' => $numPosts, 'offset' => 0, 'category_name' => $cat, 'post__not_in' => $do_not_duplicate));
 	
-	echo '<ul class="frontpage-item-container ' . $ulClass . '">';
+	echo '<ul class="' . $ulClass . '">';
 	
 	while($query->have_posts())
 	{
 		$query->the_post();
 		$postID = $post->ID;
 		
-		echo '<li class="frontpage-item-thumbnail ' . $ulClass . '">';
+		echo '<li class="story-item">';
 		if(has_post_thumbnail($postID))
 		{
+			// For stories with thumbnails
 			printf('<a href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_post_thumbnail($postID));
 			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
 			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
 		}
 		else
 		{
+			// For stories with no thumbnails, print bigger headline
 			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
 			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
 			printf('<p>%1$s</p>', get_the_summary($postID));
