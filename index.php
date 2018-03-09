@@ -75,6 +75,10 @@ get_header(); ?>
 			</div>
 		</section>
 	</div>
+	
+	<div class="generic-container">
+		<?php get_sponsored_message(); ?>
+	</div>
 		
 	<!--<div class="frontpage-section-media">
 		Reserved for future use for photoblog and videos
