@@ -19,7 +19,7 @@
 			<a href="https://twitter.com/drexeltriangle" target="_blank">@DrexelTriangle</a>
 		</li>
 		<li class="social-item">
-			<i class="fa fa-instagram"></i>
+			<i class="fa fa-instagram" style="background-clip: text; background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); color:transparent;"></i>
 			<a href="https://www.instagram.com/drexeltriangle/" target="_blank">@drexeltriangle</a>
 		</li>
 		<li class="social-item">

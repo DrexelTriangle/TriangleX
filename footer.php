@@ -35,7 +35,7 @@
 				</a>
 				<a href="https://www.instagram.com/drexeltriangle/" target="_blank">
 					<span class="fa-stack fa-1x">
-						<i class="fa fa-circle fa-stack-2x" style="color: #125688;"></i>
+						<i class="fa fa-circle fa-stack-2x" style="background-clip: text; background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); color:transparent;"></i>
 						<i class="fa fa-instagram fa-stack-1x"></i>
 					</span>
 				</a>
