@@ -646,8 +646,6 @@ body {
 .ad-container-banner-top {
   border-bottom: 1px solid lightgrey;
   margin: auto;
-  margin-bottom: 20px;
-  margin-top: 20px;
   max-width: 1280px;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -966,6 +964,7 @@ body {
   margin: auto;
   max-width: 1280px;
   overflow: hidden;
+  padding-top: 20px;
   width: 90%; }
   .frontpage-header .frontpage-logo {
     text-align: center; }
