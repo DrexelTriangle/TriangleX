@@ -9,11 +9,17 @@
 
 function insert_ad($name, $containerClass)
 {
-	$adClass = str_replace(' ', '', $name);
+	$options = get_option('ad_options');
+	$adLocation = str_replace(' ', '', $name);
+	$toggle = 'show_' . $adLocation;
 
-	printf('<div class="ad-container-%1$s">', $containerClass);
-	get_template_part('inc/openx/' . $adClass);
-	printf('</div>');
+	// If ad space is toggled to visible in admin menu
+	if($options[$toggle] == true)
+	{
+		printf('<div class="ad-container-%1$s">', $containerClass);
+		get_template_part('inc/openx/' . $adLocation);
+		printf('</div>');
+	}
 }
  
  ?>

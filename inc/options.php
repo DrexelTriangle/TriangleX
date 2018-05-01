@@ -30,42 +30,45 @@ function init_ad_options() {
 		'ad_options'
 	);
 
-	// Initialize Fields
-
+	// Initialize Global Banner Top toggle
 	add_settings_field(
-		'show_banner_top',
+		'show_GlobalBannerTop',
 		'Banner Top',
 		'show_banner_top_content',
 		'ad_options',
 		'active_ad_locations'
 	);
 
+	// Initialize Global Banner Bottom toggle
 	add_settings_field(
-		'show_banner_bottom',
+		'show_GlobalBannerBottom',
 		'Banner Bottom',
 		'show_banner_bottom_content',
 		'ad_options',
 		'active_ad_locations'
 	);
 
+	// Initialize Global Medium Rectangle (sidebar) Top toggle
 	add_settings_field(
-		'show_sidebar_top',
+		'show_GlobalMediumRectangleTop',
 		'Sidebar Top',
 		'show_sidebar_top_content',
 		'ad_options',
 		'active_ad_locations'
 	);
 
+	// Initialize Global Medium Rectangle (sidebar) Bottom toggle
 	add_settings_field(
-		'show_sidebar_bottom',
+		'show_GlobalMediumRectangleBottom',
 		'Sidebar Bottom',
 		'show_sidebar_bottom_content',
 		'ad_options',
 		'active_ad_locations'
 	);
 	
+	// Initialize front page sponsored article section toggle
 	add_settings_field(
-		'show_frontpage_sponsore',
+		'show_frontpage_sponsor',
 		'Frontpage Sponsor',
 		'show_frontpage_sponsor_content',
 		'ad_options',
@@ -73,7 +76,6 @@ function init_ad_options() {
 	);
 
 	// Register Fields
-
 	register_setting(
 		'ad_options',
 		'ad_options'
@@ -88,25 +90,25 @@ function active_ad_locations_content() {
 
 function show_banner_top_content() {
 	$options = get_option('ad_options');
-	$html = '<input type="checkbox" id="show_banner_top" name="ad_options[show_banner_top]" value="1" ' . checked(1, isset( $options['show_banner_top'] ) ? $options['show_banner_top'] : 0, false) . '/>';
+	$html = '<input type="checkbox" id="show_GlobalBannerTop" name="ad_options[show_GlobalBannerTop]" value="1" ' . checked(1, isset( $options['show_GlobalBannerTop'] ) ? $options['show_GlobalBannerTop'] : 0, false) . '/>';
 	echo $html;
 }
 
 function show_banner_bottom_content() {
 	$options = get_option('ad_options');
-	$html = '<input type="checkbox" id="show_banner_bottom" name="ad_options[show_banner_bottom]" value="1" ' . checked(1, isset( $options['show_banner_bottom'] ) ? $options['show_banner_bottom'] : 0, false) . '/>';
+	$html = '<input type="checkbox" id="show_GlobalBannerBottom" name="ad_options[show_GlobalBannerBottom]" value="1" ' . checked(1, isset( $options['show_GlobalBannerBottom'] ) ? $options['show_GlobalBannerBottom'] : 0, false) . '/>';
 	echo $html;
 }
 
 function show_sidebar_top_content() {
 	$options = get_option('ad_options');
-	$html = '<input type="checkbox" id="show_sidebar_top" name="ad_options[show_sidebar_top]" value="1" ' . checked(1, isset( $options['show_sidebar_top'] ) ? $options['show_sidebar_top'] : 0, false) . '/>';
+	$html = '<input type="checkbox" id="show_GlobalMediumRectangleTop" name="ad_options[show_GlobalMediumRectangleTop]" value="1" ' . checked(1, isset( $options['show_GlobalMediumRectangleTop'] ) ? $options['show_GlobalMediumRectangleTop'] : 0, false) . '/>';
 	echo $html;
 }
 
 function show_sidebar_bottom_content() {
 	$options = get_option('ad_options');
-	$html = '<input type="checkbox" id="show_sidebar_bottom" name="ad_options[show_sidebar_bottom]" value="1" ' . checked(1, isset( $options['show_sidebar_bottom'] ) ? $options['show_sidebar_bottom'] : 0, false) . '/>';
+	$html = '<input type="checkbox" id="show_GlobalMediumRectangleBottom" name="ad_options[show_GlobalMediumRectangleBottom]" value="1" ' . checked(1, isset( $options['show_GlobalMediumRectangleBottom'] ) ? $options['show_GlobalMediumRectangleBottom'] : 0, false) . '/>';
 	echo $html;
 }
 
