@@ -54,8 +54,9 @@ if (!function_exists('triangle_x_setup'))
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(array(
-			'main' => esc_html__( 'Main', 'triangle-x' ),
-			'sub' => esc_html__( 'Sub', 'triangle-x' ),
+			'main' => esc_html__('Main', 'triangle-x'),
+			'sub' => esc_html__('Sub', 'triangle-x'),
+			'footer' => esc_html__('Footer', 'triangle-x')
 		));
 
 		/*
@@ -71,7 +72,7 @@ if (!function_exists('triangle_x_setup'))
 		));
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support('custom-background', apply_filters( 'triangle_x_custom_background_args', array(
+		add_theme_support('custom-background', apply_filters('triangle_x_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		)));

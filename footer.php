@@ -58,23 +58,16 @@
 			</div>
 		</div>
 		
-		<nav class="footer-nav-container">
-			<ul class="footer-nav-links">
-				<a href="/" rel="Home">Home</a> |
-				<a href="/news" rel="News">News</a> |
-				<a href="/opinion" rel="Opinion">Opinion</a> |
-				<a href="/entertainment" rel="Arts and Entertainment">A&E</a> |
-				<a href="/sports" rel="Sports">Sports</a> |
-				<a href="/style" rel="Style">Style</a> |
-				<a href="/about" rel="About">About Us</a> |
-				<a href="/staff" rel="Staff">Staff Directory</a> |
-				<a href="/advertising" rel="Advertising">Advertising</a> |
-				<a href="/classifieds" rel="Classifieds">Classifieds</a> |
-				<a href="/join" rel="Join">Join</a> |
-				<a href="/contact" rel="Contact">Contact</a> |
-				<a href="/feed" rel="RSS Feed">RSS</a>
-			</ul>
-		</nav>
+		<?php
+			if(has_nav_menu('footer'))
+				wp_nav_menu(array('container' => 'nav',
+								  'container_class' => 'footer-nav-container',
+								  'menu_class' => 'footer-nav-links',
+								  'theme_location' => 'footer'));
+			else
+				// Display error message if menu "footer" has not been defined within WordPress
+				echo 'Menu "footer" is not defined!</br>';
+		?>
 	</div>
 	
 	<div class="footer-copyright">
