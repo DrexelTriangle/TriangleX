@@ -33,7 +33,7 @@ function get_frontpage_feature()
 			printf('<a class="text-headline-large" href="%1$s">%2$s</a>', $link, get_the_title());
 			printf('<div class="frontpage-postinfo">Featured this week in %1$s</div>', get_the_category()[0]->name);
 			printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
-			printf('<p>%1$s</p>', get_the_summary($postID));
+			printf('<p>%1$s</p>', get_the_excerpt());
 		}
 	}
 }
@@ -42,42 +42,39 @@ function get_frontpage_feature()
 function get_sponsored_message()
 {
 	$options = get_option('ad_options');
-	if ($options['show_frontpage_sponsor'] == false)
+	if($options['show_frontpage_sponsor'] == false)
 	{
 		return;
 	}
 	
-	$posts = get_posts(array('posts_per_page' => 1, 'offset' => 0, 'category_name' => 'sponsored-articles'));
+	$query = new WP_Query(array('posts_per_page' => 1, 'offset' => 0, 'category_name' => 'sponsored-articles'));
 	
-	if (!empty($posts))
+	if($query->have_posts())
 	{
-		foreach($posts as $post)
+		while($query->have_posts())
 		{
-			the_post();
-			setup_postdata($post);
-			
-			$postID = $post->ID;
-			$title = get_the_title($postID);
-			$link = get_permalink($postID);
-			$date = get_the_date('M. j, Y', $postID);
-			$excerpt = get_the_excerpt($postID);
-			$thumb = get_the_post_thumbnail($post, array('class' => '169-preview-medium'));
+			$query->the_post();
+			$link = get_permalink();
 			
 			printf('<section id="frontpage-sponsor" class="ad-container-sponsor-frontpage">');
 			printf('<div class="category-post" style="border: none">');
-			printf($thumb);
+			printf('<a href="%1$s"><div class="category-thumbnail">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
+			
+			// Sponsored article info
 			printf('<div class="category-post-info">');
-			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), esc_html($title));
-			printf('<div class="category-author">Sponsored by %1$s</div>', wp_strip_all_tags(coauthors_posts_links($postID, null, null, null, false)));
-			printf('<div class="category-tease">%1$s</div>', $excerpt);
+			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
+			printf('<div class="category-author">Sponsored by %1$s</div>', coauthors_posts_links(null, null, null, null, false));
+			printf('<div class="category-tease">%1$s</div>', get_the_excerpt());
 			printf('<p><p class="ad-disclaimer">Advertisement</p></p>');
 			printf('</div>');
+			
 			printf('</div>');
 			printf('</section>');
 		}
 	}
 }
 
+// Get news stories for font page left column
 function get_news_teasers()
 {
 	// Get feature post to make sure it's not duplicated because this function is called before the global array is populated
@@ -108,12 +105,13 @@ function get_news_teasers()
 		echo '<li class="story-item">';
 		printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
 		printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
-		printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_summary($post->ID), $link);
-		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
+		printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_excerpt(), $link);
+		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
 		echo '<li class="story-item">';
 	}
 }
 
+// Get news stories for font page right column
 function get_news_stories()
 {
 	global $do_not_duplicate;
@@ -123,9 +121,9 @@ function get_news_stories()
 	{
 		$query->the_post();
 		echo '<li class="story-item">';		
-		printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
-		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
-		printf('<p>%1$s</p>', get_the_summary($postID));
+		printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink(), get_the_title());
+		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
+		printf('<p>%1$s</p>', get_the_excerpt());
 		echo '</li>';
 	}	
 }
@@ -141,22 +139,21 @@ function populate_category($cat, $numPosts, $ulClass)
 	while($query->have_posts())
 	{
 		$query->the_post();
-		$postID = $post->ID;
 		
 		echo '<li class="story-item">';
-		if(has_post_thumbnail($postID))
+		if(has_post_thumbnail())
 		{
 			// For stories with thumbnails
-			printf('<a href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_post_thumbnail($postID));
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
-			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
+			printf('<a href="%1$s">%2$s</a>', get_the_permalink(), get_the_post_thumbnail());
+			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
+			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink(), get_the_title());
 		}
 		else
 		{
 			// For stories with no thumbnails, print bigger headline
-			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', get_the_permalink($postID), get_the_title($postID));
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links($postID, null, null, null, false), get_the_date('M. j, Y', $postID));
-			printf('<p>%1$s</p>', get_the_summary($postID));
+			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', get_the_permalink(), get_the_title());
+			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
+			printf('<p>%1$s</p>', get_the_excerpt());
 		}
 		echo '</li>';
 	}

@@ -146,7 +146,7 @@ require get_template_directory() . '/inc/custom-header.php';
 // Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
-// Customizer additions.
+// Functions for excerpt configuration
 require get_template_directory() . '/inc/excerpt.php';
 
 // Custom functions that act independently of the theme templates.

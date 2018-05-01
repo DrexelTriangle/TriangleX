@@ -7,22 +7,22 @@
  * @package Triangle_X
  */
 
-// Remove read more link at end of excerpt
+// Set the 'read more' link at the end of the excerpt to an ellipsis
 function disable_excerpt_more($more)
 {
-	return '';
+	return '&hellip;';
 }
 add_filter('excerpt_more', 'disable_excerpt_more');
 
-// Set the excerpt length to more than necessary
-/*function triangle_x_excerpt_length($length)
+// Set the excerpt length to 25 words
+function triangle_x_excerpt_length($length)
 {
-	return 999;
+	return 25;
 }
-add_filter('excerpt_length', 'triangle_x_excerpt_length', 999);*/
+add_filter('excerpt_length', 'triangle_x_excerpt_length', 999);
 
-// Get the first paragraph of the article
-function triangle_x_excerpt($text, $raw_excerpt)
+// Get the first paragraph of the article not including image
+/*function triangle_x_excerpt($text, $raw_excerpt)
 {
 	if($raw_excerpt)
 	{
@@ -33,20 +33,6 @@ function triangle_x_excerpt($text, $raw_excerpt)
     $text = preg_replace("/<img[^>]+\>/i", "", $text);
 	return wp_strip_all_tags($text);
 }
-add_filter('get_the_excerpt', 'triangle_x_excerpt', 20, 2);
-
-function get_the_summary($id)
-{
-	$value = get_field("summary", $id);
-
-	if($value)
-	{		
-		return $value;
-	}
-	else
-	{	
-		return substr(get_the_excerpt($id), 0, 160) . '...';
-	}
-}
+add_filter('get_the_excerpt', 'triangle_x_excerpt', 20, 2);*/
 
 ?>

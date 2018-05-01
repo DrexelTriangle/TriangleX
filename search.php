@@ -24,9 +24,7 @@ get_header(); ?>
 					while(have_posts())
 					{
 						the_post();
-
-						$postID = get_the_ID();
-						$link = get_permalink($postID);
+						$link = get_the_permalink();
 						
 						echo '<div class="category-post">';
 						
@@ -35,8 +33,8 @@ get_header(); ?>
 						
 						// Middle box flex - headline, author, and excerpt
 						echo '<div class="category-post-info">';
-						printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', esc_attr($link), get_the_title());
-						printf('<div class="category-tease">%1$s</div>', get_the_summary($postID));
+						printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
+						printf('<div class="category-tease">%1$s</div>', get_the_excerpt());
 						printf('<div class="category-author">By %1$s</div>', coauthors_posts_links(null, null, null, null, false));
 						echo '</div>';
 						
@@ -45,8 +43,7 @@ get_header(); ?>
 						
 						echo '</div>';
 					}
-				}
-				
+				}				
 				else
 					get_template_part('template-parts/content', 'none');
 			?>
