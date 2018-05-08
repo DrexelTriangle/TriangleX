@@ -5,16 +5,18 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Triangle_X
- */
-
-$author = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
- 
+ */ 
 ?>
 
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
 <div class="category-title">
-	<h1 class="text-title-large">Articles by <?php printf('%1$s %2$s', $author->first_name, $author->last_name); ?></h1>
+	<?php 
+		foreach(get_coauthors() as $coauthor)
+		{
+			printf('<h1 class="text-title-large">Articles by %1$s</h1>', $coauthor->display_name);
+		}
+	?>
 </div>
 
 <div class="generic-flex-container">
