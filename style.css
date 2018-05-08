@@ -143,6 +143,12 @@ body {
   text-decoration: none;
   width: 100%; }
 
+.text-instagram {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: transparent !important; }
+
 @media screen and (max-width: 975px) {
   .text-headline-small,
   .text-headline-medium,
