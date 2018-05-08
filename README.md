@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 - Added WordPress menu in footer
 - Added theme screenshot
 - Added proper versioning and changelog
+- Added styles for printing
 - Removed Simple Ads Manager compatability in favor of OnCampus Advertising (oncampusWEB) ad manager
 - Removed get_the_summary() function in favor for WordPress get_the_excerpt()
 - Fixed functionality for toggling ad space locations

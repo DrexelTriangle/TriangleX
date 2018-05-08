@@ -1,0 +1,108 @@
+.print-logo
+{
+	display: none;
+}
+
+@media print
+{	
+	/* Reduce margin applied to top of wrapper class */
+	.generic-wrapper
+	{
+		margin-top: 15px;
+	}
+	
+	/* Display Triangle wordmark for prints */
+	.print-logo
+	{
+		display: initial;
+		
+		img
+		{
+			max-width: 50vw;
+			padding-bottom: 25px;
+		}
+	}
+	
+	/* Hide the unecessary content */
+	#header-global,
+	.ad-container-banner-top,
+	.sharedaddy,
+	#sidebar,
+	#comments,
+	.ad-container-banner-bottom,
+	#colophon
+	{
+		display: none;
+	}
+	
+	/* Allow container to take full page width */
+	.generic-container
+	{
+		//width: 100%;
+	}
+	
+	/* Reduce font size of title for print */
+	.single-title
+	{
+		h1
+		{
+			font-size: 28px;
+			margin-top: 0px;
+		}
+	}
+	
+	/* Style meta section from print */
+	.single-meta
+	{
+		min-height: 35px;
+	
+		.author
+		{
+			height: 35px;
+			line-height: 35px;
+			
+			a
+			{
+				font-weight: normal;
+			}
+		}
+		
+		.date
+		{
+			height: 35px;
+			float: right;
+			line-height: 35px;
+			padding-right: 1px;
+		}
+	}
+	
+	/* Style content (flex main) section for print */
+	#content
+	{
+		padding-right: 0px;
+	}
+	
+	/* Reduce font size of content for print */
+	.single-content
+	{	
+		p
+		{
+			font-size: 16px;
+		}
+		
+		figure
+		{
+			width: 60% !important;
+			
+			figcaption
+			{
+				font-size: 12px;
+			}
+		}
+		
+		img
+		{
+			max-width: 50%;
+		}
+	}
+}

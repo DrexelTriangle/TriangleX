@@ -14,6 +14,8 @@
 <?php insert_ad('Global Banner Top', 'banner-top'); ?>
 
 <div class="generic-container" style="margin-bottom: 0px;">
+	<div class="print-logo"><img src="<?php echo get_template_directory_uri() . '/images/logo-black.svg'; ?>"></img></div>
+
 	<div class="single-title">
 		<?php
 			the_title('<h1>', '</h1>');
@@ -41,16 +43,12 @@
 </div>
 
 <div id="post-<?php the_ID(); ?>" class="generic-flex-container">
-	<main class="flex-main">
-		<div class="article-image">
-			
-		</div>
-		
+	<main id="content" class="flex-main">		
 		<article class="single-content">
 			<?php the_content(); ?>
 		</article>
 		
-		<div class="single-comments">
+		<div id="comments" class="single-comments">
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.
 				if(comments_open() || get_comments_number())
@@ -59,7 +57,7 @@
 		</div>
 	</main>
 	
-	<aside class="flex-sidebar">
+	<aside id="sidebar" class="flex-sidebar">
 		<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
 			
 		<div id="social-links" class="sidebar-item">
