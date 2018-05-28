@@ -52,28 +52,9 @@
 	</main>
 
 	<aside class="flex-sidebar">	
-		<div class="sidebar-item">
-			<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
-		</div>
-
-		<div id="social-links" class="sidebar-item">
-			<?php get_template_part('template-parts/sidebar-social'); ?>
-		</div>
-		
-		<div id="poll" class="sidebar-item">
-			<div class="sidebar-poll">
-				<div class="sidebar-title">Weekly Poll</div>
-				<?php get_poll(); ?>
-			</div>
-		</div>
-		
-		<div id="newsletter" class="sidebar-item">
-			<?php get_template_part('template-parts/sidebar-newsletter'); ?>
-		</div>
-		
-		<div class="sidebar-item">
-			<?php insert_ad('Global Medium Rectangle Bottom', 'medium-rectangle');	?>
-		</div>
+		<?php insert_ad('Global Medium Rectangle Top', 'medium-rectangle');	?>
+		<?php dynamic_sidebar('sidebar-global'); ?>
+		<?php insert_ad('Global Medium Rectangle Bottom', 'medium-rectangle');	?>
 	</aside>
 </div>
 

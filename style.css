@@ -610,55 +610,6 @@ body {
       font-family: Roboto Slab, Helvetica, Arial, sans-serif;
       text-decoration: none; }
 
-.sidebar-poll .pollbar {
-  background-color: #07294D; }
-.sidebar-poll .total-voters {
-  margin-bottom: 0px; }
-
-.sidebar-newsletter p {
-  font-family: Roboto Slab, Helvetica, Arial, sans-serif;
-  font-size: 14px; }
-.sidebar-newsletter .required.email {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  height: 40px;
-  font-size: 14px;
-  margin-bottom: 10px;
-  outline: none;
-  padding: 5px;
-  width: 100%; }
-.sidebar-newsletter .button {
-  background-color: #07294D;
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: block;
-  font-family: Roboto Slab, Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  height: 35px;
-  margin-left: auto;
-  margin-right: 0px;
-  outline: none;
-  width: 120px; }
-.sidebar-newsletter .button:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1); }
-
-.sidebar-social .social-links {
-  list-style: none;
-  margin: 0px;
-  padding: 0px; }
-  .sidebar-social .social-links .social-item {
-    height: 26px;
-    margin-top: 10px; }
-    .sidebar-social .social-links .social-item a {
-      color: grey;
-      display: inline-block;
-      height: 26px;
-      text-decoration: none; }
-    .sidebar-social .social-links .social-item i {
-      width: 26px; }
-
 .page-container {
   font-size: 20px;
   margin-left: 15%;
@@ -992,6 +943,93 @@ body {
     display: none !important; }
   .sharedaddy .sd-content {
     padding-top: 12px; }
+
+.widget_tx_mailchimp_newsletter p {
+  font-family: Roboto Slab, Helvetica, Arial, sans-serif;
+  font-size: 14px; }
+.widget_tx_mailchimp_newsletter .required.email {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: 40px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 5px;
+  width: 100%; }
+.widget_tx_mailchimp_newsletter .button {
+  background-color: #07294D;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-family: Roboto Slab, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  height: 35px;
+  margin-left: auto;
+  margin-right: 0px;
+  outline: none;
+  width: 120px; }
+.widget_tx_mailchimp_newsletter .button:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1); }
+
+.widget_tx_social_widget .social-links {
+  list-style: none;
+  margin: 0px;
+  padding: 0px; }
+  .widget_tx_social_widget .social-links .social-item {
+    height: 26px;
+    margin-top: 10px; }
+    .widget_tx_social_widget .social-links .social-item a {
+      color: grey;
+      display: inline-block;
+      height: 26px;
+      text-decoration: none; }
+    .widget_tx_social_widget .social-links .social-item i {
+      width: 26px; }
+
+.widget_polls-widget {
+  font-family: Roboto Slab, Helvetica, Arial, sans-serif; }
+  .widget_polls-widget h1 {
+    border-bottom: 1px solid #DDD;
+    color: #444;
+    font-size: 1.2em;
+    margin-bottom: 0;
+    padding-bottom: 0.3em; }
+  .widget_polls-widget ul {
+    margin: 1em 0 1em 0.5em; }
+  .widget_polls-widget li {
+    font-size: 0.9em;
+    padding-bottom: 0.2em; }
+  .widget_polls-widget .pollbar {
+    background: #07294D;
+    height: 0.8em;
+    margin: 0.2em 0; }
+  .widget_polls-widget .total-voters {
+    font-size: 1.2em;
+    margin-bottom: 0px; }
+  .widget_polls-widget .footer {
+    text-align: center; }
+    .widget_polls-widget .footer h2 {
+      color: #444;
+      margin: 0;
+      font-size: 1.1em;
+      padding-bottom: 1em; }
+    .widget_polls-widget .footer input.tri-button {
+      background-color: #07294D;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: block;
+      font-family: Roboto Slab, Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      height: 35px;
+      margin-left: auto;
+      margin-right: 0px;
+      outline: none;
+      width: 120px; }
+    .widget_polls-widget .footer input.tri-button:hover {
+      box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1); }
 
 .frontpage-header {
   margin: auto;

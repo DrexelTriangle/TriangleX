@@ -94,20 +94,39 @@ function triangle_x_content_width()
 add_action('after_setup_theme', 'triangle_x_content_width', 0);
 
 /**
+ * Register custom theme widgets.
+ *
+ * @link https://codex.wordpress.org/Widgets_API
+ */
+
+require get_template_directory() . '/widgets/mailchimp-signup.php';
+require get_template_directory() . '/widgets/social-widget.php';
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function triangle_x_widgets_init()
 {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'triangle-x' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'triangle-x' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+	register_sidebar(array(
+		'name'          => 'Global Sidebar',
+		'id'            => 'sidebar-global',
+		'description'   => 'Sidebar for all pages except the front page.',
+		'before_widget' => '<div id="%1$s" class="sidebar-item %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="sidebar-title">',
+		'after_title'   => '</div>',
+	));
+	
+	register_sidebar(array(
+		'name'          => 'Frontpage Sidebar',
+		'id'            => 'sidebar-frontpage',
+		'description'   => 'Sidebar for front page only.',
+		'before_widget' => '<div id="%1$s" class="sidebar-item %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="sidebar-title">',
+		'after_title'   => '</div>',
 	));
 }
 add_action('widgets_init', 'triangle_x_widgets_init');
@@ -129,7 +148,7 @@ function triangle_x_scripts()
 	wp_enqueue_script('triangle-x-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments'))
-		wp_enqueue_script( 'comment-reply' );
+		wp_enqueue_script('comment-reply');
 }
 add_action('wp_enqueue_scripts', 'triangle_x_scripts');
 
