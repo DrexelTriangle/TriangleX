@@ -12,6 +12,15 @@
 	max-width: 1280px;
 	overflow: hidden;
 	width: 90%;
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		@include box-sizing(border-box);
+		overflow: hidden;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 100%;
+	}
 }
 
 .generic-flex-container

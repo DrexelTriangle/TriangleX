@@ -75,7 +75,7 @@ function get_sponsored_message()
 }
 
 // Get news stories for font page left column
-function get_news_teasers()
+/*function get_news_teasers()
 {
 	// Get feature post to make sure it's not duplicated because this function is called before the global array is populated
 	$do_not_duplicate = array();
@@ -126,7 +126,7 @@ function get_news_stories()
 		printf('<p>%1$s</p>', get_the_excerpt());
 		echo '</li>';
 	}	
-}
+}*/
 
 // Prints out results from specified category with thumbnails
 function populate_category($cat, $numPosts, $ulClass)

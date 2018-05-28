@@ -99,6 +99,7 @@ add_action('after_setup_theme', 'triangle_x_content_width', 0);
  * @link https://codex.wordpress.org/Widgets_API
  */
 
+require get_template_directory() . '/widgets/fp-2x3-feature.php';
 require get_template_directory() . '/widgets/mailchimp-signup.php';
 require get_template_directory() . '/widgets/social-widget.php';
 
@@ -127,6 +128,26 @@ function triangle_x_widgets_init()
 		'after_widget'  => '</div>',
 		'before_title'  => '<div class="sidebar-title">',
 		'after_title'   => '</div>',
+	));
+	
+	register_sidebar(array(
+		'name'          => 'Frontpage Content Top',
+		'id'            => 'frontpage-content-top',
+		'description'   => 'Content for the top part of the front page.',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+	));
+	
+	register_sidebar(array(
+		'name'          => 'Frontpage Content Bottom',
+		'id'            => 'frontpage-content-bottom',
+		'description'   => 'Content for the bottom part of the front page.',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
 	));
 }
 add_action('widgets_init', 'triangle_x_widgets_init');

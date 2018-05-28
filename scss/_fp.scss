@@ -1,0 +1,54 @@
+.fp-2x3-feature
+{
+	@include display-flex();
+	width: 100%;
+	
+	.left
+	{
+		@include flex(0 0 20%);
+		padding-right: 15px;
+	}
+	
+	.feature
+	{
+		border-left: 1px solid lightgrey;
+		border-right: 1px solid lightgrey;
+		@include flex(0 0 45%);
+		padding-left: 15px;
+		padding-right: 15px;
+		
+		img
+		{
+			height: auto;
+			margin: 0;
+			width: 100%;
+		}
+	}
+	
+	.right
+	{
+		@include flex(1 0);
+		padding-left: 15px;
+	}
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		flex-direction: column;
+		
+		.left,
+		.feature,
+		.right
+		{
+			border: none;
+			@include flex(0 0 100%);
+			padding: 0px;
+		}
+		
+		.feature
+		{
+			border-bottom: 1px solid lightgrey;
+			order: -1;
+			padding-top: 10px;
+		}
+	}
+}

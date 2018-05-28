@@ -54,26 +54,7 @@ get_header(); ?>
 	</header>
 	
 	<div class="generic-container">
-		<!-- News section to display only for desktop -->
-		<section id="section-news-desktop" class="frontpage-category-news">	
-			<div class="left">
-				<ul class="stories-teaser">
-					<?php get_news_teasers(); ?>
-				</ul>
-			</div>
-		
-			<div class="feature">
-				<div id="featured-story">
-					<?php get_frontpage_feature(); ?>
-				</div>
-			</div>
-			
-			<div class="right">
-				<ul class="stories-list">
-					<?php get_news_stories(); ?>
-				</ul>
-			</div>
-		</section>
+		<?php dynamic_sidebar('frontpage-content-top'); ?>
 	</div>
 	
 	<div class="generic-container">
@@ -85,17 +66,7 @@ get_header(); ?>
 	</div>-->
 	
 	<div class="generic-flex-container">		
-		<main class="flex-main">
-			<!-- News section to display only for mobile -->
-			<section id="section-news-mobile" class="frontpage-category-main">
-				<div class="frontpage-feature">
-					<?php get_frontpage_feature(); ?>
-				</div>
-			
-				<h1 class="frontpage-category-title"><a href="/news">News</a></h1>
-				<?php populate_category('news', 6, 'stories-sixpack'); ?>
-			</section>
-		
+		<main class="flex-main">		
 			<section id="section-opinion" class="frontpage-category-main">
 				<h1 class="frontpage-category-title"><a href="/opinion">Opinion</a></h1>
 				<?php populate_category('opinion', 6, 'stories-sixpack'); ?>
