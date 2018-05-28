@@ -4,6 +4,9 @@ Triangle X is the main theme of The Triangle independent student newspaper.
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
+## [Unreleased changes]
+- Changed sidebars to use dynamic widget areas instead of hard-coded functions
+
 ## [1.0.0] - 2017-06-20
 - Initial Release
 
