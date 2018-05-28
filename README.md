@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
 ## [Unreleased changes]
+- Added widget areas to front page in place of fixed sections
+- Added section layouts as dynamic widgets
 - Changed sidebars to use dynamic widget areas instead of hard-coded functions
 
 ## [1.0.0] - 2017-06-20

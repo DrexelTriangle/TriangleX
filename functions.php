@@ -100,6 +100,7 @@ add_action('after_setup_theme', 'triangle_x_content_width', 0);
  */
 
 require get_template_directory() . '/widgets/fp-2x3-feature.php';
+require get_template_directory() . '/widgets/fp-story-grid.php';
 require get_template_directory() . '/widgets/mailchimp-signup.php';
 require get_template_directory() . '/widgets/social-widget.php';
 
@@ -146,8 +147,8 @@ function triangle_x_widgets_init()
 		'description'   => 'Content for the bottom part of the front page.',
 		'before_widget' => '',
 		'after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => '',
+		'before_title'  => '<h1 class="frontpage-category-title">',
+		'after_title'   => '</h1>',
 	));
 }
 add_action('widgets_init', 'triangle_x_widgets_init');

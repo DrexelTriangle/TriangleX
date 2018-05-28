@@ -7,37 +7,6 @@
  * @package Triangle_X
  */
 
-$do_not_duplicate = array();
- 
-// Check to see if there are any featured articles, display the most recent one if there are
-function get_frontpage_feature()
-{
-	global $do_not_duplicate;
-	$query_featured = new WP_Query(array(
-		'meta_key' => 'featured_article',
-		'post_type' => array('post', 'snowball'),
-		'meta_value' => 1,
-		'posts_per_page' => 1
-	));
-
-	if($query_featured->have_posts())
-	{
-		while($query_featured->have_posts())
-		{
-			$query_featured->the_post();
-			$postID = get_the_ID();
-			$link = get_permalink();
-			array_push($do_not_duplicate, $postID);
-			
-			printf('<a href="%1$s">%2$s</a>', $link, get_the_post_thumbnail());
-			printf('<a class="text-headline-large" href="%1$s">%2$s</a>', $link, get_the_title());
-			printf('<div class="frontpage-postinfo">Featured this week in %1$s</div>', get_the_category()[0]->name);
-			printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
-			printf('<p>%1$s</p>', get_the_excerpt());
-		}
-	}
-}
-
 // Gets first sponsored article
 function get_sponsored_message()
 {
@@ -72,93 +41,6 @@ function get_sponsored_message()
 			printf('</section>');
 		}
 	}
-}
-
-// Get news stories for font page left column
-/*function get_news_teasers()
-{
-	// Get feature post to make sure it's not duplicated because this function is called before the global array is populated
-	$do_not_duplicate = array();
-	$query_featured = new WP_Query(array(
-		'meta_key' => 'featured_article',
-		'post_type' => array('post', 'snowball'),
-		'meta_value' => 1,
-		'posts_per_page' => 1
-	));
-
-	if($query_featured->have_posts())
-	{
-		while($query_featured->have_posts())
-		{
-			$query_featured->the_post();
-			array_push($do_not_duplicate, get_the_ID());
-		}
-	}	
-	
-	$query = new WP_Query(array('posts_per_page' => 2, 'offset' => 0, 'category_name' => 'news', 'post__not_in' => $do_not_duplicate));
-
-	while($query->have_posts())
-	{
-		$query->the_post();
-		$link = get_the_permalink();
-		
-		echo '<li class="story-item">';
-		printf('<a href="%1$s"><div class="highlights-thumbnail-mobile">%2$s</div></a>', $link, get_the_post_thumbnail(null, array('class' => '169-preview-medium')));
-		printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', $link, get_the_title());
-		printf('<div class="category-tease"><a href="%3$s"><div class="highlights-thumbnail-desktop">%1$s</div></a> %2$s</div>', get_the_post_thumbnail(null, array('class' => '169-preview-medium')), get_the_excerpt(), $link);
-		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
-		echo '<li class="story-item">';
-	}
-}
-
-// Get news stories for font page right column
-function get_news_stories()
-{
-	global $do_not_duplicate;
-	$query = new WP_Query(array('posts_per_page' => 3, 'offset' => 2, 'category_name' => 'news', 'post__not_in' => $do_not_duplicate));
-
-	while($query->have_posts())
-	{
-		$query->the_post();
-		echo '<li class="story-item">';		
-		printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink(), get_the_title());
-		printf('<div class="category-author">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
-		printf('<p>%1$s</p>', get_the_excerpt());
-		echo '</li>';
-	}	
-}*/
-
-// Prints out results from specified category with thumbnails
-function populate_category($cat, $numPosts, $ulClass)
-{
-	global $do_not_duplicate;
-	$query = new WP_Query(array('posts_per_page' => $numPosts, 'offset' => 0, 'category_name' => $cat, 'post__not_in' => $do_not_duplicate));
-	
-	echo '<ul class="' . $ulClass . '">';
-	
-	while($query->have_posts())
-	{
-		$query->the_post();
-		
-		echo '<li class="story-item">';
-		if(has_post_thumbnail())
-		{
-			// For stories with thumbnails
-			printf('<a href="%1$s">%2$s</a>', get_the_permalink(), get_the_post_thumbnail());
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
-			printf('<a class="text-headline-small" href="%1$s">%2$s</a>', get_the_permalink(), get_the_title());
-		}
-		else
-		{
-			// For stories with no thumbnails, print bigger headline
-			printf('<a class="text-headline-medium" href="%1$s">%2$s</a>', get_the_permalink(), get_the_title());
-			printf('<div class="frontpage-postinfo">By %1$s | %2$s</div>', coauthors_posts_links(null, null, null, null, false), get_the_date('M. j, Y'));
-			printf('<p>%1$s</p>', get_the_excerpt());
-		}
-		echo '</li>';
-	}
-	
-	echo '</ul>';
 }
 
 // Inserts breaking news alert

@@ -169,7 +169,7 @@ class TX_FP_2x3_Feature extends WP_Widget
 		
 		// Add all categories to select list
 		print('<p>');
-		printf('<select id="%1$s" name="%2$s" class="widefat" style="width:100%">', $this->get_field_id('category'), $this->get_field_name('category'));
+		printf('<select id="%1$s" name="%2$s" class="widefat">', $this->get_field_id('category'), $this->get_field_name('category'));
 		foreach(get_terms('category', 'parent=0&hide_empty=0') as $term)
 		{
 			printf('<option %1$s value="%2$s">%3$s</option>', selected($instance['category'], $term->term_id), $term->term_id, $term->name);

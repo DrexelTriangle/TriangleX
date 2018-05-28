@@ -66,21 +66,8 @@ get_header(); ?>
 	</div>-->
 	
 	<div class="generic-flex-container">		
-		<main class="flex-main">		
-			<section id="section-opinion" class="frontpage-category-main">
-				<h1 class="frontpage-category-title"><a href="/opinion">Opinion</a></h1>
-				<?php populate_category('opinion', 6, 'stories-sixpack'); ?>
-			</section>
-		
-			<section id="section-entertainment" class="frontpage-category-main">
-				<h1 class="frontpage-category-title"><a href="/entertainment">Arts & Entertainment</a></h1>
-				<?php populate_category('entertainment', 6, 'stories-sixpack'); ?>
-			</section>
-			
-			<section id="section-sports" class="frontpage-category-main">
-				<h1 class="frontpage-category-title"><a href="/sports">Sports</a></h1>
-				<?php populate_category('sports', 6, 'stories-sixpack'); ?>
-			</section>
+		<main class="flex-main">
+			<?php dynamic_sidebar('frontpage-content-bottom'); ?>
 		</main>
 		
 		<aside class="flex-sidebar">
