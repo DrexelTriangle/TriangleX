@@ -74,3 +74,12 @@
 		}
 	}
 }
+
+@media screen and (max-width: $screen-target-min)
+{
+	.ad-container-banner-top,
+	.ad-container-banner-bottom
+	{
+		display: none;
+	}
+}
