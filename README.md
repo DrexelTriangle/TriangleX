@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 - Added widget areas to front page in place of fixed sections
 - Added section layouts as dynamic widgets
 - Changed sidebars to use dynamic widget areas instead of hard-coded functions
+- Removed long banner ads from mobile rendering
 
 ## [1.0.0] - 2017-06-20
 - Initial Release
