@@ -18,7 +18,7 @@ Tags:
 Everything is piped though this file before being compiled 
 down. Please be sure to break any styles that don't belong 
 in these files into seperate documents to keep the SCSS 
-files as conciese and focused as possible.
+files as concise and focused as possible.
 
 */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
@@ -437,33 +437,46 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: -300px;
-  width: 300px; }
+  padding-left: 15px; }
 
 .search-textbox {
-  border: 1px solid black;
-  border-radius: 5px;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .1rem;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  display: none;
+  display: inline;
   font-family: Roboto Slab, Helvetica, Arial, sans-serif;
   font-size: 12px;
-  height: 25px;
+  line-height: 1.5;
   outline: none;
   padding: 5px;
   padding-left: 10px;
-  transition: 0.4s ease-in-out;
-  -moz-transition: 0.4s ease-in-out;
-  -ms-transition: 0.4s ease-in-out;
-  -o-transition: 0.4s ease-in-out;
-  -webkit-transition: 0.4s ease-in-out;
-  width: 0px; }
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  width: 300px; }
+  .search-textbox:focus {
+    background-color: #fff;
+    border-color: #80bdff;
+    color: #495057;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
 
-@media screen and (max-width: 975px) {
-  .search-container {
-    margin-right: -50%;
-    width: 50%; } }
+.search-button {
+  background-color: #07294D;
+  border: 1px solid #07294D;
+  border-radius: .25rem;
+  color: white;
+  display: inline;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-left: 5px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  .search-button:hover {
+    cursor: pointer; }
+
 .sidebar-item {
   padding-bottom: 15px;
   padding-top: 15px;
@@ -973,12 +986,11 @@ body {
 
 .frontpage-navbar-container {
   background: white;
-  border-bottom: 1px solid lightgrey;
   display: flex;
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
-  height: 55px;
+  height: 50px;
   position: absolute;
   top: 0px;
   width: 100%;
@@ -993,15 +1005,25 @@ body {
   -ms-flex: 1;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
-  height: 55px;
-  line-height: 55px;
+  height: 50px;
+  line-height: 50px;
   padding-right: 15px;
   text-align: right; }
+  .frontpage-navbar-links .frontpage-top-menu {
+    list-style: none;
+    margin: 0px;
+    padding: 0px; }
+    .frontpage-navbar-links .frontpage-top-menu li {
+      display: inline;
+      padding-left: 12px; }
   .frontpage-navbar-links a {
     color: black;
-    height: 55px;
-    font-weight: bold;
+    font-family: Roboto Slab, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    height: 50px;
     text-decoration: none; }
+    .frontpage-navbar-links a:hover {
+      text-decoration: underline; }
   @media screen and (max-width: 975px) {
     .frontpage-navbar-links {
       visibility: hidden; } }
@@ -1010,14 +1032,6 @@ body {
   height: 100%;
   width: 100%; }
 
-/*.frontpage-section-media
-{
-	background-color: #333333;
-	height: 500px;
-	margin-bottom: 50px;
-	overflow: hidden;
-	width: 100%;
-}*/
 .frontpage-postinfo {
   display: inline-block;
   font-family: Roboto Slab, Helvetica, Arial, sans-serif;

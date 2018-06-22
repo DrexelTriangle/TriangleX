@@ -3,31 +3,51 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-right: -300px;
-	width: 300px;
+	padding-left: 15px;
 }
 
 .search-textbox
 {
-	border: 1px solid black;
-	border-radius: 5px;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: .1rem;
 	@include box-sizing(border-box);
-	display: none;
+	display: inline;
 	font-family: $triangle-font-main;
 	font-size: 12px;
-	height: 25px;
+	line-height: 1.5;
 	outline: none;
 	padding: 5px;
 	padding-left: 10px;
-	@include transition(.4s ease-in-out);
-	width: 0px;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	width: 300px;
+	
+	&:focus
+	{
+		background-color: #fff;
+		border-color: #80bdff;
+		color: #495057;
+		outline: 0;
+		box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+	}
 }
 
-@media screen and (max-width: $screen-target-min)
+.search-button
 {
-	.search-container
+	background-color: $triangle-color-blue;
+	border: 1px solid $triangle-color-blue;
+	border-radius: .25rem;
+	color: white;
+	display: inline;
+	font-size: 12px;
+	line-height: 1.5;
+	margin-left: 5px;
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	
+	&:hover
 	{
-		margin-right: -50%;
-		width: 50%;
+		cursor: pointer;
 	}
 }

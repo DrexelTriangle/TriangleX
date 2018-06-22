@@ -56,6 +56,7 @@ if (!function_exists('triangle_x_setup'))
 		register_nav_menus(array(
 			'main' => esc_html__('Main', 'triangle-x'),
 			'sub' => esc_html__('Sub', 'triangle-x'),
+			'frontpage-top' => esc_html__('Frontpage Top', 'triangle-x'),
 			'footer' => esc_html__('Footer', 'triangle-x')
 		));
 
@@ -163,6 +164,8 @@ function triangle_x_scripts()
 	
 	// jQuery viewport plugin
 	wp_enqueue_script('triangle-x-inviewport', get_template_directory_uri() . '/js/jquery.viewport.js', array(), '20151215', true);
+	
+	wp_enqueue_style('font-awesome', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css", false, null);
 	
 	wp_enqueue_style('triangle-x-style', get_stylesheet_uri());
 	wp_enqueue_script('triangle-x-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);

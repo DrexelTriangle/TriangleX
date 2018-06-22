@@ -15,24 +15,26 @@
 get_header(); ?>
 
 <div class="frontpage-navbar-container">
-	<div id="search-icon-frontpage" class="header-search-icon black">
+	<!--<div id="search-icon-frontpage" class="header-search-icon black">
 		<i class="material-icons md-36">search</i>
-	</div>
+	</div>-->
 	
 	<div class="search-container">
-		<form role="search" method="get" class="search-form" action="<?php echo get_site_url(); ?>">
-			<input id="searchbox-frontpage" type="search" class="search-textbox" placeholder="Search..." value="" name="s">
+		<form role="search" method="get" class="search-form" action="<?php echo get_site_url(); ?>" id="form-search">
+			<input id="searchbox-frontpage" type="search" class="search-textbox" placeholder="Find Articles, Authors, and more..." value="" name="s">
+			<button type="submit" class="search-button" form="form-search" value="Submit"><i class="fa fa-search"></i></button>
 		</form>
 	</div>
 	
-	<div class="frontpage-navbar-links">
-		<a href="about" rel="About">About Us</a> |
-		<a href="advertising" rel="Advertising">Advertising</a> |
-		<a href="classifieds" rel="Classifieds">Classifieds</a> |
-		<a href="contact" rel="Contact">Contact</a>
-	</div>
-	
-	<div id="nav-icon-frontpage" class="header-hamburger-icon black"><span></span><span></span><span></span></div>
+	<nav class="frontpage-navbar-links">
+		<?php
+			if(has_nav_menu('frontpage-top'))
+				wp_nav_menu(array('theme_location' => 'frontpage-top', 'menu_class' => 'frontpage-top-menu'));
+			else
+				// Display error message if menu "frontpage-top" has not been defined within WordPress
+				echo 'Menu "frontpage-top" is not defined!';
+		?>
+	</nav>
 </div>
 
 <div class="generic-wrapper">
@@ -48,7 +50,7 @@ get_header(); ?>
 					wp_nav_menu(array('theme_location' => 'main', 'menu_class' => 'frontpage'));
 				else
 					// Display error message if menu "main" has not been defined within WordPress
-					echo '<div class="menu-main-container"><ul class="frontpage"><li>Menu "main" is not defined!</li></ul></div>';
+					echo '<ul class="frontpage"><li>Menu "main" is not defined!</li></ul>';
 			?>
 		</nav>
 	</header>
@@ -60,10 +62,6 @@ get_header(); ?>
 	<div class="generic-container">
 		<?php get_sponsored_message(); ?>
 	</div>
-		
-	<!--<div class="frontpage-section-media">
-		Reserved for future use for photoblog and videos
-	</div>-->
 	
 	<div class="generic-flex-container">		
 		<main class="flex-main">
