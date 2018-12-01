@@ -1,4 +1,4 @@
-/*$(document).ready(function()
+$(document).ready(function()
 {	
 	// Global search - Open and focus search box when search icon is clicked
 	$('#header-search-icon').click(function(evt)
@@ -55,4 +55,4 @@
 		$('#searchbox-frontpage').width("0px").fadeOut(400);
 		evt.stopImmediatePropagation();
 	});
-});*/
+});
