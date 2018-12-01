@@ -69,8 +69,9 @@
 .frontpage-navbar-container
 {
 	background: white;
+	border-bottom: 1px solid lightgrey;
 	@include display-flex();
-	height: 50px;
+	height: 55px;
 	position: absolute;
 	top: 0px;
 	width: 100%;
@@ -85,36 +86,17 @@
 .frontpage-navbar-links
 {
 	@include flex(1);
-	height: 50px;
-	line-height: 50px;
+	height: 55px;
+	line-height: 55px;
 	padding-right: 15px;
 	text-align: right;
-	
-	.frontpage-top-menu
-	{
-		list-style: none;
-		margin: 0px;
-		padding: 0px;
-		
-		li
-		{
-			display: inline;
-			padding-left: 12px;
-		}
-	}
 	
 	a
 	{
 		color: black;
-		font-family: $triangle-font-main;
-		font-size: 14px;
-		height: 50px;
+		height: 55px;
+		font-weight: bold;
 		text-decoration: none;
-		
-		&:hover
-		{
-			text-decoration: underline;
-		}
 	}
 	
 	@media screen and (max-width: $screen-target-min)
@@ -128,6 +110,15 @@
 	height: 100%;
 	width: 100%;
 }
+
+/*.frontpage-section-media
+{
+	background-color: #333333;
+	height: 500px;
+	margin-bottom: 50px;
+	overflow: hidden;
+	width: 100%;
+}*/
 
 .frontpage-postinfo
 {

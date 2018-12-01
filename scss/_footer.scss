@@ -126,6 +126,14 @@
 
 @media screen and (max-width: $screen-target-min)
 {
+	.footer-wrapper
+	{
+		display: none;
+	}
+}
+
+/*@media screen and (max-width: $screen-target-min)
+{
 	.footer-tagline,
 	.footer-copyright,
 	.footer-disclaimer
@@ -189,4 +197,4 @@
 			text-decoration: none;
 		}
 	}
-}
+}*/

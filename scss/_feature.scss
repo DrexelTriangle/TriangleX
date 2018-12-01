@@ -1,0 +1,167 @@
+// Styles for frontpage feature widget located at /widgets/fp-2x3-feature.php
+.feature
+{
+	@include display-flex();
+	width: 100%;
+	
+	.feature-postinfo
+	{
+		.author
+		{
+			color: grey;
+			font-family: $triangle-font-main;
+			font-size: 10px;
+			
+			a
+			{
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+		}
+		
+		.date
+		{
+			color: grey;
+			font-family: $triangle-font-main;
+			font-size: 10px;
+		}
+		
+	}
+	
+	.feature-left
+	{
+		@include flex(0 0 20%);
+		padding-right: 15px;
+		
+		.stories
+		{
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+
+			.story-item
+			{
+				img
+				{
+					float: right;
+					height: 90px;
+					margin-left: 15px;
+					width: 90px;
+				}
+			
+				&:first-child
+				{
+					border-bottom: 1px solid lightgrey;
+					padding-bottom: 15px;
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+	
+	.feature-center
+	{
+		border-left: 1px solid lightgrey;
+		border-right: 1px solid lightgrey;
+		@include flex(0 0 45%);
+		padding-left: 15px;
+		padding-right: 15px;
+		
+		img
+		{
+			height: auto;
+			margin: 0;
+			width: 100%;
+		}
+	}
+	
+	.feature-right
+	{
+		@include flex(1 0);
+		padding-left: 15px;
+		
+		.stories
+		{
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+
+			.story-item
+			{
+				border-bottom: 1px solid lightgrey;
+				display: inline-block;
+				margin-bottom: 15px;
+				padding-bottom: 15px;
+				width: 100%;
+				
+				img
+				{
+					display: none;
+				}
+				
+				&:last-child
+				{
+					border-bottom: none;
+					margin-bottom: 0px;
+					padding-bottom: 0px;
+				}
+			}
+		}
+	}
+	
+	@media screen and (max-width: $screen-target-min)
+	{
+		flex-direction: column;
+		
+		.feature-postinfo
+		{
+			bottom: 0;
+			position: absolute;
+		}
+		
+		.feature-left,
+		.feature-right
+		{
+			border: none;
+			@include flex(0 0 100%);
+			padding: 0px;
+			
+			.stories .story-item
+			{
+				border: none !important; //!important overrides style border set with first-child
+				display: inline-block;
+				height: 115px;
+				list-style: none;
+				margin-top: 10px !important;
+				margin-bottom: 10px !important;
+				overflow: hidden; //DEBUG
+				padding: 0px !important; //!important overrides style border set with first-child
+				position: relative;
+				width: 100%;
+				
+				img
+				{
+					float: right;
+					display: initial;
+					height: 115px;
+					margin-left: 15px;
+					width: 115px;
+				}
+				
+				p
+				{
+					display: none;
+				}
+			}
+		}
+		
+		.feature-center
+		{
+			border: none;
+			@include flex(0 0 100%);
+			order: -1;
+			padding: 0px;
+			padding-top: 10px;
+		}
+	}
+}
