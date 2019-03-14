@@ -17,7 +17,7 @@ function insert_ad($name, $containerClass)
 	if($options[$toggle] == true)
 	{
 		printf('<div class="ad-container-%1$s">', $containerClass);
-		get_template_part('inc/openx/' . $adLocation);
+		get_template_part('inc/flytedesk/' . $adLocation);
 		printf('</div>');
 	}
 }
